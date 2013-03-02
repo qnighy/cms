@@ -48,6 +48,7 @@ from urllib import quote
 import gettext
 
 import tornado.web
+import tornado.auth
 
 from sqlalchemy import func
 
@@ -386,6 +387,8 @@ class ContestWebServer(WebService):
                                         "static"),
             "cookie_secret": base64.b64encode(config.secret_key),
             "debug": config.tornado_debug,
+            "twitter_consumer_key": config.twitter_consumer_key,
+            "twitter_consumer_secret": config.twitter_consumer_secret,
         }
         parameters["is_proxy_used"] = config.is_proxy_used
         WebService.__init__(
@@ -491,6 +494,53 @@ class LoginHandler(BaseHandler):
                                pickle.dumps((user.username, make_timestamp())),
                                expires_days=None)
         self.redirect(next_page)
+
+
+class TwitterLoginHandler(BaseHandler, tornado.auth.TwitterMixin):
+    """TwitterLogin handler.
+
+    """
+    @tornado.web.asynchronous
+    def get(self):
+        if self.get_argument("oauth_token", None):
+            self.get_authenticated_user(self.async_callback(self._on_auth))
+            return
+        a = self.authenticate_redirect()
+
+    def _on_auth(self, user_t):
+        if not user_t:
+            raise tornado.web.HTTPError(500, "Twitter auth failed")
+
+        username = config.twitter_login_prefix + user_t["username"]
+        user = self.sql_session.query(User)\
+            .filter(User.contest == self.contest)\
+            .filter(User.username == username).first()
+
+        filtered_user = filter_ascii(username)
+        if user is None:
+            user = User(user_t["name"], "", username, contest=self.contest)
+            self.sql_session.add(user)
+            self.sql_session.commit()
+
+        if config.ip_lock and user.ip != "0.0.0.0" \
+                and user.ip != self.request.remote_ip:
+            logger.info("Unexpected IP: user=%s remote_ip=%s." %
+                        (filtered_user, self.request.remote_ip))
+            self.redirect("/?login_error=true")
+            return
+        if user.hidden and config.block_hidden_users:
+            logger.info("Hidden user login attempt: "
+                        "user=%s pass=%s remote_ip=%s." %
+                        (filtered_user, filtered_pass, self.request.remote_ip))
+            self.redirect("/?login_error=true")
+            return
+
+        logger.info("User logged in: user=%s remote_ip=%s." %
+                    (filtered_user, self.request.remote_ip))
+        self.set_secure_cookie("login",
+                               pickle.dumps((user.username, make_timestamp())),
+                               expires_days=None)
+        self.redirect("/")
 
 
 class StartHandler(BaseHandler):
@@ -1799,6 +1849,7 @@ class StaticFileGzHandler(tornado.web.StaticFileHandler):
 _cws_handlers = [
     (r"/",       MainHandler),
     (r"/login",  LoginHandler),
+    (r"/twitter_login",  TwitterLoginHandler),
     (r"/logout", LogoutHandler),
     (r"/start",  StartHandler),
     (r"/tasks/(.*)/description", TaskDescriptionHandler),

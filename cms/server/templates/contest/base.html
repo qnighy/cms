@@ -94,6 +94,9 @@ $(document).ready(function () {
                         </div>
                     </fieldset>
                 </form>
+                <form class="form-horizontal" action="{{ url_root }}/twitter_login" method="GET">
+                    <button type="submit" class="btn btn-primary btn-large">{{ _("Sign in with Twitter") }}</button>
+                </form>
             </div>
         </div>
 {% else %}
