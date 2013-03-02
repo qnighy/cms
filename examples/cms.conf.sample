@@ -156,5 +156,14 @@
 
 
 
+    "_section": "Twitter Login",
+
+    "_help": "Twitter login info",
+    "twitter_login_prefix": "tw_",
+    "twitter_consumer_key": "",
+    "twitter_consumer_secret": "",
+
+
+
     "_help": "This is the end of this file."
 }
