@@ -1,0 +1,161 @@
+# Japanese translations for CMS package.
+# Copyright (C) 2013, The CMS development team
+# This file is distributed under the same license as the CMS package.
+# Masaki Hara <ackie.h.gmai@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CMS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-03 09:00\n"
+"PO-Revision-Date: 2013-03-03 17:42+0900\n"
+"Last-Translator: Masaki Hara <ackie.h.gmai@gmail.com>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+# 24c7f0646e424ea794e22b86582aa555
+#: ..\..\Score types.rst:2
+msgid "Score types"
+msgstr ""
+
+# 83b3257129374db0b45ec55e20b6ffa6
+#: ..\..\Score types.rst:5
+msgid "Introduction"
+msgstr ""
+
+# 0310c48b8e534cfe8ab29934e2b16387
+#: ..\..\Score types.rst:7
+msgid ""
+"For every submission, the score type of a task comes into play after the :"
+"doc:`task type <Task types>` produced an outcome for each testcase. Indeed, "
+"the most important duty of the score type is to describe how to translate "
+"the list of outcomes into a single number: the score of the submission. The "
+"score type also produces a more informative output for the contestants, and "
+"the same information (score and detail) for contestants that did not use a "
+"token on the submission. In CMS, these latter set of information is called "
+"public, since the contestant can see them without using any tokens."
+msgstr ""
+
+# ced37ea1ddbc46d8bf05d47739f20f27
+#: ..\..\Score types.rst:11
+msgid "Standard score types"
+msgstr ""
+
+# 7ad5456489f847d7a3ef49e13cb3bf76
+#: ..\..\Score types.rst:13
+msgid ""
+"Like task types, CMS has the most common score types built in. They are Sum, "
+"GroupMin, GroupMul, GroupThreshold. There is also a score type called "
+"Relative, but it is an experiment not meant for usage."
+msgstr ""
+
+# 4188c19c07f74e3b987373ab859d8c89
+#: ..\..\Score types.rst:15
+msgid ""
+"The first of the four well-tested score types, Sum, is the simplest you can "
+"imagine, just assigning a certain amount of points for each correct "
+"testcases. The other three are useful for grouping together testcases and "
+"assigning points for that group only if some conditions held. Groups are "
+"also known as subtasks in some contests. The group score types also allow "
+"test cases to be weighted, even for groups of size 1."
+msgstr ""
+
+# ae61d43f7c1140ae859506956ae922c8
+#: ..\..\Score types.rst:17
+msgid ""
+"Also like task types, the behavior of score types is configurable from the "
+"task's page in AdminWebServer."
+msgstr ""
+
+# 82fd7348dc724440a2229b2988c8001d
+#: ..\..\Score types.rst:23
+msgid "Sum"
+msgstr ""
+
+# 0710644d1ccf4b63a67d920568e039f2
+#: ..\..\Score types.rst:25
+msgid ""
+"This score type interprets the outcome for each testcase as a floating-point "
+"number measuring how good the submission was in solving that testcase, where "
+"0.0 means that the submission failed, and 1.0 that it solved the testcase "
+"correctly. The score of that submission will be the sum of all the outcomes "
+"for each testcase, multiplied by an integer parameter given in the Score "
+"type parameter field in AdminWebServer. The parameter field must contain "
+"only this integer. The public score is given by the same computation over "
+"the public testcases instead of over all testcases."
+msgstr ""
+
+# f55d21b19b5e4063b75b414628d87750
+#: ..\..\Score types.rst:27
+msgid ""
+"For example, if there are 20 testcases, 2 of which are public, and the "
+"parameter string is ``5``, a correct solution will score 100 points (20 "
+"times 5) out of 100, and its public score will be 10 points (2 times 5) out "
+"of 10."
+msgstr ""
+
+# 037f3decc0794b5b883c40837aa839e4
+#: ..\..\Score types.rst:33
+msgid "GroupMin"
+msgstr ""
+
+# bfbd4909de8b4f88a76e8becfd5ffd9e
+#: ..\..\Score types.rst:35
+msgid ""
+"With the GroupMin score type, outcomes are again treated as a measure of "
+"correctness, from 0.0 (incorrect) to 1.0 (correct); testcases are split into "
+"groups, and each group has an integral multiplier. The score is the sum, "
+"over all groups, of the minimum outcome for that group times the multiplier. "
+"The public score is computed over all groups in which all testcases within "
+"are public."
+msgstr ""
+
+# 34a8867090dc40a0987908925e8d710b
+#: ..\..\Score types.rst:37
+msgid ""
+"More precisely, the parameters string for GroupMin is of the form :samp:`"
+"[[{m1}, {t1}], [{m2}, {t2}], ...]`, meaning that the first group comprises "
+"the first :samp:`{t1}` testcases and has multiplier :samp:`{m1}`; the second "
+"group comprises the testcases from the :samp:`{t1}` + 1 to the :samp:`{t1}` "
+"+ :samp:`{t2}` and has multiplier :samp:`{m2}`; and so on."
+msgstr ""
+
+# 80d96a75f4424004b4e7c5ff1ad94ca8
+#: ..\..\Score types.rst:41
+msgid "GroupMul"
+msgstr ""
+
+# 9eb497c667814cf1921e74aed7edec01
+#: ..\..\Score types.rst:43
+msgid ""
+"GroupMul is almost the same as GroupMin; the only difference is that instead "
+"of taking the minimum outcome among the testcases in the group, it takes the "
+"product of all outcomes. It has the same behavior as GroupMin when all "
+"outcomes are either 0.0 or 1.0."
+msgstr ""
+
+# 9bf15a520a054ec9bb15f9dd8196deef
+#: ..\..\Score types.rst:47
+msgid "GroupThreshold"
+msgstr ""
+
+# ef917156bc044210a9eb844c215f21ba
+#: ..\..\Score types.rst:49
+msgid ""
+"GroupThreshold thinks of the outcomes not as a measure of success, but as an "
+"amount of resources used by the submission to solve the testcase. The "
+"testcase is then successfully solved if the outcome is between 0.0 and a "
+"certain number, the threshold, specified separately for each group."
+msgstr ""
+
+# 81f4fd8e36c44fbe93497a3fa4b5828d
+#: ..\..\Score types.rst:51
+msgid ""
+"The parameter string is of the form :samp:`[[{m1}, {t1}, {T1}], [{m2}, {t2}, "
+"{T2}], ...]` where the additional parameter :samp:`{T}` for each group is "
+"the threshold."
+msgstr ""

@@ -1,0 +1,460 @@
+# Japanese translations for CMS package.
+# Copyright (C) 2013, The CMS development team
+# This file is distributed under the same license as the CMS package.
+# Masaki Hara <ackie.h.gmai@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CMS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-03 09:00\n"
+"PO-Revision-Date: 2013-03-03 17:41+0900\n"
+"Last-Translator: Masaki Hara <ackie.h.gmai@gmail.com>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+# 8a75d4a03d334703aa199785e9449df6
+#: ..\..\External contest formats.rst:2
+msgid "External contest formats"
+msgstr ""
+
+# ee0272f29168415590b5351697343087
+#: ..\..\External contest formats.rst:4
+msgid ""
+"There are two different sets of needs that external contest formats strive "
+"to satisfy."
+msgstr ""
+
+# 33cf85c761284080911ad5240c929033
+#: ..\..\External contest formats.rst:6
+msgid ""
+"The first is that of contest admins, that for several reasons (storage of "
+"old contests, backup, distribution of data) want to export the contest "
+"original data (tasks, contestants, ...) together with all data generated "
+"during the contest (from the contestants, submissions, user tests, ... and "
+"from the system, evaluations, scores, ...). Once a contest has been exported "
+"in this format, CMS must be able to reimport it in such a way that the new "
+"instance is indistinguishable from the original."
+msgstr ""
+
+# 088a3106b56941e1820afe82a9155653
+#: ..\..\External contest formats.rst:8
+msgid ""
+"The second is that of contest creators, that want an environment that helps "
+"them design tasks, testcases, and insert the contest data (contestant names "
+"and so on). The format needs to be easy to write, understand and modify, and "
+"should provide tools to help developing and testing the tasks (automatic "
+"generation of testcases, testing of solutions, ...). CMS must be able to "
+"import it as a new contest, but also to import it over an already created "
+"contest (after updating some data)."
+msgstr ""
+
+# 9285e1e380a3460cbbeeb8160e02f950
+#: ..\..\External contest formats.rst:10
+msgid ""
+"CMS provides an exporter :file:`cmsContestExporter` and an importer :file:"
+"`cmsContestImporter` working with a format suitable for the first set of "
+"needs. This format comprises a dump of all serializable data regarding the "
+"contest in a JSON file, together with the files needed by the contest "
+"(testcases, statements, submissions, user tests, ...). The exporter and "
+"importer understand also compressed versions of this format (i.e., in a zip "
+"or tar file). For more information run"
+msgstr ""
+
+# 1e90ac16e45748a0bf0fbb1f21d96a85
+#: ..\..\External contest formats.rst:17
+msgid ""
+"As for the second set of needs, the philosophy is that CMS should not force "
+"upon contest creators a particular environment to write contests and tasks. "
+"Therefore, we encourage you to write importer and reimporter scripts, "
+"modeled upon those we wrote for the environment used in the Italian "
+"Olympiads, that can be run with the commands :file:`cmsYamlImporter` and :"
+"file:`cmsYamlReimporter` and inspected at :gh_blob:`cmscontrib/YamlImporter."
+"py` and :gh_blob:`cmscontrib/YamlReimporter.py`. If you want to use the "
+"Italian environment there is a description in the next section, but please "
+"be aware that it has severe limitations: for example, many handles are in "
+"Italian and the support for complex task types is a bit cumbersome."
+msgstr ""
+
+# 054b3dc0d79846ac9f381273b1f8c7b2
+#: ..\..\External contest formats.rst:21
+msgid "Italian import format"
+msgstr ""
+
+# 877ab3e53dde4548b1c12b577a17070b
+#: ..\..\External contest formats.rst:23
+msgid ""
+"You can follow this description looking at `this example <https://github.com/"
+"cms-dev/con_test>`_. A contest is represented in one directory, containing:"
+msgstr ""
+
+# ff4011a6ad5342559d7862796403581d
+#: ..\..\External contest formats.rst:25
+msgid ""
+"a YAML file named :file:`contest.yaml`, that describes the general contest "
+"properties;"
+msgstr ""
+
+# 7c17b7618acb418ab7f27cff41463cf7
+#: ..\..\External contest formats.rst:27
+msgid ""
+"for each task :samp:`{task_name}`, a YAML file :file:`{task_name}.yaml` that "
+"describes the task and a directory :file:`{task_name}` that contains all the "
+"files needed to build the statement of the problem, the input and output "
+"cases, the reference solution and (when used) the solution checker."
+msgstr ""
+
+# 08a90775f5ca41cba6d058fc8f9f05d5
+#: ..\..\External contest formats.rst:29
+msgid ""
+"The exact structure of these files and directories is detailed below. Note "
+"that providing confusing input to ``cmsYamlImporter`` can, unexpectedly, "
+"confuse it and create inconsistent tasks and/or strange errors. For "
+"confusing input we mean parameters and/or files from which it can infer no "
+"or multiple task types or score types."
+msgstr ""
+
+# 3f2da9e0e1aa4f9f8abfa5cda26161af
+#: ..\..\External contest formats.rst:33
+msgid "General contest description"
+msgstr ""
+
+# fcaf6d287a7b44198021edf904487cd5
+#: ..\..\External contest formats.rst:35
+msgid ""
+"The :file:`contest.yaml` file is a plain YAML file, with at least the "
+"following keys."
+msgstr ""
+
+# deff0f5f3bc14e5d9b0bb729a092a1fe
+#: ..\..\External contest formats.rst:37
+msgid ""
+"``nome_breve`` (\"short name\", string): the contest's short name, used for "
+"internal reference (and exposed in the URLs); it has to match the name of "
+"the directory that serves as contest root."
+msgstr ""
+
+# 520349a25a5d4e3cbbdf4215e0b68a3f
+#: ..\..\External contest formats.rst:39
+msgid ""
+"``nome`` (\"name\", string): the contest's name (description), shown to "
+"contestants in the web interface."
+msgstr ""
+
+# d8b35cdb63f74194ba0332eae9e0e162
+#: ..\..\External contest formats.rst:41
+msgid ""
+"``problemi`` (\"tasks\", list of strings): a list of the tasks belonging to "
+"this contest; for each of these strings, say :samp:`{task_name}`, there must "
+"be a file named :file:`{task_name}.yaml` in the contest directory and a "
+"directory called :file:`{task_name}`, used to extract information about that "
+"task; the order in this list will be the order of the tasks in the web "
+"interface."
+msgstr ""
+
+# b59812e935344f69846623c45f4c4d15
+#: ..\..\External contest formats.rst:43
+msgid ""
+"``utenti`` (\"users\", list of associative arrays): each of the elements of "
+"the list describes one user of the contest; the exact structure of the "
+"record is described :ref:`below <externalcontestformats_user-description>`."
+msgstr ""
+
+# 9ee66e6dc771448b977eb575fca6fa8d
+# 305004e394584f23b3fd847d8717f1ab
+# f65984de81364f0a83ed8bc97e248e77
+#: ..\..\External contest formats.rst:45 formats.rst:67 formats.rst:89
+msgid "The following are optional keys."
+msgstr ""
+
+# 4655ec5f1725447eba242c3a7c1c4b5f
+#: ..\..\External contest formats.rst:47
+msgid ""
+"``inizio`` (\"start\", integer): the UNIX timestamp of the beginning of the "
+"contest (copied in the ``start`` field); defaults to zero, meaning that "
+"contest times haven't yet been decided."
+msgstr ""
+
+# 817b36fd9fe54e1fb66db96929421429
+#: ..\..\External contest formats.rst:49
+msgid ""
+"``fine`` (\"stop\", integer): the UNIX timestamp of the end of the contest "
+"(copied in the ``stop`` field); defaults to zero, meaning that contest times "
+"haven't yet been decided."
+msgstr ""
+
+# 8931cf7ea7be4a72828e9f1b9ddc52e0
+#: ..\..\External contest formats.rst:51
+msgid ""
+"``token_*``: token parameters for the contest, see :ref:"
+"`configuringacontest_tokens` (the names of the parameters are the same as "
+"the internal names described there); by default tokens are disabled."
+msgstr ""
+
+# 7667bda7f0c54c38bc35f9ba77a177a9
+#: ..\..\External contest formats.rst:53
+msgid ""
+"``max_*_number`` and ``min_*_interval`` (integers): limitations for the "
+"whole contest, see :ref:`configuringacontest_limitations` (the names of the "
+"parameters are the same as the internal names described there); by default "
+"they're all unset."
+msgstr ""
+
+# 43e587b7bfe342afbdee32b01deffdab
+#: ..\..\External contest formats.rst:59
+msgid "User description"
+msgstr ""
+
+# 421a7287ef9f4c0b8f110c1a386dd815
+#: ..\..\External contest formats.rst:61
+msgid ""
+"Each contest user (contestant) is described in one element of the ``utenti`` "
+"key in the :file:`contest.yaml` file. Each record has to contains the "
+"following keys."
+msgstr ""
+
+# 90fd0278a4954847a47cef78191f3b8b
+#: ..\..\External contest formats.rst:63
+msgid "``username`` (string): obviously, the username."
+msgstr ""
+
+# 407a161d0b3041f091a8930bd9747d4c
+#: ..\..\External contest formats.rst:65
+msgid "``password`` (string): obviusly as before, the user's password."
+msgstr ""
+
+# a64f52ba81c049128d0e996321d816b4
+#: ..\..\External contest formats.rst:69
+msgid ""
+"``nome`` (\"name\", string): the user real first name; defaults to the empty "
+"string."
+msgstr ""
+
+# 6cb30f16c9724eea9749b65ece615794
+#: ..\..\External contest formats.rst:71
+msgid ""
+"``cognome`` (\"surname\", string): the user real last name; defaults to the "
+"value of ``username``."
+msgstr ""
+
+# eab3c20e92b844fbbb281e94305a778a
+#: ..\..\External contest formats.rst:73
+msgid ""
+"``ip`` (string): the IP address from which incoming connections for this "
+"user are accepted, see :ref:`configuringacontest_login`; defaults to "
+"``0.0.0.0``."
+msgstr ""
+
+# c1db0d303c27408fb97a7c229a0e119b
+#: ..\..\External contest formats.rst:75
+msgid ""
+"``fake`` (string): when set to ``True`` (case-sensitive _string_) set the "
+"``hidden`` flag in the user, see :ref:`configuringacontest_login`; defaults "
+"to ``False``."
+msgstr ""
+
+# 70efddd95eac440496801d51795f6d11
+#: ..\..\External contest formats.rst:79
+msgid "Task description"
+msgstr ""
+
+# b3a626e5a66941739bf9489f378ed70c
+#: ..\..\External contest formats.rst:81
+msgid "The task YAML files requires the following keys."
+msgstr ""
+
+# e05a89d203bc4158a24bd8dffcad8d4d
+#: ..\..\External contest formats.rst:83
+msgid ""
+"``nome_breve`` (\"short name\", string): the name used to reference "
+"internally to this task; it is exposed in the URLs."
+msgstr ""
+
+# e18cd16d698d4cda809f786bf4e45f67
+#: ..\..\External contest formats.rst:85
+msgid ""
+"``nome`` (\"name\", string): the long name (title) used in the web interface."
+msgstr ""
+
+# 018368964951419cbae8c032068352d5
+#: ..\..\External contest formats.rst:87
+msgid ""
+"``n_input`` (integer): number of test cases to be evaluated for this task; "
+"the actual test cases are retrieved from the :ref:`task directory "
+"<externalcontestformats_task-directory>`."
+msgstr ""
+
+# ea1e520ee5484f35a2aaefce288aad99
+#: ..\..\External contest formats.rst:91
+msgid ""
+"``timeout`` (float): the timeout limit for this task in seconds; defaults to "
+"no limitations."
+msgstr ""
+
+# d1951ceb950c4574a94f94080be4a93d
+#: ..\..\External contest formats.rst:93
+msgid ""
+"``memlimit`` (integer): the memory limit for this task in megabytes; "
+"defaults to no limitations."
+msgstr ""
+
+# 07c2a618edb54706a207b32bc38b47c3
+#: ..\..\External contest formats.rst:95
+msgid ""
+"``risultati`` (\"results\", string): a comma-separated list of test cases "
+"(identified by their numbers, starting from 0) that are marked as public, "
+"hence their results are available to contestants even without using tokens."
+msgstr ""
+
+# 4dce3ce20232473684f48a39d66ebfbb
+#: ..\..\External contest formats.rst:97
+msgid ""
+"``token_*``: token parameters for the task, see :ref:"
+"`configuringacontest_tokens` (the names of the parameters are the same as "
+"the internal names described there); by default tokens are disabled."
+msgstr ""
+
+# e18686f789a1404ca835f28d01d77eb1
+#: ..\..\External contest formats.rst:99
+msgid ""
+"``max_*_number`` and ``min_*_interval`` (integers): limitations for the "
+"task, see :ref:`configuringacontest_limitations` (the names of the "
+"parameters are the same as the internal names described there); by default "
+"they're all unset."
+msgstr ""
+
+# e7966eb0f48f4a10ad8fdf1381ffac55
+#: ..\..\External contest formats.rst:101
+msgid ""
+"``outputonly`` (boolean): if set to True, the task is created with the :ref:"
+"`tasktypes_outputonly` type; defaults to False."
+msgstr ""
+
+# dc7d7375268c4d938f4ff3cd96f5bbf2
+#: ..\..\External contest formats.rst:103
+msgid ""
+"The following are optional keys that must be present for some task type or "
+"score type."
+msgstr ""
+
+# 86ac916b8d5444588b2d72c29fb5e953
+#: ..\..\External contest formats.rst:105
+msgid ""
+"``total_value`` (float): for tasks using the :ref:`scoretypes_sum` score "
+"type, this is the maximum score for the task and defaults to 100.0; for "
+"other score types, the maximum score is computed from the :ref:`task "
+"directory <externalcontestformats_task-directory>`."
+msgstr ""
+
+# 5722cd9d40024ace9c7e82736d9b1227
+#: ..\..\External contest formats.rst:107
+msgid ""
+"``infile`` and ``outfile`` (strings): for :ref:`tasktypes_batch` tasks, "
+"these are the file names for the input and output files; default to :file:"
+"`input.txt` and :file:`output.txt`."
+msgstr ""
+
+# c01775876cec49b2ac4b3d9d792f858b
+#: ..\..\External contest formats.rst:113
+msgid "Task directory"
+msgstr ""
+
+# 614cc4f0600148e09ad3d90be627e28e
+#: ..\..\External contest formats.rst:115
+msgid ""
+"The content of the task directory is used both to retrieve the task data and "
+"to infer the type of the task."
+msgstr ""
+
+# 50a393228aa84a1591651064678e282a
+#: ..\..\External contest formats.rst:117
+msgid "These are the required files."
+msgstr ""
+
+# 2e00c4859b3443bb96881bf3914609eb
+#: ..\..\External contest formats.rst:119
+msgid ""
+":file:`testo/testo.pdf` (\"statement\"): the main statement of the problem. "
+"It is not yet possible to import several statement associated to different "
+"languages."
+msgstr ""
+
+# 218b9d7f1940419091077d31a589a1d9
+#: ..\..\External contest formats.rst:121
+msgid ""
+":file:`input/input{%d}.txt` and :file:`output/output{%d}.txt` for all "
+"integers :samp:`{%d}` between 0 (included) and ``n_input`` (excluded): these "
+"are of course the input and (one of) the correct output files."
+msgstr ""
+
+# 8a11aba98dd34bd3a072c82f2ba56e4d
+#: ..\..\External contest formats.rst:123
+msgid ""
+"The following are optional files, that must be present for certain task "
+"types or score types."
+msgstr ""
+
+# fe7ad78fded44d60914d283c7ad2e741
+#: ..\..\External contest formats.rst:125
+msgid ""
+":file:`gen/GEN`: in the Italian environment, this file describes the "
+"parameters for the input generator: each line not composed entirely by white "
+"spaces or comments (comments start with ``#`` and end with the end of the "
+"line) represents an input file. Here, it is used, in case it contains "
+"specially formatted comments, to signal that the score type is :ref:"
+"`scoretypes_groupmin`. If a line contains only a comment of the form :samp:"
+"`# ST: {score}` then it marks the beginning of a new group assigning at "
+"most :samp:`{score}` points, containing all subsequent testcases until the "
+"next special comment. If the file does not exists, or does not contain any "
+"special comments, the task is given the :ref:`scoretypes_sum` score type."
+msgstr ""
+
+# a9189e5fc380469b8af2d4fcc88bab80
+#: ..\..\External contest formats.rst:127
+msgid ""
+":file:`sol/grader.{%l}` (where :samp:`{%l}` here and after means a supported "
+"language extension): for tasks of type :ref:`tasktypes_batch`, it is the "
+"piece of code that gets compiled together with the submitted solution, and "
+"usually takes care of reading the input and writing the output. If one "
+"grader is present, the graders for all supported languages must be provided."
+msgstr ""
+
+# 39eabd857d8e445297d43ec79112495d
+#: ..\..\External contest formats.rst:129
+msgid ""
+":file:`sol/*.h` and :file:`sol/*lib.pas`: if a grader is present, all other "
+"files in the :file:`sol` directory that end with ``.h`` or ``lib.pas`` are "
+"treated as auxiliary files needed by the compilation of the grader with the "
+"submitted solution."
+msgstr ""
+
+# ae255a2c5fe54efba810307c46104600
+#: ..\..\External contest formats.rst:131
+msgid ""
+":file:`cor/correttore` (checker): for tasks of types :ref:`tasktypes_batch` "
+"or :ref:`tasktypes_outputonly`, if this file is present, it must be the "
+"executable that examines the input and both the correct and the contestant's "
+"output files and assigns the outcome. If the file is not present, a simple "
+"diff is used to compare the correct and the contestant's output files."
+msgstr ""
+
+# afe569cc7b864e2d8927d14c9b46cfee
+#: ..\..\External contest formats.rst:133
+msgid ""
+":file:`cor/manager`: for tasks of type :ref:`tasktypes_communication`, this "
+"executable is the program that reads the input and communicates with the "
+"user solution."
+msgstr ""
+
+# 11982dccb8cf4718bdc4141817d64e45
+#: ..\..\External contest formats.rst:135
+msgid ""
+":file:`sol/stub.%l`: for tasks of type :ref:`tasktypes_communication`, this "
+"is the piece of code that is compiled together with the user submitted code, "
+"and is usually used to manage the communication with :file:`manager`. Again, "
+"all supported languages must be present."
+msgstr ""

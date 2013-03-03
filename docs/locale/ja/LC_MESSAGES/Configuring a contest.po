@@ -1,0 +1,455 @@
+# Japanese translations for CMS package.
+# Copyright (C) 2013, The CMS development team
+# This file is distributed under the same license as the CMS package.
+# Masaki Hara <ackie.h.gmai@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CMS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-03 09:00\n"
+"PO-Revision-Date: 2013-03-03 17:40+0900\n"
+"Last-Translator: Masaki Hara <ackie.h.gmai@gmail.com>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+# 8a8191803f724e93920f25bcef50bf13
+#: ..\..\Configuring a contest.rst:2
+msgid "Configuring a contest"
+msgstr ""
+
+# ed67969b5c5041dda95ba980726c4ff2
+#: ..\..\Configuring a contest.rst:4
+msgid ""
+"In the following text \"user\" and \"contestant\" are used interchangeably."
+msgstr ""
+
+# b56e7739f9a048fa97dd374fd5c6e821
+#: ..\..\Configuring a contest.rst:6
+msgid ""
+"Configuration parameters will be referred to using their internal name, but "
+"it should always be easy to infer what fields control them in the AWS "
+"interface by using their label."
+msgstr ""
+
+# a1ccb511543645f5862923e080dbde63
+#: ..\..\Configuring a contest.rst:12
+msgid "Limitations"
+msgstr ""
+
+# deff656f48564c0a9419a03d4de63019
+#: ..\..\Configuring a contest.rst:14
+msgid ""
+"Contest administrators can limit the ability of users to submit submissions "
+"and user_tests, by setting the following parameters:"
+msgstr ""
+
+# f64549bdfe944bf3846553678bb21945
+#: ..\..\Configuring a contest.rst:16
+msgid "``max_submission_number`` / ``max_user_test_number``"
+msgstr ""
+
+# b6e1034022374bc19b63da4bc7f87068
+#: ..\..\Configuring a contest.rst:18
+msgid ""
+"These set, respectively, the maximum number of submissions/user_tests that "
+"will be accepted for a certain user. Any attempt to send in additional "
+"submissions/user_tests after that limit has been reached will fail."
+msgstr ""
+
+# befdd131db504763b8fd8807bbcb3253
+#: ..\..\Configuring a contest.rst:20
+msgid "``min_submission_interval`` / ``min_user_test_interval``"
+msgstr ""
+
+# aab3fdd0041644ab9c23728187a2a2f8
+#: ..\..\Configuring a contest.rst:22
+msgid ""
+"These set, respectively, the minimum amount of time the user is required to "
+"wait after a submission/user_test has been submitted before he's allowed to "
+"send in new ones. Any attempt to submit a submission/user_test before this "
+"timeout has expired will fail."
+msgstr ""
+
+# 5d69eab3a526495d98cfc23a601ea72c
+#: ..\..\Configuring a contest.rst:24
+msgid ""
+"The limits can be set both on individual tasks and on the whole contest. For "
+"a submission to be accepted it has to verify the conditions on both the task "
+"*and* the contest. This means that a submission/user_test will be accepted "
+"only if the number of submissions/user_tests received so far for that task "
+"is strictly less that the task's \"max_number\" *and* the number of "
+"submissions/user_tests received so far for the whole contest (i.e. in all "
+"tasks) is strictly less than the contest's \"max_number\". The same holds "
+"for \"min_interval\" too: a submission/user_test will be accepted only if "
+"the time passed since the last submission/user_test for that task is greater "
+"than the task's \"min_interval\" *and* the time passed since the last "
+"submission/user_test received for the whole contest (i.e. in any of the "
+"tasks) is greater than the contest's \"min_interval\"."
+msgstr ""
+
+# 5999a814be8041eea31a33a0c29a0ec8
+#: ..\..\Configuring a contest.rst:26
+msgid ""
+"Each of these fields can be left unset to prevent the corresponding "
+"limitation from being enforced."
+msgstr ""
+
+# 28b1c2f5379d441f976237ce9779ae74
+#: ..\..\Configuring a contest.rst:32
+msgid "Tokens"
+msgstr ""
+
+# b8bbee3385a349cf87a19a1766c301c4
+#: ..\..\Configuring a contest.rst:34
+msgid ""
+"Tokens are a concept introduced to provide contestants with limited access "
+"to the detailed results of their submissions on the private testcases."
+msgstr ""
+
+# 7803d37fcc774ea383de270af911c3d6
+#: ..\..\Configuring a contest.rst:36
+msgid ""
+"For every submission sent in for evaluation, a contestant is always able to "
+"see if it succesfully compiled. He/she is also able to see its scores on the "
+"public testcases of the task, if any. All information about the other so-"
+"called private testcases is kept hidden. Yet, a contestant can choose to use "
+"one of its tokens to \"unlock\" a certain submission of his/her choice. "
+"After he/she does this, detailed results are available for all testcases, as "
+"if they were all public. A token, once used, is consumed and lost forever. "
+"Contestants have a set of available tokens at their disposal, where the ones "
+"they use are picked from. These sets are managed by CMS according to rules "
+"defined by the contest administrators, as explained later in this section. "
+"Note that the public/private results are arbitrarily provided by the :doc:"
+"`score types <Score types>` and are *usually* based on public/private "
+"testcases, but they could actually use other criteria."
+msgstr ""
+
+# 31ef30c2c3eb4cac86f8138559b643b9
+#: ..\..\Configuring a contest.rst:38
+msgid ""
+"Tokens also affect the score computation. That is, all \"tokened\" "
+"submissions will be considered, together with the last submitted one, when "
+"computing the score for a task. See also :ref:`configuringacontest_score-"
+"rounding`."
+msgstr ""
+
+# 3711e39b31734959a3bc42e12bf06ffb
+#: ..\..\Configuring a contest.rst:40
+msgid ""
+"There are two types of tokens: contest-tokens and task-tokens. When a "
+"contestant uses a token to unlock a submission he/she is in reality using "
+"two tokens, one of each type, and therefore needs to have both available. As "
+"the names suggest, contest-tokens are bound to the contest while task-tokens "
+"are bound to a specific task. That means that there is just one set of "
+"contest-tokens but there can be many sets of task-tokens (precisely one for "
+"every task). These sets are controlled independently by rules defined either "
+"on the contest or on the task."
+msgstr ""
+
+# 646d458c92a842b2a1028d0aed87b50f
+#: ..\..\Configuring a contest.rst:42
+msgid ""
+"A token set can be disabled (i.e. there will never be tokens available for "
+"use), infinite (i.e. there will always be tokens tokens available for use) "
+"or finite."
+msgstr ""
+
+# b9fbdfa666a446399501e6b0eca7386f
+#: ..\..\Configuring a contest.rst:44
+msgid ""
+"Rules consist of six parameters: ``token_initial``, ``token_gen_number``, "
+"``token_gen_time``, ``token_max``, ``token_total`` and "
+"``token_min_interval``. For a set to be disabled, the ``token_initial`` "
+"field has to be unset. For a set to be infinite, ``token_initial`` needs to "
+"be a non-negative integer, ``token_gen_number`` needs to be a positive "
+"integer and ``token_gen_time`` needs to be zero."
+msgstr ""
+
+# ef3667e247ec40f68efe3d1480f544ad
+#: ..\..\Configuring a contest.rst:46
+msgid ""
+"Otherwise the token set is finite. This means that the token set can be "
+"effectively represented by a non-negative integer counter: its cardinality. "
+"When the contest starts (or when the user starts its per-user time-frame, "
+"see :ref:`configuringacontest_usaco-like-contests`) the set will be filled "
+"with ``token_initial`` tokens (i.e. the counter is set to "
+"``token_initial``). If the set is not empty (i.e. the counter is not zero) "
+"the user can use a token. After that, the token is discarded (i.e. the "
+"counter is decremented by one). New tokens can be generated during the "
+"contest: ``token_gen_number`` new tokens will be given to the user after "
+"every ``token_gen_time`` minutes from the start (note that "
+"``token_gen_number`` can be zero, thus disabling token generation). If "
+"``token_max`` is set to a positive integer, the set cannot contain more than "
+"``token_max`` tokens, therefore generation of new tokens will stop at that "
+"value (unset ``token_max`` to disable this limit)."
+msgstr ""
+
+# f92a7cade56142b1a0772b16124324d0
+#: ..\..\Configuring a contest.rst:48
+msgid ""
+"The use of tokens can be limited with ``token_min_interval`` and "
+"``token_total``: users have to wait at least ``token_min_interval`` seconds "
+"after they used a token before they can use another one (this parameter can "
+"be zero), and they cannot use more that ``token_total`` tokens in total "
+"(this parameter can be unset). Note that ``token_total`` has no effect if "
+"the token set is infinite."
+msgstr ""
+
+# 401caa30ae864ce69bc095430858db73
+#: ..\..\Configuring a contest.rst:50
+msgid ""
+"Having a finite set of both contest- and task-tokens can be very confusing, "
+"for the contestants as well as for the contest administrators. Therefore "
+"it's common to limit just one type of tokens, setting the other type to be "
+"infinite, in order to make the general token availability depend only on the "
+"availability of that type (e.g. if you just want to enforce a contest-wide "
+"limit on tokens set the contest-token set to be finite and set all task-"
+"token sets to be infinite). CWS is aware of this \"implementation details\" "
+"and when one type is infinite it just shows information about the other "
+"type, calling it simply \"token\" (i.e. removing the \"contest-\" or \"task-"
+"\" prefix)."
+msgstr ""
+
+# f9ffe9fdbb354cf18623768c14d48378
+#: ..\..\Configuring a contest.rst:52
+msgid ""
+"Note that \"token sets\" are \"intangible\": they're just a counter shown to "
+"the user, computed dynamically every time. Yet, once a token is used, a "
+"Token object will be created, stored in the database and associated with the "
+"submission it was used on."
+msgstr ""
+
+# e25597d20eec4786ac1316e2915225bf
+#: ..\..\Configuring a contest.rst:54
+msgid ""
+"Changing token rules during a contest may lead to inconsistencies. Do so at "
+"your own risk!"
+msgstr ""
+
+# e1751491794d46329a973f847adbc461
+#: ..\..\Configuring a contest.rst:60
+msgid "Score rounding"
+msgstr ""
+
+# 205496fedcaa40539088edbe3b809c47
+#: ..\..\Configuring a contest.rst:62
+msgid ""
+"Based on the ScoreTypes in use and on how they are configured, some "
+"submissions may be given a floating-point score. Contest administrators will "
+"probably want to show only a small number of these decimal places in the "
+"scoreboard. This can be achieved with the ``score_precision`` fields on the "
+"contest and tasks."
+msgstr ""
+
+# eeb151924c3e41eaa1fd3cf721940368
+#: ..\..\Configuring a contest.rst:64
+msgid ""
+"The score of a user on a certain task is the maximum among the scores of the "
+"\"tokened\" submissions for that task, and the last one. This score is "
+"rounded to a number of decimal places equal to the ``score_precision`` field "
+"of the task. The score of a user on the whole contest is the sum of the "
+"*rounded* scores on each task. This score itself is then rounded to a number "
+"of decimal places equal to the ``score_precision`` field of the contest."
+msgstr ""
+
+# 8f25f425e44f42ee947802562e01ee6b
+#: ..\..\Configuring a contest.rst:66
+msgid ""
+"Note that some \"internal\" scores used by ScoreTypes (for example the "
+"subtask score) are not rounded using this procedure. At the moment the "
+"subtask scores are always rounded at two decimal places and there's no way "
+"to configure that (note that the score of the submission is the sum of the "
+"*unrounded* scores of the subtasks). That will be changed soon. See :"
+"gh_issue:`33`."
+msgstr ""
+
+# 0d2d39df167f43d9947a116c1076b96f
+#: ..\..\Configuring a contest.rst:68
+msgid ""
+"The unrounded score is stored in the database (and it's rounded only at "
+"presentation level) so you can change the ``score_precision`` at any time "
+"without having to rescore any submissions. Yet, you have to make sure that "
+"these values are also updated on the RankingWebServers. To do that you can "
+"either restart ScoringService or update the data manually (see :doc:"
+"`RankingWebServer` for further information)."
+msgstr ""
+
+# b9ba758d23ff4446b95c4d2d81463d31
+#: ..\..\Configuring a contest.rst:72
+msgid "Primary statements"
+msgstr ""
+
+# 5e00d16bd9794285a1ad663770796174
+#: ..\..\Configuring a contest.rst:74
+msgid ""
+"When there are many statements for a certain task (which are often different "
+"translations of the same statement) contest administrators may want to "
+"highlight some of them to the users. These may include, for example, the "
+"\"official\" version of the statement (the one that is considered the "
+"reference version in case of questions or appeals) or the translations for "
+"the languages understood by that particular user. To do that the "
+"``primary_statements`` field of the tasks and the users has to be used."
+msgstr ""
+
+# 1ce0fef978b24276b22cbe34ef2a389c
+#: ..\..\Configuring a contest.rst:76
+msgid ""
+"The ``primary_statements`` field for the tasks is a JSON-encoded list of "
+"strings: it specifies the language codes of the statements that will be "
+"highlighted to all users. A valid example is ``[\"en_US\", \"it\"]``. The "
+"``primary_statements`` field for the users is a JSON-encoded object of lists "
+"of strings. Each item in this object specifies a task by its name and "
+"provides a list of language codes of the statements to highlight. For "
+"example ``{\"task1\": [\"de\"], \"task2\": [\"de_CH\"]}``."
+msgstr ""
+
+# 3984c0e230504cdbb021edd38e7a65af
+#: ..\..\Configuring a contest.rst:78
+msgid ""
+"Note that users will always be able to access all statements, regardless of "
+"the ones that are highlighted. Note also that language codes in the form "
+"``xx`` or ``xx_YY`` (where ``xx`` is an `ISO 639-1 code <http://www.iso.org/"
+"iso/language_codes.htm>`_ and ``YY`` is an `ISO 3166-1 code <http://www.iso."
+"org/iso/country_codes.htm>`_) will be recognized and presented accordingly. "
+"For example ``en_AU`` will be shown as \"English (Australia)\"."
+msgstr ""
+
+# 57b679854ed247ccb1c128e999d861df
+#: ..\..\Configuring a contest.rst:82
+msgid "Timezone"
+msgstr ""
+
+# 521f1217f94f4598aae9d4b154177a54
+#: ..\..\Configuring a contest.rst:84
+msgid ""
+"CMS stores all times as UTC timestamps and converts them to an appropriate "
+"timezone when displaying them. This timezone can be specified on a per-user "
+"and per-contest basis with the ``timezone`` field. It needs to contain a "
+"string in the format ``Europe/Rome`` (actually, any string recognized by "
+"`pytz <http://pytz.sourceforge.net/>`_ will work)."
+msgstr ""
+
+# 2dd745ba7973463e8a32f850a8c86ca5
+#: ..\..\Configuring a contest.rst:86
+msgid ""
+"When CWS needs to show a timestamp to the user it first tries to show it "
+"according to the user's timezone. If the string defining the timezone is "
+"unrecognized (for example it is the empty string), CWS will fallback to the "
+"contest's timezone. If it is again unable to interpret that string it will "
+"use the local time of the server."
+msgstr ""
+
+# b1e79b56c4a944649653806175a46e67
+#: ..\..\Configuring a contest.rst:92
+msgid "User login"
+msgstr ""
+
+# 56b6725061c84d15a1b8f80bc6db4dab
+#: ..\..\Configuring a contest.rst:94
+msgid ""
+"Users log into CWS using a username and a password. These have to be "
+"specified, respectively, in the ``username`` and ``password`` fields (in "
+"cleartext!). These credentials need to be inserted (i.e. there's no way to "
+"have an automatic login, a \"guest\" session, etc.) and, if they match, the "
+"login (usually) succeeds. The user needs to login again if he/she doesn't "
+"navigate the site for ``cookie_duration`` seconds (specified in the :file:"
+"`cms.conf` file)."
+msgstr ""
+
+# 1d50e94707eb40b8ae177b1f7380b5d5
+#: ..\..\Configuring a contest.rst:96
+msgid ""
+"In fact, there are other reasons that can cause the login to fail. If the "
+"``ip_lock`` option (in :file:`cms.conf`) is set to ``true`` then the login "
+"will fail if the IP address that attempted it is different from the ``ip`` "
+"field of the specified user. If ``ip`` is ``0.0.0.0`` then this check will "
+"be skipped, even if ``ip_lock`` is ``true``. Note that if a reverse-proxy "
+"(like nginx) is in use then it is necessary to set ``is_proxy_used`` (in :"
+"file:`cms.conf`) to ``true``."
+msgstr ""
+
+# a54b94f533f1499d8cf620f3727ec431
+#: ..\..\Configuring a contest.rst:98
+msgid ""
+"The login can also fail if ``block_hidden_users`` (in :file:`cms.conf`) is "
+"``true`` and the user one wants to login as has the ``hidden`` field set."
+msgstr ""
+
+# babbb86b574e4859a9542d83e73d1d79
+#: ..\..\Configuring a contest.rst:104
+msgid "USACO-like contests"
+msgstr ""
+
+# 78364f99b65c482f90ee2ca5801bcb23
+#: ..\..\Configuring a contest.rst:106
+msgid ""
+"The most peculiar trait of the `USACO <http://usaco.org/>`_ contests is that "
+"the contests themselves are many days long but each user is only able to "
+"compete for a few hours after their first login (after that he/she is not "
+"able to send any more submissions). This can be done in CMS too, using the "
+"``per_user_time`` field of contests. If it is unset the contest will behave "
+"\"normally\", that is all users will be able to submit solutions from the "
+"contest's ``start`` until the contest's ``stop``. If, instead, "
+"``per_user_time`` is set to a positive integer value then an use will only "
+"have a limited amount of time. In particular, after he/she logs in, he/she "
+"will be presented with an interface similar to the pre-contest one, with one "
+"addition: a \"start\" button. Clicking on this button starts the time-frame "
+"in which the user can compete (i.e. read statements, download attachments, "
+"submit solutions, use tokens, send user_tests, etc.). This time-frame ends "
+"after ``per_user_time`` seconds or when the contest ``stop`` time is "
+"reached, whichever comes first. After that the interface will be identical "
+"to the post-contest one: the user won't be able to do anything. See :"
+"gh_issue:`61`."
+msgstr ""
+
+# 31f152c2530f47348f6c4d49de7e7f4b
+#: ..\..\Configuring a contest.rst:108
+msgid ""
+"The time at which the user clicks the \"start\" button is recorded in the "
+"``starting_time`` field of the user. You can change that to shift the user's "
+"time-frame (but we suggest to use ``extra_time`` for that, explained in :ref:"
+"`configuringacontest_extra-time`) or unset it to make the user able to start "
+"its time-frame again. Do so at your own risk!"
+msgstr ""
+
+# e674852f68d644299da3b902504b5a62
+#: ..\..\Configuring a contest.rst:114
+msgid "Extra time"
+msgstr ""
+
+# 33da54c2c2f94fbf91899c49aa09d41a
+#: ..\..\Configuring a contest.rst:116
+msgid ""
+"Contest administrators may want to give some users a short additional amount "
+"of time in which they can compete to compensate for an incident (e.g. a "
+"hardware failure) that made them unable to compete for a while during the "
+"\"intended\" time-frame. That's what the ``extra_time`` field of the users "
+"is for. The time-frame in which the user is allowed to submit solutions is "
+"expanded by its ``extra_time``, even if this would lead the user to be able "
+"to submit after the end of the contest."
+msgstr ""
+
+# de8a67074ccc414597d665008e54f679
+#: ..\..\Configuring a contest.rst:118
+msgid ""
+"Note that in its extra time the user will continue to receive newly "
+"generated tokens. If you don't want him/her to have more tokens that other "
+"contestants set the ``token_total`` parameter described above to the number "
+"of tokens you expect a user to have at his/her disposal during the whole "
+"contest (if it doesn't already have a value less than or equal to this). See "
+"also :gh_issue:`29`."
+msgstr ""
+
+# cc8cfc1c167d44e6b2f12cd4046a1917
+#: ..\..\Configuring a contest.rst:120
+msgid ""
+"Note also that submissions sent during the extra time will continue to be "
+"considered when computing the score, even if the ``extra_time`` field of the "
+"user is later reset to zero (for example in case the user loses the appeal): "
+"you need to completely delete them from the database."
+msgstr ""
