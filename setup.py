@@ -3,7 +3,7 @@
 
 # Programming contest management system
 # Copyright © 2010-2012 Giovanni Mascellani <mascellani@poisson.phc.unipi.it>
-# Copyright © 2010-2012 Stefano Maggiolo <s.maggiolo@gmail.com>
+# Copyright © 2010-2013 Stefano Maggiolo <s.maggiolo@gmail.com>
 # Copyright © 2010-2012 Matteo Boscariol <boscarim@hotmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -76,7 +76,7 @@ def do_setup():
                 os.chmod(file_, 0644)
 
     setup(name="cms",
-          version="1.0.0pre",
+          version="1.1.0pre",
           author="The CMS development team",
           author_email="contestms@freelists.org",
           url="https://github.com/cms-dev/cms",
@@ -120,6 +120,8 @@ def do_setup():
                   "cmsTestFileCacher=cmstestsuite.TestFileCacher:main",
 
                   "cmsAddUser=cmscontrib.AddUser:main",
+                  "cmsRemoveUser=cmscontrib.RemoveUser:main",
+                  "cmsRemoveTask=cmscontrib.RemoveTask:main",
                   "cmsComputeComplexity=cmscontrib.ComputeComplexity:main",
                   "cmsYamlImporter=cmscontrib.YamlImporter:main",
                   "cmsYamlReimporter=cmscontrib.YamlReimporter:main",
