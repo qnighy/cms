@@ -20,12 +20,12 @@ msgstr ""
 # 6170ffaa0cb142b49649fe191e14c47d
 #: ..\..\Creating a contest.rst:2
 msgid "Creating a contest"
-msgstr ""
+msgstr "コンテストの作成"
 
 # 4265555172854c49999fcc585c4f0284
 #: ..\..\Creating a contest.rst:5
 msgid "Creating a contest from scratch"
-msgstr ""
+msgstr "何もない状態から作成する"
 
 # 28c2253a2bbe48688e7892282e7eef2f
 #: ..\..\Creating a contest.rst:7
@@ -33,14 +33,14 @@ msgid ""
 "The most immediate (and less practical) way to create a contest in CMS is "
 "using the admin interface. You can start the AdminWebServer using the "
 "command ``cmsAdminWebServer``."
-msgstr ""
+msgstr "CMSでコンテストを作るもっとも手近な(そして、あまり実用的ではない)方法は、管理インターフェースを使う方法です。　``cmsAdminWebServer`` コマンドによって、AdminWebServerを起動することができます。"
 
 # 9721db8afb9d46dbbdf7b754908e6045
 #: ..\..\Creating a contest.rst:9
 msgid ""
 "After that, you can connect to the server using the address and port "
 "specified in :file:`cms.conf`; typically, http://localhost:8889/."
-msgstr ""
+msgstr "そのあと、 :file:`cms.conf` で指定されたアドレスとポート(普通は http://localhost:8889/ )を使って、管理サーバーに接続できるようになります。"
 
 # 34cf3dc933a84278b657a9a6927efa24
 #: ..\..\Creating a contest.rst:11
@@ -50,17 +50,17 @@ msgid ""
 "of these operations is manual; plus, it is usually more practical to work, "
 "for example, on a file specifying the contestants' details instead of using "
 "the web interface."
-msgstr ""
+msgstr "そこでは、左側のドロップダウンの隣にある \"+\" をクリックすることでコンテストを作成できます。そのあと、課題とユーザーを追加する必要があります。ここまで行なってきた操作は全て手作業でした。そして、普通はこのようにWebインターフェースを使うのではなく、例えば参加者の詳細情報の指定ならば、それが書かれたファイルを用意するというほうが実際的です。"
 
 # 7356ea20f2ce4d2396a9e3522e3504df
 #: ..\..\Creating a contest.rst:13
 msgid "Luckily, there is another way to create a contest."
-msgstr ""
+msgstr "さいわい、CMSにはコンテストを作る別の方法があります。"
 
 # 67d3a79a5c5f414e992d14d3702e3ee2
 #: ..\..\Creating a contest.rst:17
 msgid "Creating a contest from the filesystem"
-msgstr ""
+msgstr "ファイルシステムからコンテストを作成する"
 
 # 4043f797b7104239b31fb38d592508d9
 #: ..\..\Creating a contest.rst:19
@@ -70,7 +70,7 @@ msgid ""
 "every national IOI selection team and every contest administrator has a "
 "preferred way of developing the tasks, and of storing their data in the "
 "filesystem, and we do not want to change the way you work."
-msgstr ""
+msgstr "私たちが実現したいアイデアは、CMSはコンテストと課題を作成する方法を限定しない、ということです。各国のIOI代表選考チームやそれ以外のコンテストの管理者が、それぞれの方法で課題を作成し、それぞれの方法でそのデータをファイルシステムに保存していると思います。私たちはそのやり方を変えたくないと考えています。"
 
 # 1b40ed1fdf834053a5c1e1a22655f6a7
 #: ..\..\Creating a contest.rst:21
@@ -80,7 +80,7 @@ msgid ""
 "contest in the database. You can also write a \"reimporter\" if you want to "
 "change the contest details without losing the data (submissions, user "
 "tests, ...) already uploaded."
-msgstr ""
+msgstr "そのかわり、コンテスト作者は \"インポーター\" を書くことが奨励されます。インポーターとは、ファイルシステム上に決まった形式で保存されたデータを読み、データベースにコンテストを作成するソフトウェアのことです。さらに、コンテスト作者は \"再インポーター\" を書くことで、既にアップロードされたデータ (提出、ユーザー、テスト結果) を失うことなくコンテスト情報を変更できるようになります。"
 
 # 2aede3d36c7d4b878edf9c42bf54fef7
 #: ..\..\Creating a contest.rst:23
@@ -91,12 +91,12 @@ msgid ""
 "written in this format is in `this GitHub repository <https://github.com/cms-"
 "dev/con_test>`_, while its explanation is :doc:`here <External contest "
 "formats>`."
-msgstr ""
+msgstr "私たちは、イタリアのIOI代表選考チームが使っている形式を対象にしたインポーターと再インポーターを実装例として提供しています。コンテスト作者は、各々が使っているフォーマットにあわせてこのサンプルを変更することも、イタリアチームの形式にあわせることもできます。この形式で書かれたコンテストの例が `このGitHubリポジトリ <https://github.com/cms-dev/con_Test>`_ にあり、その説明は :doc:`ここ <External contest formats>` にあります。"
 
 # c988f962dd7e425ba3b0e1d8d21910a5
 #: ..\..\Creating a contest.rst:27
 msgid "Creating a contest from an exported contest"
-msgstr ""
+msgstr "エクスポートされたコンテストから作成する"
 
 # dee1c67f9ba247db80d255be77a32f4c
 #: ..\..\Creating a contest.rst:29
@@ -105,4 +105,4 @@ msgid ""
 "move contest already used in CMS. If you have the dump of a contest exported "
 "from CMS, you can import it with ``cmsContestImporter <source>``, where "
 "``<source>`` is the archive filename or directory of the contest."
-msgstr ""
+msgstr "この選択肢は、新しいコンテストを作成するに向いているとは言えませんが、CMSで既に使われたコンテストを補完したり、他の場所へ移動したりするのには向いています。もしCMSからエクスポートしたコンテストのダンプがあれば、それを ``cmsContestImporter <source>`` でインポートできます。ここで、 ``<source>`` はアーカイブのファイル名または、コンテストのあるディレクトリ名です。"
