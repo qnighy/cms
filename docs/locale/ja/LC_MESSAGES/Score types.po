@@ -20,12 +20,12 @@ msgstr ""
 # 24c7f0646e424ea794e22b86582aa555
 #: ..\..\Score types.rst:2
 msgid "Score types"
-msgstr ""
+msgstr "スコアタイプ"
 
 # 83b3257129374db0b45ec55e20b6ffa6
 #: ..\..\Score types.rst:5
 msgid "Introduction"
-msgstr ""
+msgstr "はじめに"
 
 # 0310c48b8e534cfe8ab29934e2b16387
 #: ..\..\Score types.rst:7
@@ -38,12 +38,12 @@ msgid ""
 "the same information (score and detail) for contestants that did not use a "
 "token on the submission. In CMS, these latter set of information is called "
 "public, since the contestant can see them without using any tokens."
-msgstr ""
+msgstr "それぞれの提出について、各テストケースに対する結果を :doc:`課題タイプ <Task types>` が生成したあとに、その課題のスコアタイプがその役割を始めます。実際のところ、スコアタイプの果たすべき最も重要な仕事は、課題タイプが生成した結果のリストから、どのように単一の数値、つまりその提出の得点、を算出するかを決めることです。スコアタイプはさらに、参加者の参考になる出力を出したり、同じ情報(点数と詳細)をトークンを使っていない提出についても参加者に与えたりもします。CMSでは、後者の情報のセットは公開であると言います。これは、トークンを用いなくても参加者がそれを見ることができるからです。"
 
 # ced37ea1ddbc46d8bf05d47739f20f27
 #: ..\..\Score types.rst:11
 msgid "Standard score types"
-msgstr ""
+msgstr "標準のスコアタイプ"
 
 # 7ad5456489f847d7a3ef49e13cb3bf76
 #: ..\..\Score types.rst:13
@@ -51,7 +51,7 @@ msgid ""
 "Like task types, CMS has the most common score types built in. They are Sum, "
 "GroupMin, GroupMul, GroupThreshold. There is also a score type called "
 "Relative, but it is an experiment not meant for usage."
-msgstr ""
+msgstr "課題タイプと同様に、CMSは最もよく使われるスコアタイプをいくつか組み込みで容易しています。それらは、Sum(合計)、GroupMin(グループ最小)、GroupMul(グループ積)、GroupThreshold(グループ閾値)の4つです。それに加えてRelative(相対)と呼ばれるスコアタイプもありますが、これは実際に利用することを意図されていない実験的なものです。"
 
 # 4188c19c07f74e3b987373ab859d8c89
 #: ..\..\Score types.rst:15
@@ -62,19 +62,19 @@ msgid ""
 "assigning points for that group only if some conditions held. Groups are "
 "also known as subtasks in some contests. The group score types also allow "
 "test cases to be weighted, even for groups of size 1."
-msgstr ""
+msgstr "よくテストされた4つのスコアタイプのうち、Sum(合計)は、考えうるなかで最も簡単なもので、正解したテストケースそれぞれについてある量の点数を割り当てるだけのものです。残りの3つはテストケースをグループ化して、それぞれのグループについて、ある条件を満たしたときだけ点を割り当てるというときに便利です。いくつかのコンテストでは、グループは小課題という名前でも知られています。グループ化するスコアタイプは、サイズが1のグループも含めて、テストケースに重みをつけることもできます。"
 
 # ae61d43f7c1140ae859506956ae922c8
 #: ..\..\Score types.rst:17
 msgid ""
 "Also like task types, the behavior of score types is configurable from the "
 "task's page in AdminWebServer."
-msgstr ""
+msgstr "課題タイプと同様に、スコアタイプの挙動はAdminWebServerの課題のページからも設定可能です。"
 
 # 82fd7348dc724440a2229b2988c8001d
 #: ..\..\Score types.rst:23
 msgid "Sum"
-msgstr ""
+msgstr "Sum(合計)"
 
 # 0710644d1ccf4b63a67d920568e039f2
 #: ..\..\Score types.rst:25
@@ -87,7 +87,7 @@ msgid ""
 "type parameter field in AdminWebServer. The parameter field must contain "
 "only this integer. The public score is given by the same computation over "
 "the public testcases instead of over all testcases."
-msgstr ""
+msgstr "このスコアタイプは、各テストケースに対する結果を、そのテストケースをどれだけ良く解いたかを表す浮動小数点数として、つまり0.0はそのテストケースに対して失敗したものとし、1.0はそのテストケースに対して成功したものとして解釈します。その提出の点数は、全てのテストケースの結果の合計値に、AdminWebServerのスコアタイプのフィールドで与えられる整数を掛けたものになります。パラメーターのフィールドはこの整数のみを含んでいないといけません。公開スコアは、全てのテストケースについてではなく、公開テストケースについて同じ計算を行った結果として得られます。"
 
 # f55d21b19b5e4063b75b414628d87750
 #: ..\..\Score types.rst:27
@@ -96,12 +96,12 @@ msgid ""
 "parameter string is ``5``, a correct solution will score 100 points (20 "
 "times 5) out of 100, and its public score will be 10 points (2 times 5) out "
 "of 10."
-msgstr ""
+msgstr "例えば、20個のテストケースがあり、そのうち2つが公開テストケースで、パラメーター文字列が ``5`` であるとき、正しい解答は100点中100点(20×5)を得て、その公開スコアは10点中10点(2×5)となります。"
 
 # 037f3decc0794b5b883c40837aa839e4
 #: ..\..\Score types.rst:33
 msgid "GroupMin"
-msgstr ""
+msgstr "GroupMin(グループ最小)"
 
 # bfbd4909de8b4f88a76e8becfd5ffd9e
 #: ..\..\Score types.rst:35
@@ -112,7 +112,7 @@ msgid ""
 "over all groups, of the minimum outcome for that group times the multiplier. "
 "The public score is computed over all groups in which all testcases within "
 "are public."
-msgstr ""
+msgstr "GroupMin(グループ最小)スコアタイプでは、課題タイプの結果は先ほどと同様に解答の正しさとして、0.0(不正解)から1.0(正解)までの値として扱われます。テストケースはいくつかのグループに分割され、各グループは整数の係数を持ちます。点数はグループの点数の和であり、グループの点数はそのグループの結果の中の最小値にそのグループの係数ｗ掛けたものです。公開スコアは同じ計算を、公開テストケースのみからなるグループに対して行ったものになります。"
 
 # 34a8867090dc40a0987908925e8d710b
 #: ..\..\Score types.rst:37
@@ -122,12 +122,12 @@ msgid ""
 "the first :samp:`{t1}` testcases and has multiplier :samp:`{m1}`; the second "
 "group comprises the testcases from the :samp:`{t1}` + 1 to the :samp:`{t1}` "
 "+ :samp:`{t2}` and has multiplier :samp:`{m2}`; and so on."
-msgstr ""
+msgstr "より正確には、GroupMinに渡されるパラメーター文字列は :samp:`[[{m1}, {t1}], [{m2}, {t2}], ...]` という形になります。これは、最初のグループは最初の :samp:`{t1}` 個のテストケースからなり、係数は :samp:`{m1}` であることと、2番目のグループは :samp:`{t1}` +1 番目から :samp:`{t1}` + :samp:`{t2}` 番目までのテストケースからなり、係数は :samp:`{m2}` であること…そして以下同様のことを意味します。"
 
 # 80d96a75f4424004b4e7c5ff1ad94ca8
 #: ..\..\Score types.rst:41
 msgid "GroupMul"
-msgstr ""
+msgstr "GroupMul(グループ積)"
 
 # 9eb497c667814cf1921e74aed7edec01
 #: ..\..\Score types.rst:43
@@ -136,12 +136,12 @@ msgid ""
 "of taking the minimum outcome among the testcases in the group, it takes the "
 "product of all outcomes. It has the same behavior as GroupMin when all "
 "outcomes are either 0.0 or 1.0."
-msgstr ""
+msgstr "GroupMul(グループ積)はGroupMinとほとんど同じです。唯一の違いは、グループ内の結果の最小値をとるのではなく、結果の積をとるということです。全ての結果が0.0か1.0のどちらかであるときは、GroupMulはGroupMinと同じ挙動を示します。"
 
 # 9bf15a520a054ec9bb15f9dd8196deef
 #: ..\..\Score types.rst:47
 msgid "GroupThreshold"
-msgstr ""
+msgstr "GroupThreshold(グループ閾値)"
 
 # ef917156bc044210a9eb844c215f21ba
 #: ..\..\Score types.rst:49
@@ -150,7 +150,7 @@ msgid ""
 "amount of resources used by the submission to solve the testcase. The "
 "testcase is then successfully solved if the outcome is between 0.0 and a "
 "certain number, the threshold, specified separately for each group."
-msgstr ""
+msgstr "GroupThreshold(グループ閾値)では、得られた結果は正しさの度合いを表すのではなく、そのテストケースを解くために利用したリソースの量であると考えます。よって、結果が0.0から特定の値(閾値)の間にあるときに、そのテストケースは正しく解けていると解釈します。閾値は、各グループごとに別々に指定されます。"
 
 # 81f4fd8e36c44fbe93497a3fa4b5828d
 #: ..\..\Score types.rst:51
@@ -158,4 +158,4 @@ msgid ""
 "The parameter string is of the form :samp:`[[{m1}, {t1}, {T1}], [{m2}, {t2}, "
 "{T2}], ...]` where the additional parameter :samp:`{T}` for each group is "
 "the threshold."
-msgstr ""
+msgstr "パラメーター文字列は :samp:`[[{m1}, {t1}, {T1}], [{m2}, {t2}, {T2}], ...]` という形であり、各グループに存在する新しいパラメーター :samp:`{T}` が閾値になります。"
