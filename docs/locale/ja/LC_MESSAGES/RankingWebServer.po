@@ -2,12 +2,12 @@
 # Copyright (C) 2013, The CMS development team
 # This file is distributed under the same license as the CMS package.
 # Masaki Hara <ackie.h.gmai@gmail.com>, 2013.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: CMS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-03 09:00\n"
+"POT-Creation-Date: 2013-03-04 08:01\n"
 "PO-Revision-Date: 2013-03-03 17:41+0900\n"
 "Last-Translator: Masaki Hara <ackie.h.gmai@gmail.com>\n"
 "Language-Team: Japanese\n"

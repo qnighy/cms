@@ -2,12 +2,12 @@
 # Copyright (C) 2013, The CMS development team
 # This file is distributed under the same license as the CMS package.
 # Masaki Hara <ackie.h.gmai@gmail.com>, 2013.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: CMS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-03 09:00\n"
+"POT-Creation-Date: 2013-03-04 08:01\n"
 "PO-Revision-Date: 2013-03-03 17:40+0900\n"
 "Last-Translator: Masaki Hara <ackie.h.gmai@gmail.com>\n"
 "Language-Team: Japanese\n"
@@ -26,7 +26,8 @@ msgstr "コンテストの設定"
 #: ..\..\Configuring a contest.rst:4
 msgid ""
 "In the following text \"user\" and \"contestant\" are used interchangeably."
-msgstr "以下のテキストでは、 \"ユーザー\" と \"参加者\" は同じ意味で使われています。"
+msgstr ""
+"以下のテキストでは、 \"ユーザー\" と \"参加者\" は同じ意味で使われています。"
 
 # b56e7739f9a048fa97dd374fd5c6e821
 #: ..\..\Configuring a contest.rst:6
@@ -34,7 +35,10 @@ msgid ""
 "Configuration parameters will be referred to using their internal name, but "
 "it should always be easy to infer what fields control them in the AWS "
 "interface by using their label."
-msgstr "このドキュメントでは、設定パラメーターをその内部的な名称で呼んでいますが、AdminWebServerインターフェース内でどのパラメーターが対応するかは、インターフェース内で表示される説明文を読めば簡単に推測できるでしょう。"
+msgstr ""
+"このドキュメントでは、設定パラメーターをその内部的な名称で呼んでいますが、"
+"AdminWebServerインターフェース内でどのパラメーターが対応するかは、インター"
+"フェース内で表示される説明文を読めば簡単に推測できるでしょう。"
 
 # a1ccb511543645f5862923e080dbde63
 #: ..\..\Configuring a contest.rst:12
@@ -46,7 +50,9 @@ msgstr "制限"
 msgid ""
 "Contest administrators can limit the ability of users to submit submissions "
 "and user_tests, by setting the following parameters:"
-msgstr "コンテスト管理者は、ユーザーが提出を行える能力を、次のパラメーターを設定することで制限できます："
+msgstr ""
+"コンテスト管理者は、ユーザーが提出を行える能力を、次のパラメーターを設定する"
+"ことで制限できます："
 
 # f64549bdfe944bf3846553678bb21945
 #: ..\..\Configuring a contest.rst:16
@@ -59,7 +65,10 @@ msgid ""
 "These set, respectively, the maximum number of submissions/user_tests that "
 "will be accepted for a certain user. Any attempt to send in additional "
 "submissions/user_tests after that limit has been reached will fail."
-msgstr "これらはそれぞれ、あるユーザーについて受け付けられる提出とユーザーテストの回数の上限を設定します。この制限に達したあとの、提出やユーザーテストの実行の試みは、失敗します。"
+msgstr ""
+"これらはそれぞれ、あるユーザーについて受け付けられる提出とユーザーテストの回"
+"数の上限を設定します。この制限に達したあとの、提出やユーザーテストの実行の試"
+"みは、失敗します。"
 
 # befdd131db504763b8fd8807bbcb3253
 #: ..\..\Configuring a contest.rst:20
@@ -73,7 +82,11 @@ msgid ""
 "wait after a submission/user_test has been submitted before he's allowed to "
 "send in new ones. Any attempt to submit a submission/user_test before this "
 "timeout has expired will fail."
-msgstr "これらはそれぞれ、各ユーザーが提出やユーザーテストをしたあとに、次の提出またはユーザーテストを行うまでに待たなければいけない時間の最小値を設定します。この時間が経過しないうちに提出またはユーザーテストをしようとした場合、その試みは失敗します。"
+msgstr ""
+"これらはそれぞれ、各ユーザーが提出やユーザーテストをしたあとに、次の提出また"
+"はユーザーテストを行うまでに待たなければいけない時間の最小値を設定します。こ"
+"の時間が経過しないうちに提出またはユーザーテストをしようとした場合、その試み"
+"は失敗します。"
 
 # 5d69eab3a526495d98cfc23a601ea72c
 #: ..\..\Configuring a contest.rst:24
@@ -90,14 +103,27 @@ msgid ""
 "than the task's \"min_interval\" *and* the time passed since the last "
 "submission/user_test received for the whole contest (i.e. in any of the "
 "tasks) is greater than the contest's \"min_interval\"."
-msgstr "この制限は個々の課題にも、コンテスト全体にも設定できます。提出が受理されるには、課題とコンテストの *両方* の条件を満たす必要があります。これはつまり、提出やユーザーテストは、その課題に対して行われた提出やユーザーテストの個数がその課題の \"max_number\" より真に小さく、 *かつ* コンテスト内で行われた (つまり、全ての課題に対して行われた) 提出やユーザーテストの個数がコンテスト自体の \"max_number\" より真に小さいときにのみ受理されるということを意味します。同様のことが \"min_interval\" についても言えます： つまり、提出やユーザーテストは、その課題に対する直前の提出やユーザーテストから経過した時間がその課題の \"min_interval\" よりも大きく、 *かつ* コンテスト内で行われたなかで直近の提出やユーザーテストから経過した時間がコンテスト自体の \"min_interval\" より大きいときにのみ受理されます。"
+msgstr ""
+"この制限は個々の課題にも、コンテスト全体にも設定できます。提出が受理されるに"
+"は、課題とコンテストの *両方* の条件を満たす必要があります。これはつまり、提"
+"出やユーザーテストは、その課題に対して行われた提出やユーザーテストの個数がそ"
+"の課題の \"max_number\" より真に小さく、 *かつ* コンテスト内で行われた (つま"
+"り、全ての課題に対して行われた) 提出やユーザーテストの個数がコンテスト自体の "
+"\"max_number\" より真に小さいときにのみ受理されるということを意味します。同様"
+"のことが \"min_interval\" についても言えます： つまり、提出やユーザーテスト"
+"は、その課題に対する直前の提出やユーザーテストから経過した時間がその課題の "
+"\"min_interval\" よりも大きく、 *かつ* コンテスト内で行われたなかで直近の提出"
+"やユーザーテストから経過した時間がコンテスト自体の \"min_interval\" より大き"
+"いときにのみ受理されます。"
 
 # 5999a814be8041eea31a33a0c29a0ec8
 #: ..\..\Configuring a contest.rst:26
 msgid ""
 "Each of these fields can be left unset to prevent the corresponding "
 "limitation from being enforced."
-msgstr "それぞれのフィールドを空にすることで、対応する制限が行われないよう設定できます。"
+msgstr ""
+"それぞれのフィールドを空にすることで、対応する制限が行われないよう設定できま"
+"す。"
 
 # 28b1c2f5379d441f976237ce9779ae74
 #: ..\..\Configuring a contest.rst:32
@@ -109,7 +135,9 @@ msgstr "トークン"
 msgid ""
 "Tokens are a concept introduced to provide contestants with limited access "
 "to the detailed results of their submissions on the private testcases."
-msgstr "トークンは、非公開のテストケースに対する自分の提出の詳細な結果にアクセスできるような、限定的な権限を参加者に与えるために、導入された概念です。"
+msgstr ""
+"トークンは、非公開のテストケースに対する自分の提出の詳細な結果にアクセスでき"
+"るような、限定的な権限を参加者に与えるために、導入された概念です。"
 
 # 7803d37fcc774ea383de270af911c3d6
 #: ..\..\Configuring a contest.rst:36
@@ -127,7 +155,22 @@ msgid ""
 "Note that the public/private results are arbitrarily provided by the :doc:"
 "`score types <Score types>` and are *usually* based on public/private "
 "testcases, but they could actually use other criteria."
-msgstr "評価手順に送られた提出については、参加者はそのコンパイルが成功したかどうかを知ることができます。参加者はさらに、その課題の公開テストケース(もし存在すれば)に対する点数を知ることもできます。それ以外のテストケース(非公開のテストケースと呼ばれる)に関する情報は全て、秘匿されます。しかし、参加者は自分の持っているトーケンを使用することで、特定の提出を \"アンロック\" するという選択をすることができます。参加者がそれをしたときは、全てのテストケースについての詳細な結果を知ることができるようになります。つまり、全てのテストケースが、公開テストケースであるかのように扱われます。それぞれのトークンは、一度使われると消費され、永遠に失われます。参加者は、自分が自由に使えるトークンのセットを所持していて、参加者がトークンを使うときはそこから消費します。このセットはCMSによって、コンテストの管理者が定義したルールにのっとって管理されています(指定の方法はこの節の中でおいおい説明します)。結果を公開にするか非公開にするかは、その問題の :doc:`スコアタイプ <Score types>` によって決められていることに注意してください。これは *普通は* 各テストケースが公開か非公開かという設定に基いて決められますが、実際には他の基準で決められることもありえます。"
+msgstr ""
+"評価手順に送られた提出については、参加者はそのコンパイルが成功したかどうかを"
+"知ることができます。参加者はさらに、その課題の公開テストケース(もし存在すれ"
+"ば)に対する点数を知ることもできます。それ以外のテストケース(非公開のテスト"
+"ケースと呼ばれる)に関する情報は全て、秘匿されます。しかし、参加者は自分の持っ"
+"ているトーケンを使用することで、特定の提出を \"アンロック\" するという選択を"
+"することができます。参加者がそれをしたときは、全てのテストケースについての詳"
+"細な結果を知ることができるようになります。つまり、全てのテストケースが、公開"
+"テストケースであるかのように扱われます。それぞれのトークンは、一度使われると"
+"消費され、永遠に失われます。参加者は、自分が自由に使えるトークンのセットを所"
+"持していて、参加者がトークンを使うときはそこから消費します。このセットはCMSに"
+"よって、コンテストの管理者が定義したルールにのっとって管理されています(指定の"
+"方法はこの節の中でおいおい説明します)。結果を公開にするか非公開にするかは、そ"
+"の問題の :doc:`スコアタイプ <Score types>` によって決められていることに注意し"
+"てください。これは *普通は* 各テストケースが公開か非公開かという設定に基いて"
+"決められますが、実際には他の基準で決められることもありえます。"
 
 # 31ef30c2c3eb4cac86f8138559b643b9
 #: ..\..\Configuring a contest.rst:38
@@ -136,7 +179,11 @@ msgid ""
 "submissions will be considered, together with the last submitted one, when "
 "computing the score for a task. See also :ref:`configuringacontest_score-"
 "rounding`."
-msgstr "トークンは点数の計算にも影響を与えます。つまり、それぞれの課題の点数を計算するにあたって、最後の提出だけではなく、トークンが使用された全ての提出も考慮されるということです。 :ref:`configuringacontest_score-rounding` も参照してください。"
+msgstr ""
+"トークンは点数の計算にも影響を与えます。つまり、それぞれの課題の点数を計算す"
+"るにあたって、最後の提出だけではなく、トークンが使用された全ての提出も考慮さ"
+"れるということです。 :ref:`configuringacontest_score-rounding` も参照してくだ"
+"さい。"
 
 # 3711e39b31734959a3bc42e12bf06ffb
 #: ..\..\Configuring a contest.rst:40
@@ -149,7 +196,17 @@ msgid ""
 "contest-tokens but there can be many sets of task-tokens (precisely one for "
 "every task). These sets are controlled independently by rules defined either "
 "on the contest or on the task."
-msgstr "CMSのトークンは、コンテストトークンと課題トークンの二種類があります。参加者が自分の提出をアンロックするためにトークンを1つ使用するとき、実際にはコンテストトークンと課題トークンが1つずつ、合計2つのトークンが使用されています。したがって、提出をアンロックするためには両方のトークンが残っていないといけないということになります。名前から推測できるとおり、コンテストトークンはコンテストに関連づけられている一方、課題トークンは課題ごとに存在しています。つまり、コンテストトークンのセットがちょうど1つ存在しているのに対して、課題トークンのセットは複数(正確には、課題1つにつき1セット)存在しているということです。これらのセットはコンテストで定義されたルールと課題に設定されたルールによってそれぞれ独立に制御することができます。"
+msgstr ""
+"CMSのトークンは、コンテストトークンと課題トークンの二種類があります。参加者が"
+"自分の提出をアンロックするためにトークンを1つ使用するとき、実際にはコンテスト"
+"トークンと課題トークンが1つずつ、合計2つのトークンが使用されています。した"
+"がって、提出をアンロックするためには両方のトークンが残っていないといけないと"
+"いうことになります。名前から推測できるとおり、コンテストトークンはコンテスト"
+"に関連づけられている一方、課題トークンは課題ごとに存在しています。つまり、コ"
+"ンテストトークンのセットがちょうど1つ存在しているのに対して、課題トークンの"
+"セットは複数(正確には、課題1つにつき1セット)存在しているということです。これ"
+"らのセットはコンテストで定義されたルールと課題に設定されたルールによってそれ"
+"ぞれ独立に制御することができます。"
 
 # 646d458c92a842b2a1028d0aed87b50f
 #: ..\..\Configuring a contest.rst:42
@@ -157,7 +214,9 @@ msgid ""
 "A token set can be disabled (i.e. there will never be tokens available for "
 "use), infinite (i.e. there will always be tokens tokens available for use) "
 "or finite."
-msgstr "トークンセットは、無効(つまり、利用可能なトークンは存在しえない)、無限(いつでも利用可能なトークンが存在する)、または有限、という3つの状態をもちます。"
+msgstr ""
+"トークンセットは、無効(つまり、利用可能なトークンは存在しえない)、無限(いつで"
+"も利用可能なトークンが存在する)、または有限、という3つの状態をもちます。"
 
 # b9fbdfa666a446399501e6b0eca7386f
 #: ..\..\Configuring a contest.rst:44
@@ -168,7 +227,13 @@ msgid ""
 "field has to be unset. For a set to be infinite, ``token_initial`` needs to "
 "be a non-negative integer, ``token_gen_number`` needs to be a positive "
 "integer and ``token_gen_time`` needs to be zero."
-msgstr "トークンを制御するルールは6つのパラメーターからなります： ``token_initial``, ``token_gen_number``, ``token_gen_time``, ``token_max``, ``token_total``, そして ``token_min_interval`` です。トークンセットを無効にする場合は、 ``token_initial`` に何も設定しないでください。また、トークンセットを無限にする場合には、 ``token_initial`` に非負整数、 ``token_gen_number`` に正整数、そして ``token_gen_time`` に0を設定する必要があります。"
+msgstr ""
+"トークンを制御するルールは6つのパラメーターからなります： ``token_initial``, "
+"``token_gen_number``, ``token_gen_time``, ``token_max``, ``token_total``, そ"
+"して ``token_min_interval`` です。トークンセットを無効にする場合は、 "
+"``token_initial`` に何も設定しないでください。また、トークンセットを無限にす"
+"る場合には、 ``token_initial`` に非負整数、 ``token_gen_number`` に正整数、そ"
+"して ``token_gen_time`` に0を設定する必要があります。"
 
 # ef3667e247ec40f68efe3d1480f544ad
 #: ..\..\Configuring a contest.rst:46
@@ -187,7 +252,20 @@ msgid ""
 "``token_max`` is set to a positive integer, the set cannot contain more than "
 "``token_max`` tokens, therefore generation of new tokens will stop at that "
 "value (unset ``token_max`` to disable this limit)."
-msgstr "それ以外の場合は、トークンセットは有限になります。つまり、トークンセットは事実上、その個数をあらわす非負整数のカウンターで表現できるということになります。コンテストが始まると、 (あるいは、ユーザーが自分のユーザー毎の時間枠を開始すると。 これについては :ref:`configuringacontest_usaco-like-contests` を参照) トークンセットは ``token_initial`` 個のトークンの集まりになります。 (つまり、カウンターの値が ``token_initial`` になる。) また、新しいトークンがコンテスト中に生成されることがあります： 開始から ``token_gen_time`` 分が経過するごとに、そのユーザーに ``token_gen_number`` 個の新たなトークンが与えられます。 ( ``token_gen_number`` を0に設定することで、トークンの生成を無効化できます。) ``token_max`` に正整数を設定すると、そのトークンセットは ``token_max`` 個より多くのトークンを保持することができなくなり、その個数に達したときは新しいトークンの生成は止まります。 ( ``token_max`` を設定しなければ、この制限は行われません。)"
+msgstr ""
+"それ以外の場合は、トークンセットは有限になります。つまり、トークンセットは事"
+"実上、その個数をあらわす非負整数のカウンターで表現できるということになりま"
+"す。コンテストが始まると、 (あるいは、ユーザーが自分のユーザー毎の時間枠を開"
+"始すると。 これについては :ref:`configuringacontest_usaco-like-contests` を参"
+"照) トークンセットは ``token_initial`` 個のトークンの集まりになります。 (つま"
+"り、カウンターの値が ``token_initial`` になる。) また、新しいトークンがコンテ"
+"スト中に生成されることがあります： 開始から ``token_gen_time`` 分が経過するご"
+"とに、そのユーザーに ``token_gen_number`` 個の新たなトークンが与えられます。 "
+"( ``token_gen_number`` を0に設定することで、トークンの生成を無効化できま"
+"す。) ``token_max`` に正整数を設定すると、そのトークンセットは ``token_max`` "
+"個より多くのトークンを保持することができなくなり、その個数に達したときは新し"
+"いトークンの生成は止まります。 ( ``token_max`` を設定しなければ、この制限は行"
+"われません。)"
 
 # f92a7cade56142b1a0772b16124324d0
 #: ..\..\Configuring a contest.rst:48
@@ -198,7 +276,14 @@ msgid ""
 "be zero), and they cannot use more that ``token_total`` tokens in total "
 "(this parameter can be unset). Note that ``token_total`` has no effect if "
 "the token set is infinite."
-msgstr "トークンの使用は、 ``token_min_interval`` と ``token_total`` によって制限することができます： つまり、ユーザーはトークンを使用してから次にトークンを使用するまで最低でも ``token_min_interval`` 秒待つ必要があります。 (このパラメーターは0に設定することができます。) そして、ユーザーは合計 ``token_total`` 個より多くのトークンを使うことはできません。 (このパラメーターを設定しないこともできます。) トークンセットが無限のときは、``token_total`` の設定は意味を持たないことに注意してください。"
+msgstr ""
+"トークンの使用は、 ``token_min_interval`` と ``token_total`` によって制限する"
+"ことができます： つまり、ユーザーはトークンを使用してから次にトークンを使用す"
+"るまで最低でも ``token_min_interval`` 秒待つ必要があります。 (このパラメー"
+"ターは0に設定することができます。) そして、ユーザーは合計 ``token_total`` 個"
+"より多くのトークンを使うことはできません。 (このパラメーターを設定しないこと"
+"もできます。) トークンセットが無限のときは、``token_total`` の設定は意味を持"
+"たないことに注意してください。"
 
 # 401caa30ae864ce69bc095430858db73
 #: ..\..\Configuring a contest.rst:50
@@ -213,7 +298,17 @@ msgid ""
 "and when one type is infinite it just shows information about the other "
 "type, calling it simply \"token\" (i.e. removing the \"contest-\" or \"task-"
 "\" prefix)."
-msgstr "コンテストトークンと課題トークンの両方のトークンセットを有限に設定すると、参加者にとっても管理者にとっても大変ややこしいことになりえます。したがって、トークンが使えるかどうかを、コンテストか課題のどちらか一方のみで判断できるように、どちらか一方のみで制限を設定し、もう一方の種別は無限に設定するのが一般的です。 (例えば、使えるトークンをコンテスト全体で制限したいだけならば、コンテストトークンを有限に設定して、課題トークンは全て無限に設定します。) ContestWebServerはこうした \"実装の詳細\" をわかっているので、片方のトークンタイプが無限ならば、もう片方の情報についてのみ、単に \"トークン\" という用語を使って(つまり、\"コンテストトークン\" とか \"課題トークン\" といった具合にせずに)表示します。"
+msgstr ""
+"コンテストトークンと課題トークンの両方のトークンセットを有限に設定すると、参"
+"加者にとっても管理者にとっても大変ややこしいことになりえます。したがって、"
+"トークンが使えるかどうかを、コンテストか課題のどちらか一方のみで判断できるよ"
+"うに、どちらか一方のみで制限を設定し、もう一方の種別は無限に設定するのが一般"
+"的です。 (例えば、使えるトークンをコンテスト全体で制限したいだけならば、コン"
+"テストトークンを有限に設定して、課題トークンは全て無限に設定します。) "
+"ContestWebServerはこうした \"実装の詳細\" をわかっているので、片方のトークン"
+"タイプが無限ならば、もう片方の情報についてのみ、単に \"トークン\" という用語"
+"を使って(つまり、\"コンテストトークン\" とか \"課題トークン\" といった具合に"
+"せずに)表示します。"
 
 # f9ffe9fdbb354cf18623768c14d48378
 #: ..\..\Configuring a contest.rst:52
@@ -222,14 +317,21 @@ msgid ""
 "the user, computed dynamically every time. Yet, once a token is used, a "
 "Token object will be created, stored in the database and associated with the "
 "submission it was used on."
-msgstr "なお、 \"トークンセット\" というのは、実体のあるオブジェクトではないことに注意してください： これは単にカウンターが毎回その場で計算され、ユーザーに表示されているに過ぎないということです。ただし、一度トークンが使用されれば、対応するTokenオブジェクトが生成され、データベースに保存されて、これが使われた提出に関連付けられます。"
+msgstr ""
+"なお、 \"トークンセット\" というのは、実体のあるオブジェクトではないことに注"
+"意してください： これは単にカウンターが毎回その場で計算され、ユーザーに表示さ"
+"れているに過ぎないということです。ただし、一度トークンが使用されれば、対応す"
+"るTokenオブジェクトが生成され、データベースに保存されて、これが使われた提出に"
+"関連付けられます。"
 
 # e25597d20eec4786ac1316e2915225bf
 #: ..\..\Configuring a contest.rst:54
 msgid ""
 "Changing token rules during a contest may lead to inconsistencies. Do so at "
 "your own risk!"
-msgstr "トークンに関するルールをコンテスト中に変更すると、不整合が発生するかもしれません。これを行うときは、自分の責任で行なってください！"
+msgstr ""
+"トークンに関するルールをコンテスト中に変更すると、不整合が発生するかもしれま"
+"せん。これを行うときは、自分の責任で行なってください！"
 
 # e1751491794d46329a973f847adbc461
 #: ..\..\Configuring a contest.rst:60
@@ -244,7 +346,11 @@ msgid ""
 "probably want to show only a small number of these decimal places in the "
 "scoreboard. This can be achieved with the ``score_precision`` fields on the "
 "contest and tasks."
-msgstr "使用するスコアタイプとその設定によっては、提出に対して浮動小数点数で点数が与えられることがあります。コンテスト管理者は、もしかしたらその小数点以下の数桁だけをスコアボードに表示したいと思うかもしれません。これは、コンテストと課題の ``score_precision`` フィールドを設定することで達成できます。"
+msgstr ""
+"使用するスコアタイプとその設定によっては、提出に対して浮動小数点数で点数が与"
+"えられることがあります。コンテスト管理者は、もしかしたらその小数点以下の数桁"
+"だけをスコアボードに表示したいと思うかもしれません。これは、コンテストと課題"
+"の ``score_precision`` フィールドを設定することで達成できます。"
 
 # eeb151924c3e41eaa1fd3cf721940368
 #: ..\..\Configuring a contest.rst:64
@@ -255,7 +361,13 @@ msgid ""
 "of the task. The score of a user on the whole contest is the sum of the "
 "*rounded* scores on each task. This score itself is then rounded to a number "
 "of decimal places equal to the ``score_precision`` field of the contest."
-msgstr "あるユーザーのある課題に対する点数は、 トークンを使用した提出と、最後の提出のなかで、最大の点数です。この点数は10進法で小数点以下、その課題に設定された ``score_precision`` 桁までで丸められます。あるユーザーのコンテスト全体における点数は 各課題の *丸められた後の* 点数の合計値になります。この点数自体もさらに、10進法で小数点以下、コンテストに設定された ``score_precision`` 桁まで丸められます。"
+msgstr ""
+"あるユーザーのある課題に対する点数は、 トークンを使用した提出と、最後の提出の"
+"なかで、最大の点数です。この点数は10進法で小数点以下、その課題に設定された "
+"``score_precision`` 桁までで丸められます。あるユーザーのコンテスト全体におけ"
+"る点数は 各課題の *丸められた後の* 点数の合計値になります。この点数自体もさら"
+"に、10進法で小数点以下、コンテストに設定された ``score_precision`` 桁まで丸め"
+"られます。"
 
 # 8f25f425e44f42ee947802562e01ee6b
 #: ..\..\Configuring a contest.rst:66
@@ -266,7 +378,12 @@ msgid ""
 "to configure that (note that the score of the submission is the sum of the "
 "*unrounded* scores of the subtasks). That will be changed soon. See :"
 "gh_issue:`33`."
-msgstr "各スコアタイプが得点計算の途中で使用する \"内部的な\" 点数 (例えば、小課題の点数) はこの方法で丸められるわけではありません。今のところ、小課題の点数は常に10進法で小数点以下2桁で丸められ、これを設定する方法はありません。 (提出に対する点数は小課題の *丸める前の* 点数の合計であることに注意してください。) これは近いうちに修正される予定です。 詳細は :gh_issue:`33` を参照してください。"
+msgstr ""
+"各スコアタイプが得点計算の途中で使用する \"内部的な\" 点数 (例えば、小課題の"
+"点数) はこの方法で丸められるわけではありません。今のところ、小課題の点数は常"
+"に10進法で小数点以下2桁で丸められ、これを設定する方法はありません。 (提出に対"
+"する点数は小課題の *丸める前の* 点数の合計であることに注意してください。) こ"
+"れは近いうちに修正される予定です。 詳細は :gh_issue:`33` を参照してください。"
 
 # 0d2d39df167f43d9947a116c1076b96f
 #: ..\..\Configuring a contest.rst:68
@@ -277,7 +394,13 @@ msgid ""
 "these values are also updated on the RankingWebServers. To do that you can "
 "either restart ScoringService or update the data manually (see :doc:"
 "`RankingWebServer` for further information)."
-msgstr "丸める前の点数はデータベース内に保管されていて、表示レベルにおいてのみ丸められているので、提出の点数計算を再度行うことなく ``score_precision`` の値を変更することができます。ただし、RankingWebServerにもこの値の変更を反映する必要があります。ScoringServiceを再起動するか、データを手動でアップデートすることで、変更を反映できます。 (より詳しい情報は、 :doc:`RankingWebServer` を見てください。)"
+msgstr ""
+"丸める前の点数はデータベース内に保管されていて、表示レベルにおいてのみ丸めら"
+"れているので、提出の点数計算を再度行うことなく ``score_precision`` の値を変更"
+"することができます。ただし、RankingWebServerにもこの値の変更を反映する必要が"
+"あります。ScoringServiceを再起動するか、データを手動でアップデートすること"
+"で、変更を反映できます。 (より詳しい情報は、 :doc:`RankingWebServer` を見てく"
+"ださい。)"
 
 # b9ba758d23ff4446b95c4d2d81463d31
 #: ..\..\Configuring a contest.rst:72
@@ -294,7 +417,13 @@ msgid ""
 "reference version in case of questions or appeals) or the translations for "
 "the languages understood by that particular user. To do that the "
 "``primary_statements`` field of the tasks and the users has to be used."
-msgstr "ある課題の問題文が多数ある場合(大抵は、同じ問題文に対する異なる翻訳があるという場合です)、コンテスト管理者はそのうちのいくつかをハイライトして表示したいと思うかもしれません。それは例えば、問題文の \"オフィシャルな\" バージョン (質問や抗議において参照されるとみなされるバージョン) や、ある特定のユーザーが理解できる言語への翻訳バージョンなどが考えられます。各課題と各ユーザーに存在する ``primary_statements`` フィールドを使うことで、これを実現できます。"
+msgstr ""
+"ある課題の問題文が多数ある場合(大抵は、同じ問題文に対する異なる翻訳があるとい"
+"う場合です)、コンテスト管理者はそのうちのいくつかをハイライトして表示したいと"
+"思うかもしれません。それは例えば、問題文の \"オフィシャルな\" バージョン (質"
+"問や抗議において参照されるとみなされるバージョン) や、ある特定のユーザーが理"
+"解できる言語への翻訳バージョンなどが考えられます。各課題と各ユーザーに存在す"
+"る ``primary_statements`` フィールドを使うことで、これを実現できます。"
 
 # 1ce0fef978b24276b22cbe34ef2a389c
 #: ..\..\Configuring a contest.rst:76
@@ -306,7 +435,14 @@ msgid ""
 "of strings. Each item in this object specifies a task by its name and "
 "provides a list of language codes of the statements to highlight. For "
 "example ``{\"task1\": [\"de\"], \"task2\": [\"de_CH\"]}``."
-msgstr "課題に対する ``primary_statements`` フィールドは、JSONエンコードされた文字列のリストです： ここには全てのユーザーに対してハイライト表示する問題文の言語コードを指定します。正しい指定の例： ``[\"en_US\", \"it\"]`` 。 ユーザーに対する ``primary_statements`` フィールドは、JSONエンコードされた文字列のリストのオブジェクトです。このオブジェクトの各要素には、課題をその名前で指定し、ハイライト表示したい言語コードのリストを与えます。例えば： ``{\"task1\": [\"de\"], \"task2\": [\"de_CH\"]}`` 。"
+msgstr ""
+"課題に対する ``primary_statements`` フィールドは、JSONエンコードされた文字列"
+"のリストです： ここには全てのユーザーに対してハイライト表示する問題文の言語"
+"コードを指定します。正しい指定の例： ``[\"en_US\", \"it\"]`` 。 ユーザーに対"
+"する ``primary_statements`` フィールドは、JSONエンコードされた文字列のリスト"
+"のオブジェクトです。このオブジェクトの各要素には、課題をその名前で指定し、ハ"
+"イライト表示したい言語コードのリストを与えます。例えば： ``{\"task1\": [\"de"
+"\"], \"task2\": [\"de_CH\"]}`` 。"
 
 # 3984c0e230504cdbb021edd38e7a65af
 #: ..\..\Configuring a contest.rst:78
@@ -317,7 +453,14 @@ msgid ""
 "iso/language_codes.htm>`_ and ``YY`` is an `ISO 3166-1 code <http://www.iso."
 "org/iso/country_codes.htm>`_) will be recognized and presented accordingly. "
 "For example ``en_AU`` will be shown as \"English (Australia)\"."
-msgstr "ハイライト表示されているかどうかに関わらず、ユーザーはいつでも全ての問題文にアクセスできることに注意してください。また、 ``xx`` や ``xx_YY`` といった形の言語コード (ここで、 ``xx`` は `ISO 639-1 言語名コード <http://www.iso.org/iso/language_codes.htm>`_ で、 ``YY`` は `ISO 3166-1 国名コード <http://www.iso.org/iso/country_codes.htm>`_ ) が認識され、それに応じて表示されるということにも注意してください。例えば、 ``en_AU`` は \"English (Australia) \" と表示されます。"
+msgstr ""
+"ハイライト表示されているかどうかに関わらず、ユーザーはいつでも全ての問題文に"
+"アクセスできることに注意してください。また、 ``xx`` や ``xx_YY`` といった形の"
+"言語コード (ここで、 ``xx`` は `ISO 639-1 言語名コード <http://www.iso.org/"
+"iso/language_codes.htm>`_ で、 ``YY`` は `ISO 3166-1 国名コード <http://www."
+"iso.org/iso/country_codes.htm>`_ ) が認識され、それに応じて表示されるというこ"
+"とにも注意してください。例えば、 ``en_AU`` は \"English (Australia) \" と表示"
+"されます。"
 
 # 57b679854ed247ccb1c128e999d861df
 #: ..\..\Configuring a contest.rst:82
@@ -332,7 +475,12 @@ msgid ""
 "and per-contest basis with the ``timezone`` field. It needs to contain a "
 "string in the format ``Europe/Rome`` (actually, any string recognized by "
 "`pytz <http://pytz.sourceforge.net/>`_ will work)."
-msgstr "CMSは全ての時刻データをUTCタイムスタンプで保管し、表示するときにそれを適切なタイムゾーンに変換します。このタイムゾーンはユーザー毎およびコンテスト毎を基準に ``timezone`` フィールドで設定できます。このフィールドは、 ``Europe/Rome`` というような形式の文字列を含んでいる必要があります。 (実際は、 `pytz <http://pytz.sourceforge.net/>`_ が認識する文字列なら何でもうまくいきます。)"
+msgstr ""
+"CMSは全ての時刻データをUTCタイムスタンプで保管し、表示するときにそれを適切な"
+"タイムゾーンに変換します。このタイムゾーンはユーザー毎およびコンテスト毎を基"
+"準に ``timezone`` フィールドで設定できます。このフィールドは、 ``Europe/"
+"Rome`` というような形式の文字列を含んでいる必要があります。 (実際は、 `pytz "
+"<http://pytz.sourceforge.net/>`_ が認識する文字列なら何でもうまくいきます。)"
 
 # 2dd745ba7973463e8a32f850a8c86ca5
 #: ..\..\Configuring a contest.rst:86
@@ -342,7 +490,12 @@ msgid ""
 "unrecognized (for example it is the empty string), CWS will fallback to the "
 "contest's timezone. If it is again unable to interpret that string it will "
 "use the local time of the server."
-msgstr "ContestWebServerがユーザーにタイムスタンプを表示する必要があるときは、まずはじめにユーザーのタイムゾーンに従って表示しようと試みます。もしタイムゾーンを定義する文字列の認識に失敗したら (例えばそれが空の文字列だったら)、 CWSは代わりにコンテストのタイムゾーンで表示しようとします。もしコンテストのタイムゾーンを表す文字列の解釈にも失敗したら、CWSはサーバーの現地時間を利用します。"
+msgstr ""
+"ContestWebServerがユーザーにタイムスタンプを表示する必要があるときは、まずは"
+"じめにユーザーのタイムゾーンに従って表示しようと試みます。もしタイムゾーンを"
+"定義する文字列の認識に失敗したら (例えばそれが空の文字列だったら)、 CWSは代わ"
+"りにコンテストのタイムゾーンで表示しようとします。もしコンテストのタイムゾー"
+"ンを表す文字列の解釈にも失敗したら、CWSはサーバーの現地時間を利用します。"
 
 # b1e79b56c4a944649653806175a46e67
 #: ..\..\Configuring a contest.rst:92
@@ -359,7 +512,14 @@ msgid ""
 "login (usually) succeeds. The user needs to login again if he/she doesn't "
 "navigate the site for ``cookie_duration`` seconds (specified in the :file:"
 "`cms.conf` file)."
-msgstr "ユーザーはユーザー名とパスワードを使ってCWSにログインします。ユーザー名とパスワードはそれぞれ、 ``username`` と ``password`` フィールドに (平文で！) 指定する必要があります。この認証手順は必ず行われる必要があり (つまり、自動ログインや \"ゲスト\" セッションなどの方法はない)、 それがマッチすれば、ログインは(普通は)成功します。もしユーザーが ``cookie_duration`` 秒 ( :file:`cms.conf` ファイルで指定されている) 以上の間このサイトを閲覧しなかったら、再度ログインし直す必要があります。"
+msgstr ""
+"ユーザーはユーザー名とパスワードを使ってCWSにログインします。ユーザー名とパス"
+"ワードはそれぞれ、 ``username`` と ``password`` フィールドに (平文で！) 指定"
+"する必要があります。この認証手順は必ず行われる必要があり (つまり、自動ログイ"
+"ンや \"ゲスト\" セッションなどの方法はない)、 それがマッチすれば、ログインは"
+"(普通は)成功します。もしユーザーが ``cookie_duration`` 秒 ( :file:`cms.conf` "
+"ファイルで指定されている) 以上の間このサイトを閲覧しなかったら、再度ログイン"
+"し直す必要があります。"
 
 # 1d50e94707eb40b8ae177b1f7380b5d5
 #: ..\..\Configuring a contest.rst:96
@@ -371,14 +531,24 @@ msgid ""
 "be skipped, even if ``ip_lock`` is ``true``. Note that if a reverse-proxy "
 "(like nginx) is in use then it is necessary to set ``is_proxy_used`` (in :"
 "file:`cms.conf`) to ``true``."
-msgstr "実は、ログインが失敗する別の要因もあります。もし ``ip_lock`` オプション ( :file:`cms.conf` の) が ``true`` に設定されていて、ログインを試みたIPアドレスが指定されたユーザーの ``ip`` フィールドの値と異なっていたら、ログインは失敗します。ただし、もし ``ip`` が ``0.0.0.0`` ならば、 ``ip_lock`` が ``true`` に設定されている場合でも、このチェックはスキップされます。もし(nginxなどの)リバースプロキシを使っている場合は、 ``is_proxy_used`` ( :file:`cms.conf` の) を ``true`` に設定する必要があることに注意してください。"
+msgstr ""
+"実は、ログインが失敗する別の要因もあります。もし ``ip_lock`` オプション ( :"
+"file:`cms.conf` の) が ``true`` に設定されていて、ログインを試みたIPアドレス"
+"が指定されたユーザーの ``ip`` フィールドの値と異なっていたら、ログインは失敗"
+"します。ただし、もし ``ip`` が ``0.0.0.0`` ならば、 ``ip_lock`` が ``true`` "
+"に設定されている場合でも、このチェックはスキップされます。もし(nginxなどの)リ"
+"バースプロキシを使っている場合は、 ``is_proxy_used`` ( :file:`cms.conf` の) "
+"を ``true`` に設定する必要があることに注意してください。"
 
 # a54b94f533f1499d8cf620f3727ec431
 #: ..\..\Configuring a contest.rst:98
 msgid ""
 "The login can also fail if ``block_hidden_users`` (in :file:`cms.conf`) is "
 "``true`` and the user one wants to login as has the ``hidden`` field set."
-msgstr "また、 ``block_hidden_users`` ( :file:`cms.conf` の) が ``true`` になっていて、ログインしようとしているユーザーの ``hidden`` フィールドが設定されている場合も、ログインは失敗します。"
+msgstr ""
+"また、 ``block_hidden_users`` ( :file:`cms.conf` の) が ``true`` になってい"
+"て、ログインしようとしているユーザーの ``hidden`` フィールドが設定されている"
+"場合も、ログインは失敗します。"
 
 # babbb86b574e4859a9542d83e73d1d79
 #: ..\..\Configuring a contest.rst:104
@@ -405,7 +575,24 @@ msgid ""
 "reached, whichever comes first. After that the interface will be identical "
 "to the post-contest one: the user won't be able to do anything. See :"
 "gh_issue:`61`."
-msgstr "`USACO <http://usaco.org/>`_ の最も特異な性質は、コンテスト自体は何日も長い間開催されているけれども、それぞれのユーザーは自分がはじめてログインしてから数時間の間だけ競技に参加できる (そして、それ以降は提出することはできない) という点です。 これは、コンテストの ``per_user_time`` フィールドを設定することで、CMSでも実現することができます。このフィールドに値が設定されていないときは、そのコンテストは \"普通に\" 振舞います。つまり、全てのユーザーがコンテストの ``start`` から ``stop`` までの間に解答を提出することができます。いっぽう、もし ``per_user_time`` に正整数を設定したときは、ユーザーはある決まった長さの時間だけ参加できます。具体的には、ユーザーがログインすると、コンテスト前に表示されるのと似たような、しかし \"開始\" ボタンがついている画面が表示されます。このボタンを押すことで、そのユーザーが競技に参加できる時間枠が開始します。(つまり、問題文を読んだり、添付のファイルをダウンロードしたり、解答を提出したり、トークンを使ったり、ユーザーテストを送ったり、などなど) この時間枠は、 ``per_user_time`` 秒が経過するか、 コンテストの ``stop`` 時刻になるか、いずれか早い方が来た時点で終了します。時間枠が終了したあとは、インターフェースはコンテスト後のそれと同様のものになります： つまり、ユーザーは何もできなくなります。 :gh_issue:`61` も参照してください。"
+msgstr ""
+"`USACO <http://usaco.org/>`_ の最も特異な性質は、コンテスト自体は何日も長い間"
+"開催されているけれども、それぞれのユーザーは自分がはじめてログインしてから数"
+"時間の間だけ競技に参加できる (そして、それ以降は提出することはできない) とい"
+"う点です。 これは、コンテストの ``per_user_time`` フィールドを設定すること"
+"で、CMSでも実現することができます。このフィールドに値が設定されていないとき"
+"は、そのコンテストは \"普通に\" 振舞います。つまり、全てのユーザーがコンテス"
+"トの ``start`` から ``stop`` までの間に解答を提出することができます。いっぽ"
+"う、もし ``per_user_time`` に正整数を設定したときは、ユーザーはある決まった長"
+"さの時間だけ参加できます。具体的には、ユーザーがログインすると、コンテスト前"
+"に表示されるのと似たような、しかし \"開始\" ボタンがついている画面が表示され"
+"ます。このボタンを押すことで、そのユーザーが競技に参加できる時間枠が開始しま"
+"す。(つまり、問題文を読んだり、添付のファイルをダウンロードしたり、解答を提出"
+"したり、トークンを使ったり、ユーザーテストを送ったり、などなど) この時間枠"
+"は、 ``per_user_time`` 秒が経過するか、 コンテストの ``stop`` 時刻になるか、"
+"いずれか早い方が来た時点で終了します。時間枠が終了したあとは、インターフェー"
+"スはコンテスト後のそれと同様のものになります： つまり、ユーザーは何もできなく"
+"なります。 :gh_issue:`61` も参照してください。"
 
 # 31f152c2530f47348f6c4d49de7e7f4b
 #: ..\..\Configuring a contest.rst:108
@@ -415,7 +602,13 @@ msgid ""
 "time-frame (but we suggest to use ``extra_time`` for that, explained in :ref:"
 "`configuringacontest_extra-time`) or unset it to make the user able to start "
 "its time-frame again. Do so at your own risk!"
-msgstr "ユーザーが \"開始\" ボタンをクリックした時刻は、ユーザーの ``starting_time`` フィールドに記録されます。これを変更することでそのユーザーの時間枠をずらしたり(ただし、そうしたい場合は :ref:`configuringacontest_extra-time` で説明されている ``extra_time`` を使うことを勧めます)、このフィールドを削除することでそのユーザーが時間枠を再スタートできるようにすることができます。これを行うときは、自身の責任で行なってください！"
+msgstr ""
+"ユーザーが \"開始\" ボタンをクリックした時刻は、ユーザーの ``starting_time`` "
+"フィールドに記録されます。これを変更することでそのユーザーの時間枠をずらした"
+"り(ただし、そうしたい場合は :ref:`configuringacontest_extra-time` で説明され"
+"ている ``extra_time`` を使うことを勧めます)、このフィールドを削除することでそ"
+"のユーザーが時間枠を再スタートできるようにすることができます。これを行うとき"
+"は、自身の責任で行なってください！"
 
 # e674852f68d644299da3b902504b5a62
 #: ..\..\Configuring a contest.rst:114
@@ -432,7 +625,14 @@ msgid ""
 "is for. The time-frame in which the user is allowed to submit solutions is "
 "expanded by its ``extra_time``, even if this would lead the user to be able "
 "to submit after the end of the contest."
-msgstr "コンテスト管理者は、ユーザーが \"意図された\" 時間枠の中で少しの間競技に参加することができなくなるような出来事(例えば、ハードウェアの故障) が発生したときに、その埋め合わせのために、一部のユーザーが競技できる時間を少し増やしたいと思うことがあるかもしれません。 ユーザー毎の ``extra_time`` フィールドはそのために存在しています。そのユーザーが解答を提出することが許される時間枠は、 ``extra_time`` だけ延長されます。これによってコンテストの終了時刻以降にもそのユーザーが提出可能になる場合でも、時間枠は延長されます。"
+msgstr ""
+"コンテスト管理者は、ユーザーが \"意図された\" 時間枠の中で少しの間競技に参加"
+"することができなくなるような出来事(例えば、ハードウェアの故障) が発生したとき"
+"に、その埋め合わせのために、一部のユーザーが競技できる時間を少し増やしたいと"
+"思うことがあるかもしれません。 ユーザー毎の ``extra_time`` フィールドはそのた"
+"めに存在しています。そのユーザーが解答を提出することが許される時間枠は、 "
+"``extra_time`` だけ延長されます。これによってコンテストの終了時刻以降にもその"
+"ユーザーが提出可能になる場合でも、時間枠は延長されます。"
 
 # de8a67074ccc414597d665008e54f679
 #: ..\..\Configuring a contest.rst:118
@@ -443,7 +643,12 @@ msgid ""
 "of tokens you expect a user to have at his/her disposal during the whole "
 "contest (if it doesn't already have a value less than or equal to this). See "
 "also :gh_issue:`29`."
-msgstr "この延長時間の間も、ユーザーは新しく生成されたトークンを受け取ることに注意してください。もし、そのユーザーが他の参加者より多くのトークンを受け取るのが好ましくないときは、前述の ``token_total`` パラメーターを、コンテスト期間全体でそのユーザーが自由に使えるトークン数として好ましい値に設定してください(もしこの値が既にその値以下ではないのならば)。 :gh_issue:`29` も参照してください。"
+msgstr ""
+"この延長時間の間も、ユーザーは新しく生成されたトークンを受け取ることに注意し"
+"てください。もし、そのユーザーが他の参加者より多くのトークンを受け取るのが好"
+"ましくないときは、前述の ``token_total`` パラメーターを、コンテスト期間全体で"
+"そのユーザーが自由に使えるトークン数として好ましい値に設定してください(もしこ"
+"の値が既にその値以下ではないのならば)。 :gh_issue:`29` も参照してください。"
 
 # cc8cfc1c167d44e6b2f12cd4046a1917
 #: ..\..\Configuring a contest.rst:120
@@ -452,4 +657,8 @@ msgid ""
 "considered when computing the score, even if the ``extra_time`` field of the "
 "user is later reset to zero (for example in case the user loses the appeal): "
 "you need to completely delete them from the database."
-msgstr "延長時間の間に送られた提出は、そのユーザーの ``extra_time`` フィールドがあとで0にリセット(例えば、そのユーザーに延長時間を与える理由がなくなったとき。) されても、点数計算で考慮され続けます： そのため、それらの提出をデータベースから完全に消去する必要があります。"
+msgstr ""
+"延長時間の間に送られた提出は、そのユーザーの ``extra_time`` フィールドがあと"
+"で0にリセット(例えば、そのユーザーに延長時間を与える理由がなくなったとき。) "
+"されても、点数計算で考慮され続けます： そのため、それらの提出をデータベースか"
+"ら完全に消去する必要があります。"

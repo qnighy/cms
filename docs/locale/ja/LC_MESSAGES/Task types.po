@@ -2,12 +2,12 @@
 # Copyright (C) 2013, The CMS development team
 # This file is distributed under the same license as the CMS package.
 # Masaki Hara <ackie.h.gmai@gmail.com>, 2013.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: CMS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-03 09:00\n"
+"POT-Creation-Date: 2013-03-04 08:01\n"
 "PO-Revision-Date: 2013-03-03 17:42+0900\n"
 "Last-Translator: Masaki Hara <ackie.h.gmai@gmail.com>\n"
 "Language-Team: Japanese\n"
@@ -20,12 +20,12 @@ msgstr ""
 # 41d43ac8e5964f44be5af6223e825053
 #: ..\..\Task types.rst:2
 msgid "Task types"
-msgstr ""
+msgstr "課題タイプ"
 
 # c1f9c10648ad478b92eeecd3b36bcf7e
 #: ..\..\Task types.rst:5
 msgid "Introduction"
-msgstr ""
+msgstr "はじめに"
 
 # 487182bd5fc048819f700f2c47e806b3
 #: ..\..\Task types.rst:7
@@ -33,7 +33,7 @@ msgid ""
 "In the CMS terminology, the task type of a task describes how to compile and "
 "evaluate the submissions for that task. In particular, they may require "
 "additional files called managers, provided by the admins."
-msgstr ""
+msgstr "CMSの用語では、ある課題の課題タイプというのは、その課題に対する提出をどのようにコンパイルして評価するかを説明する情報のことです。特に、課題タイプによっては、マネージャーと呼ばれる追加のファイルを管理者が提供する必要がある場合があります。"
 
 # 35f7a1d271444db78dca580dd85f022c
 #: ..\..\Task types.rst:9
@@ -42,7 +42,7 @@ msgid ""
 "be empty): the compilation, that usually creates an executable from the "
 "submitted files, and the evaluation, that runs this executable against the "
 "set of testcases and produces an outcome for each of them."
-msgstr ""
+msgstr "提出物は、課題タイプに関係する2つのステップ (それが空になる可能性もあります) を通ります： 1つはコンパイルで、これは通常、提出されたファイルから実行可能ファイルを生成します。2つ目は評価で、生成された実行可能ファイルを、テストケースの集合に対して実行し、それぞれに対する実行結果を生成します。"
 
 # 334646809da94f0d9937d9f56bb62e34
 #: ..\..\Task types.rst:11
@@ -54,12 +54,12 @@ msgid ""
 "task type. Hence, the task type doesn't need to know the meaning of the "
 "outcome, which is instead known by the grader and by the :doc:`score type "
 "<Score types>`."
-msgstr ""
+msgstr "実行結果がそのまま、提出物の得点に結び付けられるとは限らないことに注意してください： 典型的には、実行結果はグレーダー(CMSに渡される実行可能ファイルまたはプログラムスタブ)かコンパレーター(参加者のプログラムの出力が正しいかどうかを判定するプログラム)によって計算されるものであって、課題タイプによって計算されるものではありません。よって、課題タイプは実行結果の意味を知っている必要はなく、代わりにグレーダーと :doc:`スコアタイプ <Score types>` がその意味を理解します。"
 
 # 876c18ecca98473f916b6b488c025597
 #: ..\..\Task types.rst:15
 msgid "Standard task types"
-msgstr ""
+msgstr "標準の課題タイプ"
 
 # 91e0a0dd16624c90a61d073cc60a9396
 #: ..\..\Task types.rst:17
@@ -70,26 +70,26 @@ msgid ""
 "should be usable but it is less tested than the first two. The last one, "
 "TwoSteps, is probably not ready for usage in a public competition. The first "
 "two task types cover all but three of the IOI tasks up to IOI 2012."
-msgstr ""
+msgstr "CMSには4つの課題タイプが付属しています： Batch(バッチ)、 OutputOnly(出力のみ)、 Communication(対話形式)、 TwoSteps(2段階)。最初の2つはよくテストされており、不正の試みに対して十分強いと言えます。また、評価にかかる時間の観点からも安定していると言えます。Communicationは使い物にはなるレベルですが、はじめの2つに比べると十分テストされているとは言えません。最後の1つ、TwoStepsは、公開コンテストで使えるまでの信頼性はないかもしれません。はじめの3つの課題タイプで、IOI 2012までの問題のうち3個を除く全部をカバーできます。"
 
 # 0ee4af130c9b4c229c313f1bc00adc22
 #: ..\..\Task types.rst:19
 msgid ""
 "You can configure, for each task, the behavior of these task types on the "
 "task's page in AdminWebServer."
-msgstr ""
+msgstr "各課題について、これらの課題タイプの挙動を、AdminWebServerの課題のページから設定することができます。"
 
 # 267822795e264306a7598d6e4c4ad42e
 #: ..\..\Task types.rst:25
 msgid "Batch"
-msgstr ""
+msgstr "Batch(バッチ)"
 
 # 2bd38fe504ab49f48c46fed45ce4e730
 #: ..\..\Task types.rst:27
 msgid ""
 "In a Batch task, the contestant submits a single source file, in one of the "
 "three supported languages: C, C++, or Pascal."
-msgstr ""
+msgstr "Batch(バッチ)課題では、参加者は3つのサポートされている言語(C, C++, Pascal)のうちのいずれかの、単一のソースファイルを提出します。"
 
 # 6217b2cca6674f47b5c5df9c1af340c7
 #: ..\..\Task types.rst:29
@@ -100,14 +100,14 @@ msgid ""
 "produced by the contestant's program is then compared to the correct output "
 "either using a simple diff algorithm (that ignores whitespaces) or using a "
 "comparator, provided by the admins."
-msgstr ""
+msgstr "ソースファイルはそれ単体で、あるいはコンテスト管理者が提供するグレーダーと一緒に、コンパイルされます。結果得られる実行可能ファイルは、標準入力から入力して標準出力へ出力するか、指定された名前の2つのファイルに対して読み書きを行います。参加者のプログラムが生み出した出力は、単なるdiffアルゴリズム(空白を無視する)またはコンテスト管理者が提供するコンパレーターによって、正解の出力と比較されます。"
 
 # 7f403f3113244589aa1610119d19c464
 #: ..\..\Task types.rst:31
 msgid ""
 "The three choices (standalone or with a grader, standard input and output or "
 "files, diff or comparator) are specified through parameters."
-msgstr ""
+msgstr "3つの選択肢(単体またはグレーダーと共にコンパイル、標準入出力またはファイル、diffまたはコンパレーター) はパラメーターを通じて指定します。"
 
 # 7181e7690a4e4876b7d138ac54f81db1
 #: ..\..\Task types.rst:33
@@ -118,7 +118,7 @@ msgid ""
 "file:`grader.cpp` and :file:`grader.pas`. If header files are needed, they "
 "can be provided with names :file:`{task_name}.h` or :file:`{task_name}lib."
 "pas`."
-msgstr ""
+msgstr "(参加者が1つ以上の関数を書くだけで済むように)入力の読み込みと出力の書き出しの面倒を見るグレーダーを提供したい場合は、コンテスト管理者は3つのマネージャー、 :file:`grader.c`, :file:`grader.cpp`, そして :file:`grader.pas` を提供する必要があります。ヘッダーファイルが必要なら、それらは :file:`{task_name}.h` または :file:`{task_name}lib.pas` という名前で提供します。"
 
 # 67e160c1d749413fbcc08075c553ef21
 #: ..\..\Task types.rst:35
@@ -130,7 +130,7 @@ msgid ""
 "output and that must write on standard output the outcome (that is going to "
 "be used by the score type, usually a float between 0.0 and 1.0), and on "
 "standard error a message to forward to the contestant."
-msgstr ""
+msgstr "出力をdiffで比較するときは、結果は浮動小数点数で、出力が正しくなければ0.0、正しければ1.0になります。もし出力をコンパレーターで検証するなら、実行可能な :file:`checker` というファイルをマネージャーとして提供する必要があります。そしてこれは、3つの引数つまり入力、正しい出力、参加者のプログラムの出力を受け取り、標準出力に結果(スコアタイプに渡される値、通常は0.0から1.0の間の浮動小数点数)を出力し、標準エラー出力には参加者に表示されるメッセージを出力します。"
 
 # 95deff6f895f4eb09e53687259cb3dc7
 # 7e50d786f84441cd81f5c5866f8820c7
@@ -139,12 +139,12 @@ msgid ""
 "The submission format must contain one filename ending with ``.%l``. If "
 "there are additional files, the contestants are forced to submit them, the "
 "admins can inspect them, but they are not used towards the evaluation."
-msgstr ""
+msgstr "提出フォーマットは1つの ``.%l`` で終わるファイル名を含んでいなければいけません。 もし追加のファイルが書かれていれば、参加者はそれも提出しなければいけなくなり、そのファイルを管理者が閲覧することもできますが、評価には使用されません。"
 
 # 8a6eef4dfd07425594d94231088d9aa8
 #: ..\..\Task types.rst:43
 msgid "OutputOnly"
-msgstr ""
+msgstr "OutputOnly(出力のみ)"
 
 # 73ef33d1f9bd465d8d5e295d8a4efd52
 #: ..\..\Task types.rst:45
@@ -156,7 +156,7 @@ msgid ""
 "that, instead of requiring a program that solves the task without knowing "
 "the input files, the contestant are required, given the input files, to "
 "provide the output files."
-msgstr ""
+msgstr "OutputOnly(出力のみ)課題では、参加者は各テストケースに対してファイルを提出します。通常、意味としては、課題の中で入力ファイルに対して行うべき内容が指定されていて、管理者は(バッチ課題の場合と同様に)入力ファイルと出力ファイルからなるテストケースの集合を提供します。バッチ課題との違いは、参加者は入力ファイルを事前に知らされずに問題を解くプログラムを提出するのではなく、入力ファイルが与えられ、その出力を提出するよう求められるということです。"
 
 # d9d7a95a32fd4f638fcbc8d03bd0c1a0
 #: ..\..\Task types.rst:47
@@ -165,7 +165,7 @@ msgid ""
 "the contestants' outputs is checked. Similarly to the Batch task type, these "
 "can be checked using a diff or using a comparator, that is an executable "
 "manager named checker, with the same properties of the one for Batch tasks."
-msgstr ""
+msgstr "出力のみ課題のパラメーターは1個しかありません： つまり、参加者の出力の正しさをどのようにチェックするかです。バッチ課題と同様に、それはdiffまたはコンパレーター(checkerという名前がついた、バッチ課題のときと同様の性質をもった実行ファイル)を使ってチェックすることができます。"
 
 # 02bce6c8ae5f4c8aab1da3ef8b2e260f
 #: ..\..\Task types.rst:49
@@ -179,7 +179,7 @@ msgid ""
 "submitted output for that testcase (if it exists). This has the effect that "
 "contestants can work on a testcase at a time, submitting only what they did "
 "from the last submission."
-msgstr ""
+msgstr "出力のみの課題では通常、多くの無関係なファイルを提出する必要があります。参加者はある提出で最初の出力を提出し、別の提出で2番目の出力を提出するとします。しかし、2回目の提出に最初の提出を含めるのを忘れるということが簡単に発生しえます。また、毎回全てのファイルを提出するのは面倒です。そこで、出力のみ課題では、提出の中で、あるテストケースの出力が欠落している場合は、直前の提出におけるそのテストケースの出力(もし存在すれば)で穴埋めされるという機能があります。これにより参加者は、直前の提出から変更した部分だけを提出することで、特定のテストケースについての作業を簡単にできるようになるという効果があります。"
 
 # 3abd32607060467dbfadf51be44cc3e2
 #: ..\..\Task types.rst:51
@@ -191,12 +191,12 @@ msgid ""
 "example, a valid submission format for an OutputOnly task with three "
 "testcases is ``[\"output_000.txt\", \"output_001.txt\", \"output_002.txt\"]"
 "``."
-msgstr ""
+msgstr "提出フォーマットは :file:`output_{num}.txt` の形のファイル名を全て含んでいないといけない。ここで、 :samp:`{num}` は3桁の10進数 (ゼロでパディングされていてる0以上テストケースの個数未満の数) です。バッチ形式と同様に、採点には使われないファイルを提出させ、保管することもできます。例えば、3つのテストケースを含む出力のみの課題に対する妥当な提出フォーマットの例としては： ``[\"output_000.txt\", \"output_001.txt\", \"output_002.txt\"]`` 。"
 
 # 8158ed7998524334bf42e05823fd8f43
 #: ..\..\Task types.rst:57
 msgid "Communication"
-msgstr ""
+msgstr "Communication(対話形式)"
 
 # 88dbcf0392eb443498c5e9e206b3c5a1
 #: ..\..\Task types.rst:59
@@ -206,7 +206,7 @@ msgid ""
 "that the admins must provide both a stub, that is a source file that is "
 "compiled together with the contestant's source, and a manager, that is an "
 "executable."
-msgstr ""
+msgstr "Communication(対話形式)の課題では、参加者はバッチ課題と同様に、機能を実装した単一のソースファイルを提出します。バッチ課題との違いは、スタブ(参加者のソースコードと一緒にコンパイルされるソースファイル)とともに、実行ファイルとしてマネージャーを用意しなければいけないということです。"
 
 # 694ea6f4b5924dc29a568deed076cefa
 #: ..\..\Task types.rst:61
@@ -218,7 +218,7 @@ msgid ""
 "through the fifo, until the manager is able to assign an outcome to the "
 "evaluation. The manager then writes to standard output the outcome and to "
 "standard error the message to the user."
-msgstr ""
+msgstr "2つのプログラムは2つのFIFOファイルを通じて通信します。マネージャーは2つのFIFOファイルの名前を引数にとります。マネージャーは、テストケースの入力を標準入力から読み込み、FIFOを通じてもう一つのプログラムと通信することが想定されます。2つのプログラムは、マネージャーが結果を評価機に渡せるようになるまでの間、FIFOを通じてデータをやりとりします。それが終わったら、マネージャーは結果を標準出力に書き出し、ユーザーに対するメッセージを標準エラー出力に書き出します。"
 
 # d10422b8c82843c598dd021b4e7cd8d2
 #: ..\..\Task types.rst:63
@@ -226,17 +226,17 @@ msgid ""
 "If the program linked to the user-provided file fails (for a timeout, or for "
 "a non-allowed syscall), the outcome is 0.0 and the message describes the "
 "problem to the user."
-msgstr ""
+msgstr "もしユーザーが提出したファイルとリンクされたほうのプログラムが(時間超過や許可されていないシステムコールなどにより)失敗したら、結果は0.0となり、ユーザーに渡されるメッセージに発生した問題の詳細が入ります。"
 
 # fcec9448e32d4c3f9cff8f21c4c63ae5
 #: ..\..\Task types.rst:69
 msgid "TwoSteps"
-msgstr ""
+msgstr "TwoSteps(2段階)"
 
 # 7f1d21d5d47748a18dbf27dc33dc759c
 #: ..\..\Task types.rst:71
 msgid "Warning: use this task type only if you know what are you doing."
-msgstr ""
+msgstr "警告： 自分が何をしているかわかっている場合のみこの課題タイプを使ってください。"
 
 # a1274173e1c54258b5fae53b97fb6db8
 #: ..\..\Task types.rst:73
@@ -245,7 +245,7 @@ msgid ""
 "function each (the idea is that the first function gets the input and "
 "compute some data from it with some restriction, and the second tries to "
 "retrieve the original data)."
-msgstr ""
+msgstr "2段階の課題では、参加者は2つのソースファイルを用意し、それぞれに機能を実装して提出します。 (考え方としては、最初の関数が入力を得て、何らかの制約下でデータを算出し、2つ目の関数がオリジナルのデータを復元するといった感じです。)"
 
 # dbd9061b6cd64a639a37043a756d2c56
 #: ..\..\Task types.rst:75
@@ -257,7 +257,7 @@ msgid ""
 "of writing the outcome and the explanation message to standard output and "
 "error respectively. Both must take responsibility of the communication "
 "between them through a pipe."
-msgstr ""
+msgstr "管理者は2つのソースファイルと一緒にコンパイルされるマネージャーを提供しなければいけません。コンパイルして得られる実行可能ファイルは2回実行されます(いっぽうは計算担当であり、もう一方は復元担当として実行されます。) 計算担当の場合は、マネージャーは入力を標準入力から得ます。一方、復元担当の場合は、結果を標準出力へ書き出し、説明メッセージを標準エラー出力へ書き出します。どちらも、パイプを通じた通信についてマネージャーが責任をもって面倒を見る必要があります。"
 
 # 09ee99e2917149e18d4346834a6863f4
 #: ..\..\Task types.rst:77
@@ -266,4 +266,4 @@ msgid ""
 "an integer which is 0 if the executable is the computer, and 1 if it is the "
 "retriever; the second is the name of the pipe to be used for communication "
 "between the processes."
-msgstr ""
+msgstr "より正確に言うと、この実行可能ファイルは2つの引数とともに呼ばれます： 最初の引数は、実行可能ファイルが計算担当として呼ばれるときは0で、復元担当として呼ばれるときは1になる整数です。2つ目の引数は、プロセス間の通信のために使われるパイプの名前です。"
