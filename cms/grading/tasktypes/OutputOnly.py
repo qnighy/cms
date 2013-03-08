@@ -92,17 +92,20 @@ class OutputOnly(TaskType):
         outcome = None
         text = None
 
+        output_file = "output_%03d.txt" % int(test_number)
+        if len(self.job.task_type_parameters) >= 2:
+            output_file = self.job.task_type_parameters[1][int(test_number)]
+
         # Since we allow partial submission, if the file is not
         # present we report that the outcome is 0.
-        if "output_%03d.txt" % test_number not in self.job.files:
+        if output_file not in self.job.files:
             evaluation['success'] = True
             evaluation['outcome'] = "0.0"
             evaluation['text'] = "File not submitted."
             return True
 
         # First and only one step: diffing (manual or with manager).
-        output_digest = self.job.files["output_%03d.txt" %
-                                       test_number].digest
+        output_digest = self.job.files[output_file].digest
 
         # Put the files into the sandbox
         sandbox.create_file_from_storage(

@@ -452,7 +452,7 @@ def extract_outcome_and_text(sandbox):
         outcome = float(outcome)
     except ValueError:
         logger.error("Wrong outcome `%s' from manager." % outcome)
-        raise ValueError("Outcome is not a float.")
+        return 0.0, text
 
     return outcome, text
 
