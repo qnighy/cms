@@ -20,7 +20,7 @@ msgstr ""
 # 5ec66453f18f432faf6b0f709eb3551b
 #: ..\..\Troubleshooting.rst:2
 msgid "Troubleshooting"
-msgstr ""
+msgstr "トラブルシューティング"
 
 # 01105dbfeccc4b928c5dc9f50ead8a1e
 #: ..\..\Troubleshooting.rst:4
@@ -28,37 +28,37 @@ msgid ""
 "Subtle issues with CMS can arise from old versions of libraries or "
 "supporting software. Please ensure you are running the minimum versions of "
 "each dependency (described in :ref:`installation_dependencies`)."
-msgstr ""
+msgstr "ライブラリや必要なソフトウェアのバージョンが古い場合、CMSに微妙な問題が発生する可能性があります。まず、CMSの依存関係の最小バージョンを動かしていることを確認してください。( :ref:`installation_dependencies` に書かれています。 )"
 
 # d8543457e0e341e8b65dd293a2a700a7
 #: ..\..\Troubleshooting.rst:6
 msgid ""
 "In the next sections we list some known symptoms and their possible causes."
-msgstr ""
+msgstr "次の節では、いくつかの既に知られている症状と、その考えられる原因を挙げていきます。"
 
 # e72f27e3d4f74c60bf47c7aeba87bb49
 #: ..\..\Troubleshooting.rst:9
 msgid "Database"
-msgstr ""
+msgstr "データベース"
 
 # 55c1d073d3bd4647a63892ebb26fc2c3
 #: ..\..\Troubleshooting.rst:11
 msgid "*Symptom.* Error message \"Cannot determine OID of function lo_create\""
-msgstr ""
+msgstr "*症状.* エラーメッセージ \"Cannot determine OID of function lo_create\""
 
 # 23cd362a98fd415599f4e9d3e0cbb110
 #: ..\..\Troubleshooting.rst:13
 msgid ""
 "*Possible cause.* Your database must be at least PostgreSQL 8.x to support "
 "large objects used by CMS."
-msgstr ""
+msgstr "*考えられる原因.* CMSが使っているラージオブジェクト機能をサポートするために、データベースとしてPostgreSQLの8.x以上を使わなければいけません。"
 
 # e5d7182ae37e406797ee3a7a25c7559a
 #: ..\..\Troubleshooting.rst:15
 msgid ""
 "*Symptom.* Exceptions regarding missing database fields or with the wrong "
 "type."
-msgstr ""
+msgstr "*症状.* データベースのフィールドの不足または型の違いに関する例外"
 
 # 99b451e885564d248d64fa0ec5765efc
 #: ..\..\Troubleshooting.rst:17
@@ -69,19 +69,19 @@ msgid ""
 "`installation_updatingcms`. If this fails, and you do not care about the "
 "content of the database, the following commands will **erase all content**, "
 "clear the schema and rebuild it."
-msgstr ""
+msgstr "*考えられる原因.* データベーススキーマが作られたときのCMSのバージョンと、あなたが今使っているCMSのバージョンが異なっています。データベーススキーマが今のバージョンより古いときは、 :ref:`installation_updatingcms` で述べている方法でスキーマをアップデートできます。これが失敗して、しかもデータベースの中身がなくなってもいい場合は、次のコマンドをすることで、 **全ての中身を消去** して、スキーマをクリアして再構築します。"
 
 # b829716d73474f31a7ce19fbe1060a67
 #: ..\..\Troubleshooting.rst:26
 msgid "Servers"
-msgstr ""
+msgstr "サーバー"
 
 # 5ef6f7ab70064b69ba347cd83b1e7bf2
 #: ..\..\Troubleshooting.rst:28
 msgid ""
 "*Symptom.* Message from ContestWebServer such as: :samp:`WARNING:root:"
 "Invalid cookie signature KFZzdW5kdWRlCnAwCkkxMzI5MzQzNzIwCnRw...`"
-msgstr ""
+msgstr "*症状.* ContestWebServerからの次のようなメッセージ： :samp:`WARNING:root:Invalid cookie signature KFZzdW5kdWRlCnAwCkkxMzI5MzQzNzIwCnRw...` "
 
 # f9cacf908655476d87dd12732e94e2d8
 #: ..\..\Troubleshooting.rst:30
@@ -90,12 +90,12 @@ msgid ""
 "changed and users' browsers are still attempting to use cookies signed with "
 "the old key. If this is the case, the problem should correct itself and "
 "won't be seen by users."
-msgstr ""
+msgstr "*考えられる原因.* cms.confで定義されているコンテストのsecret_keyが変更されたが、ユーザーが使っているブラウザーはまだ古いキーで署名されたクッキーを使おうと試みているのかもしれません。これに該当するなら、この問題は自ずと解決し、この問題がユーザーに見えることはないでしょう。"
 
 # be4af9efc4be4d04bc86b913c65742df
 #: ..\..\Troubleshooting.rst:32
 msgid "*Symptom.* Ranking Web Server displays wrong data, or too much data."
-msgstr ""
+msgstr "*症状.* RankingWebServerが間違ったデータを出していたり、表示されているデータが多すぎる。"
 
 # bd808e8474084dd8be094097e6cf5a3c
 #: ..\..\Troubleshooting.rst:34
@@ -103,44 +103,44 @@ msgid ""
 "*Possible cause.* RWS is designed to handle groups of contests. If you want "
 "to delete the previous data, run it with the ```-d``` option. See :doc:"
 "`RankingWebServer` for more details"
-msgstr ""
+msgstr "*考えられる原因.* RWSは複数のコンテストからなるグループを扱えるようデザインされています。古いデータを削除していときは、 ```-d``` オプションをつけてRWSを実行してください。より詳しくは :doc:`RankingWebServer` を参照してください。"
 
 # e846521250ac49b49c54c45c0e1a8371
 #: ..\..\Troubleshooting.rst:36
 msgid "*Symptom.* Ranking Web Server misbehaving"
-msgstr ""
+msgstr "*症状.* RankingWebServerの挙動がおかしい"
 
 # da704b80fb67413d85624713936fd65e
 #: ..\..\Troubleshooting.rst:38
 msgid ""
 "*Possible cause.* Ensure you are running Tornado 2.0 or higher. (see :"
 "gh_issue:`2`)"
-msgstr ""
+msgstr "*考えられる原因.* Tornado 2.0 以上を使っていることを確認してください。 ( :gh_issue:`2` も参照)"
 
 # 75f93156f0c54ef08cdd6236deb47a98
 #: ..\..\Troubleshooting.rst:42
 msgid "Sandbox"
-msgstr ""
+msgstr "サンドボックス"
 
 # e863391c2d554c85b50bd47f456c8831
 #: ..\..\Troubleshooting.rst:44
 msgid "*Symptom.* The freopen test fails."
-msgstr ""
+msgstr "*症状.* freopenのテストが失敗する。"
 
 # 572fa530ded0402db09e5a6fc00fd8a1
 #: ..\..\Troubleshooting.rst:46
 msgid "*Possible cause.* Add the ``dup3`` syscall to the allowed list."
-msgstr ""
+msgstr "*考えられる原因.* 許可されているシステムコールのリストに ``dup3`` を追加してください。"
 
 # 2f7ff08c844c44d983102510ad43bd01
 #: ..\..\Troubleshooting.rst:50
 msgid "Importers"
-msgstr ""
+msgstr "インポーター"
 
 # a24a311f2e6e409f9e1b64bc9075d3d8
 #: ..\..\Troubleshooting.rst:52
 msgid "*Symptom.* Importing a contest with ContestImporter fails."
-msgstr ""
+msgstr "*症状.* ContestImporterを使ったコンテストのインポートに失敗する。"
 
 # ad9499568ac147d09200eb228725c931
 #: ..\..\Troubleshooting.rst:54
@@ -148,17 +148,17 @@ msgid ""
 "*Possible cause.* The contest was imported with a previous version of CMS. "
 "Wait for us to provide update scripts for exports, or contact us for the "
 "fast solution."
-msgstr ""
+msgstr "*考えられる原因.* 古いバージョンのCMSのコンテストをインポートしようとしている可能性があります。私たちがエクスポートされたデータのためのアップデート用スクリプトを提供するのを待つか、急いで解決したいときは私たちに連絡してください。"
 
 # a479194203aa4347a04f365a290df657
 #: ..\..\Troubleshooting.rst:58
 msgid "Configuration"
-msgstr ""
+msgstr "設定"
 
 # adf58f8e2e70439abb3d764ecdcf1277
 #: ..\..\Troubleshooting.rst:60
 msgid "*Symptom.* ResourceService keeps restarting its services."
-msgstr ""
+msgstr "*症状.* ResourceServiceがサービスの再起動を繰り返す"
 
 # 5a1dcba89a5b47f9b90c3f51b24b3c92
 #: ..\..\Troubleshooting.rst:62
@@ -173,4 +173,4 @@ msgid ""
 "and should work well on most Ubuntu systems, but for example on some Gentoo "
 "systems you may need to use :samp:`[\"/usr/bin/python2.7\", \"/usr/bin/cms%s"
 "\", \"%d\"]`."
-msgstr ""
+msgstr "*考えられる原因.* READMEにも書いたとおり、この症状の原因は、設定ファイルの \"process_cmdline\" があなたのシステムにあっていないことにあるかもしれません。あなたの環境にあった設定を見つけるには、まずサービスを手動で (例えば、 *cmsLogService* などと打って) 起動して、そしたら :samp:`ps aux` を実行し、 :samp:`/usr/bin/python2 /usr/local/bin/cmsLogService` というような感じのプロセスを探してください。これに対応する \"process_cmdline\" の値は、 :samp:`[\"/usr/bin/python2\", \"/usr/local/bin/cms%s\", \"%d\"]` といった感じになります。この値はデフォルトであり、ほとんどのUbuntuシステムでうまく動作しますが、例えばいくつかのGentooシステムでは、 :samp:`[\"/usr/bin/python2.7\", \"/usr/bin/cms%s\", \"%d\"]` を使う必要があるかもしれません。"
