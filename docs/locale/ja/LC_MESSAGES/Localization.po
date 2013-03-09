@@ -20,12 +20,12 @@ msgstr ""
 # 4ecf8c04a28e434ba94267325d25afe4
 #: ..\..\Localization.rst:2
 msgid "Localization"
-msgstr ""
+msgstr "地域化"
 
 # 6adfa2430ca94f7ca7231a2cd20c0a62
 #: ..\..\Localization.rst:5
 msgid "For developers"
-msgstr ""
+msgstr "開発者のために"
 
 # 9ccf73ab49584014b59f62217f276c86
 #: ..\..\Localization.rst:7
@@ -33,7 +33,7 @@ msgid ""
 "When you change a string in a template or in a web server, you have to "
 "generate again the file :gh_blob:`cms/server/po/messages.pot`. To do so, run "
 "this command inside :gh_tree:`cms/server/`."
-msgstr ""
+msgstr "テンプレート内またはWebサーバー内の文字列を変更したときは、 :gh_blob:`cms/server/po/messages.pot` を生成しなおす必要があります。それをするためには、 :gh_tree:`cms/server/` 内で次のコマンドを実行してください。"
 
 # 0e1a704015b14c35985f093883b803e4
 #: ..\..\Localization.rst:14
@@ -43,26 +43,26 @@ msgid ""
 "files). You can run ``./setup.py build`` to update all translations (and "
 "also do a couple of other things, like compiling the sandbox). "
 "Alternatively, run the following inside :gh_tree:`cms/server/`."
-msgstr ""
+msgstr "新しい翻訳がある場合や、古い翻訳の更新がある場合は、 ``.mo`` ファイル( ``.po`` ファイルのコンパイル済みのバージョン)をアップデートする必要があります。 ``./setup.py build`` を実行することによって、全ての翻訳をアップデートすることができます。 (そして、サンドボックスのコンパイルなどの他の2,3のことも行います。) 他の方法としては、 :gh_tree:`cms/server/` 内で次を実行してください。"
 
 # af04cfaa1d89451cbc466b469f3019ee
 #: ..\..\Localization.rst:20
 msgid ""
 "If needed, create the tree. Note that to have the new strings, you need to "
 "restart the web server."
-msgstr ""
+msgstr "必要ならば、ディレクトリツリーを作ってください。新しい翻訳文字列を反映するには、Webサーバーを再起動する必要があることに注意してください。"
 
 # ad9e604f3f514030aafd2132e5303c38
 #: ..\..\Localization.rst:24
 msgid "For translators"
-msgstr ""
+msgstr "翻訳者のために"
 
 # 028807ab7f164c0095de3fd47286545d
 #: ..\..\Localization.rst:26
 msgid ""
 "To begin translating to a new language, run this command, from :gh_tree:`cms/"
 "server/po/`."
-msgstr ""
+msgstr "新しい言語への翻訳を始めるときには、 :gh_tree:`cms/server/po/` から次のコマンドを実行してください。"
 
 # 124d634eb0fa46138891d8c237845e2e
 #: ..\..\Localization.rst:32
@@ -70,7 +70,7 @@ msgid ""
 "Right after that, open :file:`<code>.po` and fill the information in the "
 "header. To translate a string, simply fill the corresponding msgstr with the "
 "translations."
-msgstr ""
+msgstr "そのあとすぐ、 :file:`<code>.po` を開いてヘッダーの情報を埋めてください。文字列を翻訳するには、単に対応するmsgstrに翻訳を書き込んでください。"
 
 # 5b2a1adf974e425b940c1541c0aedecf
 #: ..\..\Localization.rst:34
@@ -79,11 +79,11 @@ msgid ""
 "scratch. Instead, you can create a new ``.po`` file that merges the old "
 "translated string with the new, to-be-translated ones. The command is the "
 "following, run inside :gh_tree:`cms/server/po/`."
-msgstr ""
+msgstr "開発者が ``.pot`` ファイルを更新しても、翻訳を一からやり直す必要はありません。その代わりに、今までの翻訳文字列を、新しく翻訳するべき文字列とマージして新しい ``.po`` ファイルを作ることができます。次のコマンドを :gh_tree:`cms/server/po` の中で実行してください。"
 
 # 6bcc30a306584cb4bcc11278cf5a4fde
 #: ..\..\Localization.rst:40
 msgid ""
 "You can now inspect :file:`<code>.new.po` and, if satisfied, move it to :"
 "file:`<code>.po` and finish the translation."
-msgstr ""
+msgstr "そうしたら、 :file:`<code>.new.po` を調査して、もしそれで良さそうなら、そのファイルを :file:`<code>.po` へ移動し、翻訳を完成させてください。"
