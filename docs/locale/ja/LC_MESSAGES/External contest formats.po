@@ -20,14 +20,14 @@ msgstr ""
 # 8a75d4a03d334703aa199785e9449df6
 #: ..\..\External contest formats.rst:2
 msgid "External contest formats"
-msgstr ""
+msgstr "コンテストの外部フォーマット"
 
 # ee0272f29168415590b5351697343087
 #: ..\..\External contest formats.rst:4
 msgid ""
 "There are two different sets of needs that external contest formats strive "
 "to satisfy."
-msgstr ""
+msgstr "コンテストの外部フォーマットが満たそうとしている、異なる2つのニーズがあります。"
 
 # 33cf85c761284080911ad5240c929033
 #: ..\..\External contest formats.rst:6
@@ -39,7 +39,7 @@ msgid ""
 "from the system, evaluations, scores, ...). Once a contest has been exported "
 "in this format, CMS must be able to reimport it in such a way that the new "
 "instance is indistinguishable from the original."
-msgstr ""
+msgstr "1つ目は、コンテストの管理者は、いくつかの理由で(古いコンテストの保管、バックアップ、データの配布などのため)コンテストのオリジナルのデータ(課題、参加者、…)と、コンテスト中に生成された全てのデータ(参加者から得た提出やユーザーテストなどと、システムが出力した評価結果や点数など…)を一緒にエクスポートしたいことがあるということです。このフォーマットでコンテストをエクスポートすれば、CMSはそれを、新しいインスタンスがオリジナルと見分けがつかないような方法で、再インポートすることができなければいけません。"
 
 # 088a3106b56941e1820afe82a9155653
 #: ..\..\External contest formats.rst:8
@@ -51,7 +51,7 @@ msgid ""
 "generation of testcases, testing of solutions, ...). CMS must be able to "
 "import it as a new contest, but also to import it over an already created "
 "contest (after updating some data)."
-msgstr ""
+msgstr "2つ目は、コンテストの作者、つまり課題やテストケースの設計と、コンテストデータ(参加者の名前など)の挿入を助けてくれる環境を必要としている人にとっての要件です。このフォーマットは、書いたり読んだり変更したりするのが簡単に行えて、課題の作成とテスト(テストケースの自動生成、解答のテスト、など…)を補助するツールが提供されている必要があります。CMSはこういったデータを新しいコンテストとしてインポートするだけでなく、既に作成されていくつかのデータが更新されているコンテストの上に、再度インポートすることも可能でなくてはいけません。"
 
 # 9285e1e380a3460cbbeeb8160e02f950
 #: ..\..\External contest formats.rst:10
@@ -63,7 +63,7 @@ msgid ""
 "(testcases, statements, submissions, user tests, ...). The exporter and "
 "importer understand also compressed versions of this format (i.e., in a zip "
 "or tar file). For more information run"
-msgstr ""
+msgstr "最初のニーズに適したフォーマットのために、エクスポーター :file:`cmsContestExporter` とインポーター :file:`cmsContestImporter` が提供されています。このフォーマットはコンテストに関係する全てのシリアライズ可能なデータのダンプ(JSONファイル)と、コンテストに必要なファイル(テストケース、問題文、提出、ユーザーテスト…) を含みます。エクスポーターとインポーターはこのフォーマットの圧縮されたバージョン(例えば、zipやtarファイルの中にあるもの)も認識します。詳しくは、以下を実行してください："
 
 # 1e90ac16e45748a0bf0fbb1f21d96a85
 #: ..\..\External contest formats.rst:17
@@ -78,26 +78,26 @@ msgid ""
 "Italian environment there is a description in the next section, but please "
 "be aware that it has severe limitations: for example, many handles are in "
 "Italian and the support for complex task types is a bit cumbersome."
-msgstr ""
+msgstr "2つ目のニーズに対しては、CMSはコンテストと課題を書くための特定の環境をコンテスト作者に強制しないという哲学を持っています。そこで私たちは、イタリアの情報オリンピックで使われている環境のために書いたものをモデルに、あなたがインポーターと再インポーターを書くことを奨励します。このイタリア情報オリンピックで使われているものは、 :file:`cmsYamlImporter` コマンドおよび :file:`cmsYamlReimporter` コマンドによって実行することができ、その中身は :gh_blob:`cmscontrib/YamlImporter.py` と :gh_blob:`cmscontrib/YamlReimporter.py` で見ることができます。もしイタリア情報オリンピックの環境を使いたいのであれば、次の節にその説明があります。しかし、これには厳しい制約があることに注意してください： 例えば、多くのハンドル名がイタリア語で書かれていたり、複雑な課題タイプのサポートは少々扱いづらい面があります。"
 
 # 054b3dc0d79846ac9f381273b1f8c7b2
 #: ..\..\External contest formats.rst:21
 msgid "Italian import format"
-msgstr ""
+msgstr "イタリアのインポート形式"
 
 # 877ab3e53dde4548b1c12b577a17070b
 #: ..\..\External contest formats.rst:23
 msgid ""
 "You can follow this description looking at `this example <https://github.com/"
 "cms-dev/con_test>`_. A contest is represented in one directory, containing:"
-msgstr ""
+msgstr "`この例 <http://github.com/cms-dev/con_test>`_ を見ながら、この説明を追うことができます。コンテストは1つのディレクトリとして表され、次のものを含みます："
 
 # ff4011a6ad5342559d7862796403581d
 #: ..\..\External contest formats.rst:25
 msgid ""
 "a YAML file named :file:`contest.yaml`, that describes the general contest "
 "properties;"
-msgstr ""
+msgstr "YAMLファイル :file:`contest.yaml` 。このファイルにはコンテスト全体のプロパティーを書きます。"
 
 # 7c17b7618acb418ab7f27cff41463cf7
 #: ..\..\External contest formats.rst:27
@@ -106,7 +106,7 @@ msgid ""
 "describes the task and a directory :file:`{task_name}` that contains all the "
 "files needed to build the statement of the problem, the input and output "
 "cases, the reference solution and (when used) the solution checker."
-msgstr ""
+msgstr "それぞれの課題 :samp:`{task_name}` について、YAMLファイル :file:`{task_name}.yaml` とディレクトリ :file:`{task_name}` 。このディレクトリには問題文をビルドするのに必要な全てのファイルと、テストケースの入出力と、解答チェッカーのための参照用の解答(もし使うのならば)を配置します。"
 
 # 08a90775f5ca41cba6d058fc8f9f05d5
 #: ..\..\External contest formats.rst:29
@@ -116,19 +116,19 @@ msgid ""
 "confuse it and create inconsistent tasks and/or strange errors. For "
 "confusing input we mean parameters and/or files from which it can infer no "
 "or multiple task types or score types."
-msgstr ""
+msgstr "これらのファイルとディレクトリの構造は以下で詳しく説明しています。 ``cmsYamlImporter`` に紛らわしい入力を渡すと、予期せず不整合な課題が生成されたり、奇妙なエラーが発生したりするかもしれないことに注意してください。紛らわしい入力というのは、課題タイプやスコアタイプが0個ないし複数推測されるようなパラメーターやファイルのことを意味します。"
 
 # 3f2da9e0e1aa4f9f8abfa5cda26161af
 #: ..\..\External contest formats.rst:33
 msgid "General contest description"
-msgstr ""
+msgstr "コンテスト全体の情報"
 
 # fcaf6d287a7b44198021edf904487cd5
 #: ..\..\External contest formats.rst:35
 msgid ""
 "The :file:`contest.yaml` file is a plain YAML file, with at least the "
 "following keys."
-msgstr ""
+msgstr ":file:`contest.yaml` ファイルは少なくとも以下のキーを持つ、簡単なYAMLファイルです。"
 
 # deff0f5f3bc14e5d9b0bb729a092a1fe
 #: ..\..\External contest formats.rst:37
@@ -136,14 +136,14 @@ msgid ""
 "``nome_breve`` (\"short name\", string): the contest's short name, used for "
 "internal reference (and exposed in the URLs); it has to match the name of "
 "the directory that serves as contest root."
-msgstr ""
+msgstr "``nome_breve`` (\"短い名前\"、文字列)：内部的な参照として使われる(そしてURLとして現れる)、コンテストの短い名前。これは、コンテストのルートとなるディレクトリの名前と一致する必要があります。"
 
 # 520349a25a5d4e3cbbdf4215e0b68a3f
 #: ..\..\External contest formats.rst:39
 msgid ""
 "``nome`` (\"name\", string): the contest's name (description), shown to "
 "contestants in the web interface."
-msgstr ""
+msgstr "``nome`` (\"名前\"、文字列)：Webインターフェースで参加者に対して表示される、コンテストの名前(説明)。"
 
 # d8b35cdb63f74194ba0332eae9e0e162
 #: ..\..\External contest formats.rst:41
@@ -154,7 +154,7 @@ msgid ""
 "directory called :file:`{task_name}`, used to extract information about that "
 "task; the order in this list will be the order of the tasks in the web "
 "interface."
-msgstr ""
+msgstr "``problemi`` (\"課題(複数形)\"、文字列のリスト)：このコンテストに属する課題のリスト。各文字列について、これを :samp:`{task_name}` と呼ぶことにすると、コンテストのディレクトリの中に :file:`{task_name}.yaml` という名前のファイルと、 :file:`{task_name}` という名前のディレクトリが存在しなければいけません。このファイルとディレクトリから、この課題に関する情報が取り出されます。このリストの順番が、Webインターフェース上での課題の並び順になります。"
 
 # b59812e935344f69846623c45f4c4d15
 #: ..\..\External contest formats.rst:43
@@ -162,14 +162,14 @@ msgid ""
 "``utenti`` (\"users\", list of associative arrays): each of the elements of "
 "the list describes one user of the contest; the exact structure of the "
 "record is described :ref:`below <externalcontestformats_user-description>`."
-msgstr ""
+msgstr "``utenti`` (\"ユーザー(複数形)\"、連想配列のリスト)：リストの各要素に、このコンテストのユーザー1人について書かれています。このデータの詳細な構造については、 :ref:`以下 <externalcontestformats_user-description>` で説明されています。"
 
 # 9ee66e6dc771448b977eb575fca6fa8d
 # 305004e394584f23b3fd847d8717f1ab
 # f65984de81364f0a83ed8bc97e248e77
 #: ..\..\External contest formats.rst:45 formats.rst:67 formats.rst:89
 msgid "The following are optional keys."
-msgstr ""
+msgstr "以下のキーはオプションです。"
 
 # 4655ec5f1725447eba242c3a7c1c4b5f
 #: ..\..\External contest formats.rst:47
@@ -177,7 +177,7 @@ msgid ""
 "``inizio`` (\"start\", integer): the UNIX timestamp of the beginning of the "
 "contest (copied in the ``start`` field); defaults to zero, meaning that "
 "contest times haven't yet been decided."
-msgstr ""
+msgstr "``inizio`` (\"開始\"、整数): コンテストの開始を表すUNIXタイムスタンプ。( ``start`` フィールドにコピーされます。) デフォルトは0で、コンテストの時間が未定であることを意味します。"
 
 # 817b36fd9fe54e1fb66db96929421429
 #: ..\..\External contest formats.rst:49
@@ -185,7 +185,7 @@ msgid ""
 "``fine`` (\"stop\", integer): the UNIX timestamp of the end of the contest "
 "(copied in the ``stop`` field); defaults to zero, meaning that contest times "
 "haven't yet been decided."
-msgstr ""
+msgstr "``fine`` (\"終了\"、整数): コンテストの終わりを表すUNIXタイムスタンプ。( ``stop`` フィールドにコピーされます。) デフォルトは0で、コンテストの時間が未定であることを意味します。"
 
 # 8931cf7ea7be4a72828e9f1b9ddc52e0
 #: ..\..\External contest formats.rst:51
@@ -193,7 +193,7 @@ msgid ""
 "``token_*``: token parameters for the contest, see :ref:"
 "`configuringacontest_tokens` (the names of the parameters are the same as "
 "the internal names described there); by default tokens are disabled."
-msgstr ""
+msgstr "``token_*``: このコンテストのトークンに関するパラメーターです。詳しくは :ref:`configuringacontest_tokens` を参照してください。 (パラメーターの名前はそこで説明されている内部的な名前と同じです。) デフォルトではトークンは無効化されています。"
 
 # 7667bda7f0c54c38bc35f9ba77a177a9
 #: ..\..\External contest formats.rst:53
@@ -202,7 +202,7 @@ msgid ""
 "whole contest, see :ref:`configuringacontest_limitations` (the names of the "
 "parameters are the same as the internal names described there); by default "
 "they're all unset."
-msgstr ""
+msgstr "``max_*_number`` と ``min_*_interval`` (整数): コンテスト全体の制限です。詳しくは :ref:`configuringacontest_limitations` を参照してください。 (パラメーターの名前はそこで説明されている内部的な名前と同じです。) デフォルトでは全て設定されていません。"
 
 # 43e587b7bfe342afbdee32b01deffdab
 #: ..\..\External contest formats.rst:59
