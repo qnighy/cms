@@ -672,7 +672,7 @@ def task_score(user, task):
 
         for s in submissions:
             sr = s.get_result(task.active_dataset)
-            if s.tokened():
+            if True:
                 if sr is not None and sr.scored():
                     max_tokened_score = max(max_tokened_score, sr.score)
                 elif waits_for_score(sr):
