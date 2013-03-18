@@ -8,3 +8,9 @@
 <h3>{{ _("Compilation output") }}</h3>{% comment TODO: trim long outputs and add facility to see raw %}
 <pre>{% if sr.compilation_text is not None %}{{ sr.compilation_text }}{% end %}</pre>
 {% end %}
+
+<h3>{{ _("Source code") }}</h3>
+{% for filename in files %}
+  <h4>{{ filename }}</h4>
+  <pre>{{ files[filename] }}</pre>
+{% end %}
