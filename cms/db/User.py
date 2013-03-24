@@ -38,7 +38,7 @@ from cms.db.Contest import Contest
 from cmscommon.DateTime import make_datetime, make_timestamp
 
 
-def generate_random_password():
+def generate_random_password(context):
     import random
     chars = "abcdefghijklmnopqrstuvwxyz"
     return "".join([random.choice(chars) for unused_i in xrange(6)])
