@@ -37,7 +37,7 @@ from sqlalchemy.orm import relationship, backref
 from . import Base, Contest
 
 
-def generate_random_password():
+def generate_random_password(context):
     import random
     chars = "abcdefghijklmnopqrstuvwxyz"
     return "".join([random.choice(chars) for _ in xrange(6)])
