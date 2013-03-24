@@ -51,7 +51,7 @@ class User(Base):
     # with a contest) and a participation.
     __tablename__ = 'users'
     __table_args__ = (
-        UniqueConstraint('contest_id', 'username'),
+        UniqueConstraint('contest_id', 'auth_type', 'username'),
     )
 
     # Auto increment primary key.
@@ -80,6 +80,11 @@ class User(Base):
     email = Column(
         Unicode,
         nullable=True)
+
+    # What service authenticated this user.
+    auth_type = Column(
+        String,
+        nullable=False)
 
     # User can log in CWS only from this IP address or subnet.
     ip = Column(
