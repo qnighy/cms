@@ -140,6 +140,7 @@ def do_setup():
                   "cmsComputeComplexity=cmscontrib.ComputeComplexity:main",
                   "cmsImporter=cmscontrib.Importer:main",
                   "cmsReimporter=cmscontrib.Reimporter:main",
+                  "cmsSubmissionExporter=cmscontrib.SubmissionExporter:main",
                   "cmsSpoolExporter=cmscontrib.SpoolExporter:main",
                   "cmsSummaryFormatter=cmscontrib.SummaryFormatter:main",
                   "cmsJudgeStatisticsCollector=cmscontrib.JudgeStatisticsCollector:main",
