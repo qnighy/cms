@@ -86,7 +86,8 @@ class User(Base):
     # What service authenticated this user.
     auth_type = Column(
         String,
-        nullable=False)
+        nullable=False,
+        default="Password")
 
     # User can log in CWS only from this ip.
     ip = Column(
