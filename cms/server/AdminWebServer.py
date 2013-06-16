@@ -1732,6 +1732,7 @@ class AddUserHandler(SimpleContestHandler("add_user.html")):
 
         password = self.get_argument("password", "")
         email = self.get_argument("email", None)
+        auth_type = self.get_argument("auth_type", "")
 
         ip_address = self.get_argument("ip", None)
         if ip_address == '':
@@ -1780,7 +1781,8 @@ class AddUserHandler(SimpleContestHandler("add_user.html")):
         primary_statements = self.get_argument("primary_statements", "{}")
 
         user = User(first_name, last_name, username, password=password,
-                    email=email, ip=ip_address, hidden=hidden,
+                    email=email, auth_type=auth_type,
+                    ip=ip_address, hidden=hidden,
                     primary_statements=primary_statements,
                     timezone=timezone, starting_time=starting_time,
                     extra_time=extra_time,

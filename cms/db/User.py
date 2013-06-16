@@ -38,7 +38,7 @@ from cms.db.Contest import Contest
 from cmscommon.DateTime import make_datetime, make_timestamp
 
 
-def generate_random_password():
+def generate_random_password(context):
     import random
     chars = "abcdefghijklmnopqrstuvwxyz"
     return "".join([random.choice(chars) for unused_i in xrange(6)])
@@ -53,7 +53,7 @@ class User(Base):
     # with a contest) and a participation.
     __tablename__ = 'users'
     __table_args__ = (
-        UniqueConstraint('contest_id', 'username'),
+        UniqueConstraint('contest_id', 'auth_type', 'username'),
     )
 
     # Auto increment primary key.
@@ -82,6 +82,12 @@ class User(Base):
     email = Column(
         String,
         nullable=True)
+
+    # What service authenticated this user.
+    auth_type = Column(
+        String,
+        nullable=False,
+        default="Password")
 
     # User can log in CWS only from this ip.
     ip = Column(
