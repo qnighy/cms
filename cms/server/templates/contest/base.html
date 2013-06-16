@@ -50,6 +50,14 @@ $(document).ready(function () {
             <div class="navbar-inner">
                 <div class="container">
                     <a class="brand" href="{{ url_root }}/">{{ contest.description }}</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li><a href="http://www.ioi-jp.org/">JOI Website</a></li>
+                            <li><a href="#">JOI Open Contest 2013</a></li>
+                            <li class="active"><a href="{{ url_root }}/">Contest Site</a></li>
+                            <li><a href="#">Ranking</a></li>
+                        </ul>
+                    </div>
 {% if current_user is not None %}
                     <p class="navbar-text pull-right">
                         {% raw _("Logged in as <strong>%(first_name)s %(last_name)s</strong> <em>(%(details)s)</em>") % {"first_name": current_user.first_name, "last_name": current_user.last_name, "details": get_auth_details(current_user)} %}
