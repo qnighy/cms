@@ -298,7 +298,7 @@ class ImojudgeLoader(Loader):
                         path=os.path.join(task_path, "task", f),
                         description="Statement for task %s (lang: %s)"
                         % (name, lang))
-                    args["statements"] = [Statement(lang, digest)]
+                    args["statements"] += [Statement(lang, digest)]
         else:
             logging.warning("Task statement directory %s/task does not exist."
                     % task_path)
