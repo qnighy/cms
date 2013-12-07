@@ -1,0 +1,57 @@
+{% extends base.html %}
+
+{% import re %}
+
+{% block core %}
+<div class="span9">
+
+{% from cms import config %}
+
+<div class="page-header">
+    <h1>{{ _("Edit your information") }}</h1>
+</div>
+
+{% if config.registration_form %}
+
+<div class="well edit_info_submit">
+    <form class="form-horizontal" action="{{ url_root }}/edit_info" method="POST">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label" for="input_username">{{ _("Username") }}</label>
+                <div class="controls">
+                    {{ current_user.username }}
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input_username">{{ _("Password") }}</label>
+                <div class="controls">
+                    {{ re.sub(r'.', "*", current_user.password) }}
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input_first_name">{{ _("First name") }}</label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge" name="first_name" value="{{ current_user.first_name }}" id="input_first_name"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input_last_name">{{ _("Last name") }}</label>
+                <div class="controls">
+                    <input type="text" class="input-xlarge" name="last_name" value="{{ current_user.last_name }}" id="input_last_name"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn btn-primary" type="submit">{{ _("Update") }}</button>
+                    <button type="reset" class="btn" type="submit">{{ _("Reset") }}</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+{% end %}
+
+
+</div>
+{% end %}

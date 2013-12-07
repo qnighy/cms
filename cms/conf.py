@@ -106,6 +106,9 @@ class Config(object):
         self.rankings = ["http://usern4me:passw0rd@localhost:8890/"]
         self.https_certfile = None
 
+        # Whether to use Registration form
+        self.registration_form = False
+
         # Installed or from source?
         self.installed = sys.argv[0].startswith("/usr/") and \
             sys.argv[0] != '/usr/bin/ipython' and \
