@@ -10,6 +10,7 @@
 # Copyright © 2014 Artem Iglikov <artem.iglikov@gmail.com>
 # Copyright © 2014 Fabian Gundlach <320pointsguy@gmail.com>
 # Copyright © 2015 William Di Luigi <williamdiluigi@gmail.com>
+# Copyright © 2015 Masaki Hara <ackie.h.gmai@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -349,6 +350,9 @@ class BaseHandler(CommonRequestHandler):
         ret["cookie_lang"] = self.cookie_lang
         ret["browser_lang"] = self.browser_lang
 
+        ret["registration_form"] = config.registration_form
+        ret["registration_phase"] = False
+
         return ret
 
     def finish(self, *args, **kwds):
@@ -501,6 +505,91 @@ class DocumentationHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self):
         self.render("documentation.html", **self.r_params)
+
+
+class RegisterHandler(BaseHandler):
+    """Register handler.
+
+    """
+    def get(self):
+        if not config.registration_form:
+            raise tornado.web.HTTPError(404)
+
+        self.r_params["registration_phase"] = True
+        self.r_params["registration_user"] = None
+        self.render("base.html", **self.r_params)
+
+    def post(self):
+        if not config.registration_form:
+            raise tornado.web.HTTPError(404)
+
+        first_name = self.get_argument("first_name", "")
+        last_name = self.get_argument("last_name", "")
+        username = self.get_argument("username", "")
+
+        if username != filter_ascii(username) or username == "":
+            logger.warning("Registration error: Cannot use that user name")
+            self.redirect("/register?register_error=mal")
+            return
+
+        user = self.sql_session.query(User)\
+            .filter(User.contest == self.contest)\
+            .filter(User.username == username).first()
+
+        if user is not None:
+            logger.warning("Registration error: the username already exists")
+            self.redirect("/register?register_error=dup")
+            return
+
+        import random
+        chars = "23456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
+        password = "".join([random.choice(chars) for _ in xrange(8)])
+
+        user = User(first_name, last_name, username,
+                    password=password,
+                    contest=self.contest)
+        self.sql_session.add(user)
+        self.sql_session.commit()
+
+        self.r_params["registration_phase"] = True
+        self.r_params["registration_user"] = user
+        self.application.service.proxy_service.reinitialize()
+        self.render("base.html", **self.r_params)
+
+
+class EditInfoHandler(BaseHandler):
+    """Provides form for editing user information.
+
+    """
+    @tornado.web.authenticated
+    def get(self):
+        if not config.registration_form:
+            raise tornado.web.HTTPError(404)
+        self.render("edit_info.html", **self.r_params)
+
+    @tornado.web.authenticated
+    def post(self):
+        if not config.registration_form:
+            raise tornado.web.HTTPError(404)
+
+        self.current_user.first_name = self.get_argument("first_name", "")
+        self.current_user.last_name = self.get_argument("last_name", "")
+        # self.sql_session.add(question)
+        self.sql_session.commit()
+
+        logger.info("User %s changed their information."
+                    % self.current_user.username)
+
+        # Add "All ok" notification.
+        self.application.service.add_notification(
+            self.current_user.username,
+            self.timestamp,
+            self._("Updated user information"),
+            self._("Your information has been changed."),
+            ContestWebServer.NOTIFICATION_SUCCESS)
+
+        self.application.service.proxy_service.reinitialize()
+        self.redirect("/")
 
 
 class LoginHandler(BaseHandler):
@@ -2034,6 +2123,8 @@ _cws_handlers = [
     (r"/", MainHandler),
     (r"/login", LoginHandler),
     (r"/logout", LogoutHandler),
+    (r"/register", RegisterHandler),
+    (r"/edit_info", EditInfoHandler),
     (r"/start", StartHandler),
     (r"/tasks/(.*)/description", TaskDescriptionHandler),
     (r"/tasks/(.*)/submissions", TaskSubmissionsHandler),

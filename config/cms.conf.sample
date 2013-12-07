@@ -171,6 +171,9 @@
     "max_jobs_per_user": 10,
     "pdf_printing_allowed": false,
 
+    "_help": "Whether to use registration form",
+    "registration_form": "false",
+
 
 
     "_help": "This is the end of this file."
