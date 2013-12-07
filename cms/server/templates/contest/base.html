@@ -52,13 +52,108 @@ $(document).ready(function () {
 {% if current_user is not None %}
                     <p class="navbar-text pull-right">
                         {% raw _("Logged in as <strong>%(first_name)s %(last_name)s</strong> <em>(%(username)s)</em>") % {"first_name": current_user.first_name, "last_name": current_user.last_name, "username": current_user.username} %}
+                        {% if registration_form %}
+                        <a class="btn" href="{{ url_root }}/edit_info">{{ _("Edit your information") }}</a>
+                        {% end %}
                         <a class="btn btn-warning" href="{{ url_root }}/logout">{{ _("Logout") }}</a>
                     </p>
 {% end %}
                 </div>
             </div>
         </div>
-{% if current_user is None %}
+{% if current_user is None and registration_phase %}
+{% if registration_user is None %}
+    {% if handler.get_argument("register_error", "") != "" %}
+        <div id="notifications" class="notifications">
+            <div class="alert alert-block alert-error notification">
+                <a class="close" data-dismiss="alert" href="#">&#xD7;</a>
+                <h4 class="alert-heading">{{ _("Failed to log in.") }}</h4>
+                {% if handler.get_argument("register_error", "") == "dup" %}
+                <p>{{ _("This username already exists.") }}</p>
+                {% else %}
+                <p>{{ _("Invalid username.") }}</p>
+                {% end %}
+            </div>
+        </div>
+    {% end %}
+        <div class="login_container">
+            <div class="login_box hero-unit">
+                <h1>{{ _("Registration") }}</h1>
+                <p>{{ _("Enter your information. Only printable characters are allowed for username.") }}</p>
+                <form class="form-horizontal" action="{{ url_root }}/register" method="POST">
+                    <fieldset>
+                        <div class="control-group">
+                            <label class="control-label" for="input01">{{ _("Username") }}</label>
+                            <div class="controls">
+                                <input type="text" class="input-xlarge" name="username">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="input01">{{ _("Password") }}</label>
+                            <div class="controls">
+                                {{ _("Password will be randomly generated.") }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="input01">{{ _("First name") }}</label>
+                            <div class="controls">
+                                <input type="text" class="input-xlarge" name="first_name">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="input01">{{ _("Last name") }}</label>
+                            <div class="controls">
+                                <input type="text" class="input-xlarge" name="last_name">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <button type="submit" class="btn btn-primary btn-large">{{ _("Register") }}</button>
+                                <button type="reset" class="btn btn-large">{{ _("Reset") }}</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    {% else %}
+        <div class="login_container">
+            <div class="login_box hero-unit">
+                <h1>{{ _("Registration succeeded") }}</h1>
+                <p>{{ _("Don't forget your password.") }}</p>
+                <div class="control-group">
+                    <label class="control-label" for="input01">{{ _("Username") }}</label>
+                    <div class="controls">
+                        {{ registration_user.username }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input01">{{ _("Password") }}</label>
+                    <div class="controls">
+                        {{ registration_user.password }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input01">{{ _("First name") }}</label>
+                    <div class="controls">
+                        {{ registration_user.first_name }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input01">{{ _("Last name") }}</label>
+                    <div class="controls">
+                        {{ registration_user.last_name }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <a href="{{ url_root }}/" class="btn btn-primary btn-large">{{ _("Back to login page") }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% end %}
+{% elif current_user is None %}
     {% if handler.get_argument("login_error", "") != "" %}
         <div id="notifications" class="notifications">
             <div class="alert alert-block alert-error notification">
@@ -94,6 +189,9 @@ $(document).ready(function () {
                         </div>
                     </fieldset>
                 </form>
+                {% if registration_form %}
+                <p><a href="{{ url_root }}/register">{{ _("Register") }}</a></p>
+                {% end %}
             </div>
         </div>
 {% else %}
