@@ -22,9 +22,10 @@
 """
 
 from cmscontrib.YamlLoader import YamlLoader
+from cmscontrib.ImojudgeLoader import ImojudgeLoader
 
 LOADERS = dict((loader_class.short_name, loader_class)
-               for loader_class in [YamlLoader])
+               for loader_class in [YamlLoader, ImojudgeLoader])
 
 
 def choose_loader(arg, path, error_callback):
