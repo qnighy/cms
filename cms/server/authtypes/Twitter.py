@@ -17,12 +17,23 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import logging
+logger = logging.getLogger(__name__)
+
 from cms import config
 from cms.server.AuthType import AuthType
 from cms.server.ContestWebServer import BaseHandler
 from cms.db import User
 
 import tornado.auth
+
+# ad-hoc
+tornado.auth.TwitterMixin._OAUTH_REQUEST_TOKEN_URL = "https://api.twitter.com/oauth/request_token"
+tornado.auth.TwitterMixin._OAUTH_ACCESS_TOKEN_URL = "https://api.twitter.com/oauth/access_token"
+tornado.auth.TwitterMixin._OAUTH_AUTHORIZE_URL = "https://api.twitter.com/oauth/authorize"
+tornado.auth.TwitterMixin._OAUTH_AUTHENTICATE_URL = "https://api.twitter.com/oauth/authenticate"
+tornado.auth.TwitterMixin._OAUTH_NO_CALLBACKS = False
+tornado.auth.TwitterMixin._TWITTER_BASE_URL = "https://api.twitter.com/1.1"
 
 
 class Twitter(AuthType):
@@ -55,9 +66,13 @@ class TwitterLoginHandler(BaseHandler, tornado.auth.TwitterMixin):
     """
     @tornado.web.asynchronous
     def get(self):
+        
+        logger.warning("route 1")
         if self.get_argument("oauth_token", None):
+            logger.warning("route 2")
             self.get_authenticated_user(self.async_callback(self._on_auth))
             return
+        logger.warning("route 3")
         a = self.authenticate_redirect()
 
     def _on_auth(self, user_t):

@@ -46,7 +46,6 @@ class FacebookLoginHandler(BaseHandler, tornado.auth.FacebookGraphMixin):
     """FacebookLogin handler.
 
     """
-    @tornado.web.asynchronous
     def get(self):
         referer = self.request.headers.get("Referer")
         if referer is None:
