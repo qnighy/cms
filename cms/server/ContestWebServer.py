@@ -1256,6 +1256,55 @@ class SubmissionStatusHandler(BaseHandler):
 
         self.write(data)
 
+class ViewSubmissionFilesHandler(BaseHandler):
+
+    refresh_cookie = False
+
+    @tornado.web.authenticated
+    @actual_phase_required(0)
+    def get(self, task_name, submission_num):
+        try:
+            task = self.contest.get_task(task_name)
+        except KeyError:
+            raise tornado.web.HTTPError(404)
+
+        submission = self.sql_session.query(Submission)\
+            .filter(Submission.user == self.current_user)\
+            .filter(Submission.task == task)\
+            .order_by(Submission.timestamp)\
+            .offset(int(submission_num) - 1).first()
+        if submission is None:
+            raise tornado.web.HTTPError(404)
+
+        files = []
+        for f in self.sql_session.query(File)\
+                .filter(File.submission == submission)\
+                .order_by(File.filename).all():
+            filename = f.filename
+            real_filename = filename.replace("%l", submission.language)
+
+            digest = f.digest
+
+            try:
+                temp_file = \
+                    self.application.service.file_cacher.get_file(digest)
+            except Exception as error:
+                logger.error("Exception while retrieving file `%s'. %r" %
+                             (filename, error))
+                self.finish()
+                return
+
+            max_size = FileCacher.CHUNK_SIZE
+            # max_size = 256
+            data = temp_file.read(max_size)
+            length = len(data)
+            files.append((real_filename, data, length < max_size))
+            temp_file.close()
+
+        self.render("view_submission_files.html",
+                    files=files, submission=submission, task=submission.task,
+                    s_idx=int(submission_num), **self.r_params)
+
 
 class SubmissionDetailsHandler(BaseHandler):
 
@@ -1836,6 +1885,8 @@ _cws_handlers = [
     (r"/tasks/(.*)/submissions/([1-9][0-9]*)", SubmissionStatusHandler),
     (r"/tasks/(.*)/submissions/([1-9][0-9]*)/details",
      SubmissionDetailsHandler),
+    (r"/tasks/(.*)/submissions/([1-9][0-9]*)/view_files",
+     ViewSubmissionFilesHandler),
     (r"/tasks/(.*)/submissions/([1-9][0-9]*)/files/(.*)",
      SubmissionFileHandler),
     (r"/tasks/(.*)/submissions/([1-9][0-9]*)/token", UseTokenHandler),
