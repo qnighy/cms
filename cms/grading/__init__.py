@@ -737,38 +737,24 @@ def task_score(user, task):
     # submission_results table.  Doing so means that this function should incur
     # no exta database queries.
 
-    # The score of the last submission (if valid, otherwise 0.0).
-    last_score = 0.0
-    # The maximum score amongst the tokened submissions (invalid
+    # The maximum score amongst the all submissions (invalid
     # scores count as 0.0).
-    max_tokened_score = 0.0
+    max_score = 0.0
     # If the score could change due to submission still being compiled
     # / evaluated / scored.
     partial = False
 
     submissions = [s for s in user.submissions if s.task is task]
-    submissions.sort(key=lambda s: s.timestamp)
 
     if submissions == []:
         return 0.0, False
 
-    # Last score: if the last submission is scored we use that,
-    # otherwise we use 0.0 (and mark that the score is partial
-    # when the last submission could be scored).
-    last_s = submissions[-1]
-    last_sr = last_s.get_result(task.active_dataset)
-
-    if last_sr is not None and last_sr.scored():
-        last_score = last_sr.score
-    else:
-        partial = True
-
     for s in submissions:
         sr = s.get_result(task.active_dataset)
-        if s.tokened():
-            if sr is not None and sr.scored():
-                max_tokened_score = max(max_tokened_score, sr.score)
-            else:
-                partial = True
+        if sr is not None and sr.scored():
+            max_score = max(max_score, sr.score)
+        else:
+            partial = True
 
-    return max(last_score, max_tokened_score), partial
+    return max_score, partial
+
