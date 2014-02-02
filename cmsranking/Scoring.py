@@ -98,23 +98,19 @@ class Score(object):
         # it's the last. Compute the new score and, if it changed,
         # append it to the history.
         s_id = change.submission
-        if self._submissions[s_id].token:
-            self._released.remove(self._submissions[s_id].score)
         if change.score is not None:
             self._submissions[s_id].score = change.score
         if change.token is not None:
             self._submissions[s_id].token = change.token
         if change.extra is not None:
             self._submissions[s_id].extra = change.extra
-        if self._submissions[s_id].token:
-            self._released.insert(self._submissions[s_id].score)
+        self._released.insert(self._submissions[s_id].score)
         if change.score is not None and \
                 (self._last is None or
                  self._submissions[s_id].time > self._last.time):
             self._last = self._submissions[s_id]
 
-        score = max(self._released.query(),
-                    self._last.score if self._last is not None else 0.0)
+        score = self._released.query()
 
         if score != self.get_score():
             self._history.append((change.time, score))
