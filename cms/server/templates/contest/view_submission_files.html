@@ -1,0 +1,15 @@
+{% from cms.server import encode_for_url %}
+
+<h3>Submitted Files</h3>
+{% for filename, data, full in files %}
+<h4>{{ filename }}</h4>
+{% if full %}
+<pre>{{ data }}</pre>
+{% else %}
+<pre>{{ data }}
+<a href="#">...</a></pre>
+{% end %}
+<a href="{{ embed_url_root }}/tasks/{{ encode_for_url(task.name) }}/submissions/{{ s_idx }}/files/{{ encode_for_url(filename) }}">
+    {{ _("Download") }} {{ filename }}
+</a>
+{% end %}
