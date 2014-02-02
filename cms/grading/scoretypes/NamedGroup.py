@@ -115,6 +115,7 @@ class NamedGroup(ScoreTypeAlone):
                     <th>{{ _("Details") }}</th>
                     <th>{{ _("Execution time") }}</th>
                     <th>{{ _("Memory used") }}</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -143,9 +144,10 @@ class NamedGroup(ScoreTypeAlone):
                         {{ _("N/A") }}
             {% end %}
                     </td>
+                    <td>{{ tc["file"] }}</td>
         {% else %}
                 <tr class="undefined">
-                    <td colspan="4">
+                    <td colspan="5">
                         {{ _("N/A") }}
                     </td>
                 </tr>
