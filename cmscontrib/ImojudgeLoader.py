@@ -426,7 +426,12 @@ class ImojudgeLoader(Loader):
                         Manager("grader.%s" % lang, digest)]
                 else:
                     logger.warning("Grader for language %s not found " % lang)
-            # Read managers with other known file extensions
+            compilation_param = "grader"
+        else:
+            compilation_param = "alone"
+
+        # Read managers with other known file extensions
+        if os.path.exists(os.path.join(task_path, "cms")):
             for other_filename in os.listdir(os.path.join(task_path, "cms")):
                 if other_filename.endswith('.h') or \
                         other_filename.endswith('lib.pas'):
@@ -435,9 +440,6 @@ class ImojudgeLoader(Loader):
                         "Manager %s for task %s" % (other_filename, name))
                     args["managers"] += [
                         Manager(other_filename, digest)]
-            compilation_param = "grader"
-        else:
-            compilation_param = "alone"
 
         # If there is check/checker (or equivalent), then, presuming
         # that the task type is Batch or OutputOnly, we retrieve the
