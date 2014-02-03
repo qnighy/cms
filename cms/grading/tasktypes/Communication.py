@@ -122,6 +122,14 @@ class Communication(TaskType):
         source_filenames.append(format_filename.replace(".%l", source_ext))
         files_to_get[source_filenames[-1]] = \
             job.files[format_filename].digest
+
+        # Also copy all *.h and *lib.pas graders
+        for filename in job.managers.iterkeys():
+            if filename.endswith('.h') or \
+                    filename.endswith('lib.pas'):
+                files_to_get[filename] = \
+                    job.managers[filename].digest
+
         for filename, digest in files_to_get.iteritems():
             sandbox.create_file_from_storage(filename, digest)
 
