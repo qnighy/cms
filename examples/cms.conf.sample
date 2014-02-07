@@ -116,6 +116,9 @@
     "_help": "Whether questions and messages are enabled.",
     "allow_questions": true,
 
+    "_help": "Whether testing interfaces are enabled.",
+    "allow_testing": true,
+
 
 
     "_section": "AdminWebServer",
