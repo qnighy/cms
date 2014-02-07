@@ -871,7 +871,7 @@ class QuestionHandler(BaseHandler):
     @tornado.web.authenticated
     def post(self):
         # User can post only if we want.
-        if not config.allow_questions:
+        if not config.allow_communication:
             raise tornado.web.HTTPError(404)
 
         question = Question(self.timestamp,
