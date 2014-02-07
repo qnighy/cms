@@ -1,7 +1,7 @@
 {% import re %}
 {% import time %}
 {% import json %}
-{% from cms import LANGUAGE_NAMES, LANGUAGE_TO_SOURCE_EXT_MAP %}
+{% from cms import config, LANGUAGE_NAMES, LANGUAGE_TO_SOURCE_EXT_MAP %}
 {% from cms.server import format_amount_of_time, format_time, format_datetime, format_datetime_smart, get_score_class, encode_for_url %}
 {% from cmscommon.datetime import make_timestamp %}
 <!DOCTYPE html>
@@ -264,7 +264,7 @@ $(document).ready(function () {
                             <li{% if request.path == '/documentation' %} class="active"{% end %}>
                                 <a href="{{ url_root }}/documentation">{{ _("Documentation") }}</a>
                             </li>
-    {% if actual_phase == 0 %}{% comment FIXME maybe >= 0? %}
+    {% if actual_phase == 0 and config.allow_testing %}{% comment FIXME maybe >= 0? %}
                             <li{% if request.path == '/testing' %} class="active"{% end %}>
                                 <a href="{{ url_root }}/testing">{{ _("Testing") }}</a>
                             </li>

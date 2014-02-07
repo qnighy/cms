@@ -1464,6 +1464,10 @@ class UserTestHandler(BaseHandler):
     @tornado.web.authenticated
     @actual_phase_required(0)
     def post(self, task_name):
+        # User can test only if we want.
+        if not config.allow_testing:
+            raise tornado.web.HTTPError(404)
+
         try:
             task = self.contest.get_task(task_name)
         except KeyError:
