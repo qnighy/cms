@@ -63,7 +63,6 @@ from cms import SOURCE_EXT_TO_LANGUAGE_MAP, config, ServiceCoord
 from cms.io import WebService
 from cms.db import Session, Contest, User, Task, Question, Submission, Token, \
     File, UserTest, UserTestFile, UserTestManager
-from cms.db.user import generate_random_password
 from cms.db.filecacher import FileCacher
 from cms.grading.tasktypes import get_task_type
 from cms.grading.scoretypes import get_score_type
@@ -508,8 +507,12 @@ class RegisterHandler(BaseHandler):
             self.redirect("/register?register_error=dup")
             return
 
+        import random
+        chars = "23456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
+        password = "".join([random.choice(chars) for _ in xrange(8)])
+
         user = User(first_name, last_name, username,
-                password=generate_random_password(),
+                password=password,
                 contest=self.contest)
         self.sql_session.add(user)
         self.sql_session.commit()
