@@ -67,7 +67,8 @@ class JudgeStatisticsCollector(object):
             <h2>{{ task["title"] }}</h2>
             {% if "submissions" in task %}
             {% set subm_count = len(task["submissions"]) %}
-            <p>Number of submissions: <strong>{{ subm_count }}</strong></p>
+            <p>Number of compiled submissions: <strong>{{ subm_count }}</strong></p>
+            <p>Number of submissions that cannot be compiled: <strong>{{ task["compile_errors"] }}</strong></p>
             {% end %}
             <p>Time Histogram:</p>
             <table>
@@ -197,9 +198,13 @@ class JudgeStatisticsCollector(object):
                             'wallclock_time': 0.0
                         } for i in range(timespans)]
                 task_data["submissions"] = []
+                task_data["compile_errors"] = 0
                 for submission in session.query(Submission)\
                         .filter(Submission.task == task).all():
                     submission_result = submission.get_result(dataset)
+                    if submission_result.compilation_outcome == "fail":
+                        task_data["compile_errors"] += 1
+                        continue
                     submission_data = {}
                     task_data["submissions"].append(submission_data)
                     wallclock_time_sum = 0.0
