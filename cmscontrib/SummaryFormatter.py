@@ -208,6 +208,7 @@ summary
                             .order_by(Submission.timestamp).all():
                         sr = s.get_result(task.active_dataset)
                         if sr is not None and sr.scored()\
+                                and sr.compilation_outcome != "fail"\
                                 and sr.score == t_score:
                             t_submission = s
                             t_submission_r = sr
