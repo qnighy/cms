@@ -143,6 +143,7 @@ def do_setup():
                   "cmsSubmissionExporter=cmscontrib.SubmissionExporter:main",
                   "cmsSpoolExporter=cmscontrib.SpoolExporter:main",
                   "cmsSummaryFormatter=cmscontrib.SummaryFormatter:main",
+                  "cmsJOIRankingFormatter=cmscontrib.JOIRankingFormatter:main",
                   "cmsJudgeStatisticsCollector=cmscontrib.JudgeStatisticsCollector:main",
                   "cmsContestExporter=cmscontrib.ContestExporter:main",
                   "cmsContestImporter=cmscontrib.ContestImporter:main",
