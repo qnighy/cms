@@ -529,7 +529,7 @@ class ImojudgeLoader(Loader):
 
         # If there is cms/manager (or equivalent), then the task
         # type is Communication
-        elif args["task_type"] == "Communication":
+        elif args["task_type"] in ["Communication", "Communication2"]:
             paths = [os.path.join(task_path, "cms", "manager")]
             for path in paths:
                 if os.path.exists(path):
@@ -555,6 +555,11 @@ class ImojudgeLoader(Loader):
                     break
             else:
                 logger.warning("manager not found")
+
+            if args["task_type"] == "Communication2":
+                task.submission_format = [
+                        SubmissionFormatElement(f)
+                        for f in conf["submission_format"]]
 
         # Otherwise, the task type is Batch
         else:
