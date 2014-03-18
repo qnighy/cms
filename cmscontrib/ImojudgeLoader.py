@@ -184,7 +184,7 @@ class ImojudgeLoader(Loader):
         """
 
         conf = self.tasks_conf[name]
-        path = os.path.realpath(os.path.join(self.path, name))
+        path = os.path.realpath(os.path.join(self.path, conf["dir"]))
 
         # If there is no .itime file, we assume that the task has changed
         if not os.path.exists(os.path.join(path, ".itime")):
@@ -221,7 +221,8 @@ class ImojudgeLoader(Loader):
         files.append(os.path.join(path, "etc", "score.txt"))
 
         # Statement
-        files.append(os.path.join(path, "task", name + "pdf"))
+        files.append(os.path.join(path, "task",
+                os.path.basename(conf["dir"]) + "pdf"))
 
         # Managers
         files.append(os.path.join(path, "cms", "checker"))
@@ -335,7 +336,8 @@ class ImojudgeLoader(Loader):
         primary_language = load(conf, None, "primary_language")
         if primary_language is None:
             primary_language = 'ja'
-        paths = [os.path.join(task_path, "task",args["name"] + ".pdf")]
+        paths = [os.path.join(task_path, "task",
+                os.path.basename(conf["dir"]) + ".pdf")]
         for path in paths:
             if os.path.exists(path):
                 digest = self.file_cacher.put_file_from_path(
