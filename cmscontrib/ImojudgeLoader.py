@@ -469,7 +469,7 @@ class ImojudgeLoader(Loader):
 
         # Detect subtasks by checking score.txt
         score_filename = os.path.join(task_path, 'etc', 'score.txt')
-        scoreline_re = re.compile(r'\A\s*(?:Feedback|([\w]+)\s*\((\d+)\))'
+        scoreline_re = re.compile(r'\A\s*(?:Feedback|([\w ]+)\s*\((\d+)\))'
                                   r'\s*:\s*([-\w\s*?,]+)\Z')
         try:
             with io.open(score_filename, "rt", encoding="utf-8") as score_file:
