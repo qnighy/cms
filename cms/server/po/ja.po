@@ -657,7 +657,7 @@ msgid "Type"
 msgstr "課題の種類"
 
 msgid "Files"
-msgstr "提出ファイル名"
+msgstr "提出ファイル"
 
 msgid "Tokens"
 msgstr "トークン"
