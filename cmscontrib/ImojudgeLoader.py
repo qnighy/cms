@@ -162,6 +162,7 @@ class ImojudgeLoader(Loader):
         if "languages" in args:
             for l in args["languages"]:
                 assert l in LANGUAGES
+        self.languages = args.get("languages", LANGUAGES)
 
         logger.info("Contest parameters loaded.")
 
@@ -427,7 +428,7 @@ class ImojudgeLoader(Loader):
                         "Grader for task %s and language %s" % (name, lang))
                     args["managers"] += [
                         Manager("grader.%s" % lang, digest)]
-                else:
+                elif lang in self.languages:
                     logger.warning("Grader for language %s not found " % lang)
             compilation_param = "grader"
         else:
@@ -552,7 +553,7 @@ class ImojudgeLoader(Loader):
                                                                       lang))
                             args["managers"] += [
                                 Manager("stub.%s" % lang, digest)]
-                        else:
+                        elif lang in self.languages:
                             logger.warning("Stub for language %s not "
                                            "found." % lang)
                     break
