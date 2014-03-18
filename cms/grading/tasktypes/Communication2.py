@@ -167,18 +167,20 @@ class Communication2(TaskType):
         sandbox_mgr = create_sandbox(file_cacher)
         sandbox_user1 = create_sandbox(file_cacher)
         sandbox_user2 = create_sandbox(file_cacher)
-        fifo_dir = tempfile.mkdtemp(dir=config.temp_dir)
-        fifo1_in = os.path.join(fifo_dir, "in1")
-        fifo1_out = os.path.join(fifo_dir, "out1")
-        fifo2_in = os.path.join(fifo_dir, "in2")
-        fifo2_out = os.path.join(fifo_dir, "out2")
+        fifo1_dir = tempfile.mkdtemp(dir=config.temp_dir)
+        fifo2_dir = tempfile.mkdtemp(dir=config.temp_dir)
+        fifo1_in = os.path.join(fifo1_dir, "in1")
+        fifo1_out = os.path.join(fifo1_dir, "out1")
+        fifo2_in = os.path.join(fifo2_dir, "in2")
+        fifo2_out = os.path.join(fifo2_dir, "out2")
         os.mkfifo(fifo1_in)
         os.mkfifo(fifo1_out)
         os.mkfifo(fifo2_in)
         os.mkfifo(fifo2_out)
-        os.chmod(fifo_dir, 0o755)
+        os.chmod(fifo1_dir, 0o755)
         os.chmod(fifo1_in, 0o666)
         os.chmod(fifo1_out, 0o666)
+        os.chmod(fifo2_dir, 0o755)
         os.chmod(fifo2_in, 0o666)
         os.chmod(fifo2_out, 0o666)
 
@@ -192,7 +194,7 @@ class Communication2(TaskType):
         manager_files_to_get = {
             "input.txt": job.input
             }
-        manager_allow_dirs = [fifo_dir]
+        manager_allow_dirs = [fifo1_dir, fifo2_dir]
         for filename, digest in manager_executables_to_get.iteritems():
             sandbox_mgr.create_file_from_storage(
                 filename, digest, executable=True)
@@ -215,7 +217,7 @@ class Communication2(TaskType):
             }
 
         command1 = ["./%s" % executable_filename, "0", fifo1_out, fifo1_in]
-        user_allow_dirs = [fifo_dir]
+        user_allow_dirs = [fifo1_dir]
         for filename, digest in executables_to_get.iteritems():
             sandbox_user1.create_file_from_storage(
                 filename, digest, executable=True)
@@ -227,7 +229,7 @@ class Communication2(TaskType):
             allow_dirs=user_allow_dirs)
 
         command2 = ["./%s" % executable_filename, "1", fifo2_out, fifo2_in]
-        user_allow_dirs = [fifo_dir]
+        user_allow_dirs = [fifo2_dir]
         for filename, digest in executables_to_get.iteritems():
             sandbox_user2.create_file_from_storage(
                 filename, digest, executable=True)
@@ -309,4 +311,5 @@ class Communication2(TaskType):
         delete_sandbox(sandbox_mgr)
         delete_sandbox(sandbox_user1)
         delete_sandbox(sandbox_user2)
-        rmtree(fifo_dir)
+        rmtree(fifo1_dir)
+        rmtree(fifo2_dir)
