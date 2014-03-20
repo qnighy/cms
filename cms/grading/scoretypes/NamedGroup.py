@@ -277,6 +277,11 @@ class NamedGroup(ScoreTypeAlone):
                 return N_("Correct")
             else:
                 return N_("Not correct")
+        elif parameter['reduce'] == 'threshold-reversed':
+            if parameter['threshold'] <= outcome <= 1.0:
+                return N_("Correct")
+            else:
+                return N_("Not correct")
         return None
 
     def reduce(self, outcomes, parameter):
@@ -295,6 +300,12 @@ class NamedGroup(ScoreTypeAlone):
             return reduce(lambda x, y: x * y, outcomes)
         elif parameter['reduce'] == 'threshold':
             if all(0 <= outcome <= parameter['threshold']
+                   for outcome in outcomes):
+                return 1.0
+            else:
+                return 0.0
+        elif parameter['reduce'] == 'threshold-reversed':
+            if all(parameter['threshold'] <= outcome <= 1.0
                    for outcome in outcomes):
                 return 1.0
             else:
