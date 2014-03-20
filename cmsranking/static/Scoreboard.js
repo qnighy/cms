@@ -157,6 +157,11 @@ var Scoreboard = new function () {
 <col class=\"score contest\" data-contest=\"" + c_id + "\" data-sort_key=\"c_" + c_id + "\"/> <col/><col/><col/>";
         }
 
+        if (contests.length > 1) {
+            result += " \
+<col class=\"score global\" data-sort_key=\"global\"/> <col/><col/><col/><col/>";
+        }
+
         return result;
     };
 
@@ -185,8 +190,18 @@ var Scoreboard = new function () {
     <th colspan=\"3\" class=\"score task\" data-task=\"" + t_id + "\" data-sort_key=\"t_" + t_id + "\"><abbr title=\"" + task["name"] + "\">T" + ((j|0)+1) + "</abbr></th>";
             }
 
+            var contest_name = "Sum";
+            if (contests.length > 1) {
+                contest_name = "C" + ((i|0)+1);
+            }
+
             result += " \
-    <th colspan=\"4\" class=\"score contest\" data-contest=\"" + c_id + "\" data-sort_key=\"c_" + c_id + "\">" + "Sum" + "</th>";
+    <th colspan=\"4\" class=\"score contest\" data-contest=\"" + c_id + "\" data-sort_key=\"c_" + c_id + "\">" + contest_name + "</th>";
+        }
+
+        if (contests.length > 1) {
+            result += " \
+    <th colspan=\"5\" class=\"score global\" data-sort_key=\"global\">Sum</th>";
         }
 
         result += " \
@@ -234,6 +249,12 @@ var Scoreboard = new function () {
             var score_class = self.get_score_class(user["c_" + c_id], contest["max_score"]);
             result += " \
     <td colspan=\"4\" class=\"score contest " + score_class + "\" data-contest=\"" + c_id + "\" data-sort_key=\"c_" + c_id + "\">" + round_to_str(user["c_" + c_id], contest["score_precision"]) + "</td>";
+        }
+
+        if (contests.length > 1) {
+            var score_class = self.get_score_class(user["global"], DataStore.global_max_score);
+            result += " \
+    <td colspan=\"5\" class=\"score global " + score_class + "\" data-sort_key=\"global\">" + round_to_str(user["global"], DataStore.global_score_precision) + "</td>";
         }
 
         result += " \
