@@ -175,13 +175,14 @@ class Communication(TaskType):
 
         # First step: we start the manager.
         manager_filename = "manager"
-        manager_command = ["./%s" % manager_filename, fifo_in, fifo_out]
+        manager_command = ["./%s" % manager_filename, fifo_in, fifo_out, "expected_output.txt"]
         manager_executables_to_get = {
             manager_filename:
             job.managers[manager_filename].digest
             }
         manager_files_to_get = {
-            "input.txt": job.input
+            "input.txt": job.input,
+            "expected_output.txt": job.output
             }
         manager_allow_dirs = [fifo_dir]
         for filename, digest in manager_executables_to_get.iteritems():
