@@ -282,6 +282,14 @@ class NamedGroup(ScoreTypeAlone):
                 return N_("Correct")
             else:
                 return N_("Not correct")
+        elif parameter['reduce'] == 'kanji5':
+            l = round(10000.0 - 10000.0 * outcome)
+            if l >= 90.0:
+                return N_("Not correct")
+            elif l <= 64.0:
+                return N_("Correct")
+            else:
+                return N_("Partially correct")
         return None
 
     def reduce(self, outcomes, parameter):
@@ -310,4 +318,13 @@ class NamedGroup(ScoreTypeAlone):
                 return 1.0
             else:
                 return 0.0
+        elif parameter['reduce'] == 'kanji5':
+            outcome = min(outcomes)
+            l = round(10000.0 - 10000.0 * outcome)
+            if l >= 90.0:
+                return 0.0
+            elif l <= 64.0:
+                return 1.0
+            else:
+                return ((90.0 - l) / (90.0 - 64.0)) ** 2
         return None

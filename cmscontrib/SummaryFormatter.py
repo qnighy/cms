@@ -257,6 +257,7 @@ summary
                                     .first()
                             t_data["name"] = testcase.codename
                             t_data["outcome"] = ev.outcome
+                            outcome = float(ev.outcome)
                             text = ev.text
                             if text.find("Output is correct") >= 0:
                                 text = "AC"
@@ -268,6 +269,9 @@ summary
                                 text = "RE"
                             elif text.find("Execution failed") >= 0:
                                 text = "RE"
+                            elif task.name == "kanji" and outcome >= 0.0:
+                                l = round(10000.0 - 10000.0 * outcome)
+                                text = "L=%d" % l
                             else:
                                 logger.warning("Unknown text for evaluation.")
                             t_data["text"] = text

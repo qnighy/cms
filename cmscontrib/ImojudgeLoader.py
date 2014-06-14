@@ -517,6 +517,19 @@ class ImojudgeLoader(Loader):
         if feedback is None:
             feedback = testcases
 
+        if conf["name"] == "kanji":
+            subtasks[0]['reduce'] = "threshold-reversed"
+            subtasks[1]['reduce'] = "threshold-reversed"
+            subtasks[2]['reduce'] = "threshold-reversed"
+            subtasks[3]['reduce'] = "threshold-reversed"
+            subtasks[4]['reduce'] = "threshold-reversed"
+            subtasks[5]['reduce'] = "kanji5"
+            subtasks[0]['threshold'] = 0.9000
+            subtasks[1]['threshold'] = 0.9000
+            subtasks[2]['threshold'] = 0.9820
+            subtasks[3]['threshold'] = 0.9840
+            subtasks[4]['threshold'] = 0.9910
+
         args["score_type"] = "NamedGroup"
         args["score_type_parameters"] = json.dumps(subtasks)
 
