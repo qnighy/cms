@@ -538,11 +538,10 @@ class ImojudgeLoader(Loader):
         if args["task_type"] == "OutputOnly":
             args["time_limit"] = None
             args["memory_limit"] = None
-            # TODO
             args["task_type_parameters"] = '["%s"]' % evaluation_param
             task.submission_format = [
-                SubmissionFormatElement("output_%03d.txt" % i)
-                for i in xrange(n_input)]
+                SubmissionFormatElement("output_%s.txt" % f)
+                for f in testcases]
 
         # If there is cms/manager (or equivalent), then the task
         # type is Communication
@@ -594,12 +593,23 @@ class ImojudgeLoader(Loader):
 
         args["testcases"] = []
         for f in testcases:
+            in_filename = os.path.join(task_path, "in", f + ".txt")
             input_digest = self.file_cacher.put_file_from_path(
-                os.path.join(task_path, "in", f + ".txt"),
+                in_filename,
                 "Input %s for task %s" % (f, name))
-            output_digest = self.file_cacher.put_file_from_path(
-                os.path.join(task_path, "out", f + ".txt"),
-                "Output %s for task %s" % (f, name))
+            out_filename = os.path.join(task_path, "out", f + ".txt")
+            if os.path.exists(out_filename):
+                output_digest = self.file_cacher.put_file_from_path(
+                    out_filename,
+                    "Output %s for task %s" % (f, name))
+            else:
+                logger.warning("output file %s not found" % out_filename)
+                import StringIO
+                src = StringIO.StringIO("")
+                output_digest = self.file_cacher.put_file_from_fobj(
+                    src,
+                    "Dummy Output %s for task %s" % (f, name))
+                src.close()
             args["testcases"] += [
                 Testcase(f, f in feedback, input_digest, output_digest)]
             if args["task_type"] == "OutputOnly":
