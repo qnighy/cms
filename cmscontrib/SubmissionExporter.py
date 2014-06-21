@@ -27,7 +27,7 @@ import argparse
 import logging
 import os
 import shutil
-import simplejson as json
+import json
 import tempfile
 import codecs
 
