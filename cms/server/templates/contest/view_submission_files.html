@@ -9,7 +9,7 @@
 <pre>{{ data }}
 <a href="#">...</a></pre>
 {% end %}
-<a href="{{ url_root }}/tasks/{{ encode_for_url(task.name) }}/submissions/{{ s_idx }}/files/{{ encode_for_url(filename) }}">
+<a href="submissions/{{ s_idx }}/files/{{ encode_for_url(filename) }}">
     {{ _("Download") }} {{ filename }}
 </a>
 {% end %}
