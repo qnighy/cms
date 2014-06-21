@@ -493,7 +493,7 @@ class RegisterHandler(BaseHandler):
         username = self.get_argument("username", "")
         next_page = self.get_argument("next", "/")
 
-        if username != filter_ascii(username):
+        if username != filter_ascii(username) or username == "":
             logger.warning("Registration error: Cannot use that user name")
             self.redirect("/register?register_error=mal")
             return
