@@ -25,7 +25,7 @@
  * callback: a function to call with the result of the request.
  */
 function cmsrpc_request (service, shard, method, arguments, callback) {
-    var url = "/rpc/" + encodeURIComponent(service) +
+    var url = "/admin/rpc/" + encodeURIComponent(service) +
                   "/" + encodeURIComponent(shard) +
                   "/" + encodeURIComponent(method);
     var jqxhr = $.ajax({
