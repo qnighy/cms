@@ -223,7 +223,10 @@ class ImojudgeLoader(Loader):
 
         # Statement
         files.append(os.path.join(path, "task",
-                os.path.basename(conf["dir"]) + "pdf"))
+                os.path.basename(conf["dir"]) + ".pdf"))
+        for lang in ["ja", "en"]:
+            files.append(os.path.join(path, "task",
+                    os.path.basename(conf["dir"]) + "-" + lang + ".pdf"))
 
         # Managers
         files.append(os.path.join(path, "cms", "checker"))
@@ -337,19 +340,22 @@ class ImojudgeLoader(Loader):
         primary_language = load(conf, None, "primary_language")
         if primary_language is None:
             primary_language = 'ja'
-        paths = [os.path.join(task_path, "task",
-                os.path.basename(conf["dir"]) + ".pdf")]
-        for path in paths:
+        stmt_paths = [(os.path.join(task_path, "task",
+                os.path.basename(conf["dir"]) + ".pdf"), primary_language)]
+        for lang in ["ja", "en"]:
+            stmt_paths.append((os.path.join(task_path, "task",
+                    os.path.basename(conf["dir"]) + "-" + lang + ".pdf"),
+                    lang))
+        args["statements"] = []
+        for (path, lang) in stmt_paths:
             if os.path.exists(path):
                 digest = self.file_cacher.put_file_from_path(
                     path,
-                    "Statement for task %s (lang: %s)" % (name,
-                                                          primary_language))
-                break
-        else:
+                    "Statement for task %s (lang: %s)" % (name, lang))
+                args["statements"].append(Statement(lang, digest))
+        if len(args["statements"]) == 0:
             logger.critical("Couldn't find any task statement, aborting...")
             sys.exit(1)
-        args["statements"] = [Statement(primary_language, digest)]
 
         args["primary_statements"] = '["%s"]' % (primary_language)
 
