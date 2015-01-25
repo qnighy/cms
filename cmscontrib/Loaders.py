@@ -28,9 +28,10 @@ from __future__ import unicode_literals
 
 from cmscontrib.YamlLoader import YamlLoader
 from cmscontrib.PolygonLoader import PolygonLoader
+from cmscontrib.ImojudgeLoader import ImojudgeLoader
 
 LOADERS = dict((loader_class.short_name, loader_class)
-               for loader_class in [YamlLoader, PolygonLoader])
+               for loader_class in [YamlLoader, PolygonLoader, ImojudgeLoader])
 
 
 def choose_loader(arg, path, error_callback):
