@@ -111,6 +111,7 @@ def do_setup():
                     "cms.grading",
                     "cms.grading.scoretypes",
                     "cms.grading.tasktypes",
+                    "cms.grading.reducetypes",
                     "cmscommon",
                     "cmsranking",
                     "cmscontrib",
