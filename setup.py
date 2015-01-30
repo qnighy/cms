@@ -161,6 +161,7 @@ def do_setup():
                   "cmsRWSHelper=cmscontrib.RWSHelper:main",
 
                   "cmsSummaryFormatter=cmscontrib.SummaryFormatter:main",
+                  "cmsSubmissionExporter=cmscontrib.SubmissionExporter:main",
 
                   "cmsMake=cmstaskenv.cmsMake:main",
 
