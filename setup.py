@@ -160,6 +160,8 @@ def do_setup():
                   "cmsDumpUpdater=cmscontrib.DumpUpdater:main",
                   "cmsRWSHelper=cmscontrib.RWSHelper:main",
 
+                  "cmsSummaryFormatter=cmscontrib.SummaryFormatter:main",
+
                   "cmsMake=cmstaskenv.cmsMake:main",
 
                   "cmsYamlImporter=cmscompat.YamlImporter:main",
