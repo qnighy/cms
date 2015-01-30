@@ -162,6 +162,8 @@ def do_setup():
 
                   "cmsSummaryFormatter=cmscontrib.SummaryFormatter:main",
                   "cmsSubmissionExporter=cmscontrib.SubmissionExporter:main",
+                  "cmsJudgeStatisticsCollector"
+                  "=cmscontrib.JudgeStatisticsCollector:main",
 
                   "cmsMake=cmstaskenv.cmsMake:main",
 
