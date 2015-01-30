@@ -42,7 +42,6 @@ from werkzeug.exceptions import HTTPException, BadRequest, Unauthorized, \
     Forbidden, NotFound, NotAcceptable, UnsupportedMediaType
 from werkzeug.wsgi import responder, wrap_file, SharedDataMiddleware, \
     DispatcherMiddleware
-from werkzeug.utils import redirect
 
 # Needed for initialization. Do not remove.
 import cmsranking.Logger
@@ -392,8 +391,7 @@ class ImageHandler(object):
 class RoutingHandler(object):
     def __init__(self, event_handler, logo_handler):
         self.router = Map(
-            [Rule("/", methods=["GET"], endpoint="root"),
-             Rule("/sublist/<user_id>", methods=["GET"], endpoint="sublist"),
+            [Rule("/sublist/<user_id>", methods=["GET"], endpoint="sublist"),
              Rule("/history", methods=["GET"], endpoint="history"),
              Rule("/scores", methods=["GET"], endpoint="scores"),
              Rule("/events", methods=["GET"], endpoint="events"),
@@ -402,7 +400,6 @@ class RoutingHandler(object):
 
         self.event_handler = event_handler
         self.logo_handler = logo_handler
-        self.root_handler = redirect("Ranking.html")
 
     def __call__(self, environ, start_response):
         return self.wsgi_app(environ, start_response)
@@ -418,8 +415,6 @@ class RoutingHandler(object):
             return self.event_handler(environ, start_response)
         elif endpoint == "logo":
             return self.logo_handler(environ, start_response)
-        elif endpoint == "root":
-            return self.root_handler(environ, start_response)
         else:
             request = Request(environ)
             request.encoding_errors = "strict"
