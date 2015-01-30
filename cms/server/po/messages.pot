@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 17:10+0000\n"
+"POT-Creation-Date: 2015-01-30 20:02+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,25 +18,71 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-msgid "N/A"
+msgid "Compilation succeeded"
 msgstr ""
 
-msgid "Compilation succeeded"
+msgid "Your submission successfully compiled to an excutable."
 msgstr ""
 
 msgid "Compilation failed"
 msgstr ""
 
+msgid "Your submission did not compile correctly."
+msgstr ""
+
 msgid "Compilation timed out"
+msgstr ""
+
+msgid ""
+"Your submission exceeded the time limit while compiling. This might be "
+"caused by an excessive use of C++ templates, for example."
 msgstr ""
 
 #, python-format
 msgid ""
-"Compilation killed with signal %d (could be triggered by violating memory "
+"Compilation killed with signal %s (could be triggered by violating memory "
 "limits)"
 msgstr ""
 
+msgid ""
+"Your submission was killed with the specified signal. Among other things, "
+"this might be caused by exceeding the memory limit for the compilation, and "
+"in turn by an excessive use of C++ templates, for example."
+msgstr ""
+
+msgid "Output is correct"
+msgstr ""
+
+msgid "Your submission ran and gave the correct answer"
+msgstr ""
+
+msgid "Output isn't correct"
+msgstr ""
+
+msgid "Your submission ran, but gave the wrong answer"
+msgstr ""
+
+#, python-format
+msgid "Evaluation didn't produce file %s"
+msgstr ""
+
+msgid "Your submission ran, but did not write on the correct output file"
+msgstr ""
+
 msgid "Execution timed out"
+msgstr ""
+
+msgid "Your submission used too much CPU time."
+msgstr ""
+
+msgid "Execution timed out (wall clock limit exceeded)"
+msgstr ""
+
+msgid ""
+"Your submission used too much total time. This might be triggered by "
+"undefined code, or buffer overflow, for example. Note that in this case the "
+"CPU time visible in the submission details might be much smaller than the "
+"time limit."
 msgstr ""
 
 #, python-format
@@ -45,24 +91,38 @@ msgid ""
 "limits)"
 msgstr ""
 
+msgid ""
+"Your submission was killed with the specified signal. Among other things, "
+"this might be caused by exceeding the memory limit. Note that if this is the "
+"reason, the memory usage visible in the submission details is the usage "
+"before the allocation that caused the signal."
+msgstr ""
+
 #, python-format
 msgid "Execution killed because of forbidden syscall %s"
+msgstr ""
+
+msgid ""
+"Your submission was killed because it tried to use the forbidden syscall "
+"specified in the message."
 msgstr ""
 
 msgid "Execution killed because of forbidden file access"
 msgstr ""
 
+msgid ""
+"Your submission was killed because it tried to read or write a forbidden "
+"file."
+msgstr ""
+
 msgid "Execution failed because the return code was nonzero"
 msgstr ""
 
-msgid "Output is correct"
+msgid ""
+"Your submission failed because it exited with a return code different from 0."
 msgstr ""
 
-msgid "Output isn't correct"
-msgstr ""
-
-#, python-format
-msgid "Evaluation didn't produce file %s"
+msgid "N/A"
 msgstr ""
 
 #, python-format
@@ -100,6 +160,12 @@ msgid "No compilation needed"
 msgstr ""
 
 msgid "File not submitted"
+msgstr ""
+
+msgid "Updated user information"
+msgstr ""
+
+msgid "Your information has been changed."
 msgstr ""
 
 msgid "Question received"
@@ -443,16 +509,26 @@ msgid ""
 "<em>(%(username)s)</em>"
 msgstr ""
 
+msgid "Edit your information"
+msgstr ""
+
 msgid "Logout"
 msgstr ""
 
 msgid "Failed to log in."
 msgstr ""
 
-msgid "Welcome"
+msgid "This username already exists."
 msgstr ""
 
-msgid "Please log in"
+msgid "Invalid username."
+msgstr ""
+
+msgid "Registration"
+msgstr ""
+
+msgid ""
+"Enter your information. Only printable characters are allowed for username."
 msgstr ""
 
 msgid "Username"
@@ -461,10 +537,37 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-msgid "Login"
+msgid "Password will be randomly generated."
+msgstr ""
+
+msgid "First name"
+msgstr ""
+
+msgid "Last name"
+msgstr ""
+
+msgid "Register"
 msgstr ""
 
 msgid "Reset"
+msgstr ""
+
+msgid "Registration succeeded"
+msgstr ""
+
+msgid "Don't forget your password."
+msgstr ""
+
+msgid "Back to login page"
+msgstr ""
+
+msgid "Welcome"
+msgstr ""
+
+msgid "Please log in"
+msgstr ""
+
+msgid "Login"
 msgstr ""
 
 msgid "New message"
@@ -547,6 +650,9 @@ msgid "Messages"
 msgstr ""
 
 msgid "Standard Template Library"
+msgstr ""
+
+msgid "Update"
 msgstr ""
 
 #, python-format
@@ -780,10 +886,7 @@ msgstr ""
 msgid "Standard error"
 msgstr ""
 
-msgid "None"
-msgstr ""
-
-msgid "Download"
+msgid "View"
 msgstr ""
 
 msgid "Played"
@@ -921,6 +1024,9 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
+msgid "Submitted files"
+msgstr ""
+
 msgid "Submit a test"
 msgstr ""
 
@@ -947,4 +1053,10 @@ msgid "Test details"
 msgstr ""
 
 msgid "Evaluation outcome"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "None"
 msgstr ""

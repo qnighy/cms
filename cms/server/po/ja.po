@@ -1,15 +1,15 @@
 # Japanese translations for PACKAGE package.
 # Copyright (C) 2014 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Masaki Hara <ackie.h.gmai@gmail.com>, 2014.
+# Masaki Hara <ackie.h.gmai@gmail.com>, 2014-2015.
 # Kento Nikaido <snukent@gmail.com>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 17:10+0000\n"
-"PO-Revision-Date: 2015-01-12 15:31+0900\n"
+"POT-Creation-Date: 2015-01-30 20:02+0900\n"
+"PO-Revision-Date: 2015-01-30 20:04+0900\n"
 "Last-Translator: Masaki Hara <ackie.h.gmai@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -18,28 +18,83 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "N/A"
-msgstr "N/A"
-
 msgid "Compilation succeeded"
 msgstr "コンパイル成功"
+
+msgid "Your submission successfully compiled to an excutable."
+msgstr "あなたの提出は正しく実行可能ファイルにコンパイルされました。"
 
 msgid "Compilation failed"
 msgstr "コンパイル失敗"
 
+msgid "Your submission did not compile correctly."
+msgstr "あなたの提出は正しくコンパイルされませんでした。"
+
 msgid "Compilation timed out"
 msgstr "コンパイル時間超過"
 
-#, python-format
 msgid ""
-"Compilation killed with signal %d (could be triggered by violating memory "
+"Your submission exceeded the time limit while compiling. This might be "
+"caused by an excessive use of C++ templates, for example."
+msgstr ""
+"あなたの提出はコンパイル時に時間制限を超過しました。これは例えばC++テンプレー"
+"トの使い過ぎによって引き起こされます。"
+
+msgid ""
+"Compilation killed with signal %s (could be triggered by violating memory "
 "limits)"
 msgstr ""
 "コンパイラはシグナル %d を受け取って異常終了しました(メモリ制限違反が原因かも"
 "しれません)"
 
+msgid ""
+"Your submission was killed with the specified signal. Among other things, "
+"this might be caused by exceeding the memory limit for the compilation, and "
+"in turn by an excessive use of C++ templates, for example."
+msgstr ""
+"あなたの提出は特定のシグナルによって強制終了されました。様々な理由が考えられ"
+"ますが、例えば、コンパイル時のメモリ制限超過によって引き起こされた可能性や、"
+"C++テンプレートの使い過ぎによって引き起こされた可能性があります。"
+
+msgid "Output is correct"
+msgstr "出力は正しいです"
+
+msgid "Your submission ran and gave the correct answer"
+msgstr "あなたの提出は実行され、正しい答えを返しました。"
+
+msgid "Output isn't correct"
+msgstr "出力は正しくありません"
+
+msgid "Your submission ran, but gave the wrong answer"
+msgstr "あなたの提出は実行されましたが、正しくない答えを返しました。"
+
+#, python-format
+msgid "Evaluation didn't produce file %s"
+msgstr "評価システムがファイル %s を生成しませんでした"
+
+msgid "Your submission ran, but did not write on the correct output file"
+msgstr "あなたの提出は実行されましたが、適切な出力ファイルに対する出力がありま"
+"せんでした。"
+
 msgid "Execution timed out"
 msgstr "実行時間超過"
+
+msgid "Your submission used too much CPU time."
+msgstr "あなたの提出はCPU時間を使い過ぎました。"
+
+msgid "Execution timed out (wall clock limit exceeded)"
+msgstr "実行時間超過 (実時間超過)"
+
+msgid ""
+"Your submission used too much total time. This might be triggered by "
+"undefined code, or buffer overflow, for example. Note that in this case the "
+"CPU time visible in the submission details might be much smaller than the "
+"time limit."
+msgstr ""
+"あなたの提出は合計の時間を使い過ぎました。これは例えば、未定義動作が含まれる"
+"コードやバッファオーバーフローによって引き起こされた可能性があります。この場"
+"合は、消費CPU時間として時間制限に比べて小さい値が表示されることがあることに注"
+"意してください。"
 
 #, python-format
 msgid ""
@@ -49,26 +104,50 @@ msgstr ""
 "プログラムはシグナル %d を受け取って異常終了しました(メモリ制限違反が原因かも"
 "しれません)"
 
+msgid ""
+"Your submission was killed with the specified signal. Among other things, "
+"this might be caused by exceeding the memory limit. Note that if this is the "
+"reason, the memory usage visible in the submission details is the usage "
+"before the allocation that caused the signal."
+msgstr ""
+"あなたの提出は特定のシグナルによって強制終了されました。様々な理由が考えられ"
+"ますが、例えば、メモリ制限超過によって引き起こされた可能性があります。もしこ"
+"れが理由である場合は、提出の詳細から確認できるメモリ消費量は、シグナルの原因"
+"となったメモリアロケーション呼び出しの直前のメモリ消費量を表していることに注"
+"意してください。"
+
 #, python-format
 msgid "Execution killed because of forbidden syscall %s"
 msgstr ""
 "禁止されたシステムコール %s を使用したため、プログラムは強制終了されました"
 
+msgid ""
+"Your submission was killed because it tried to use the forbidden syscall "
+"specified in the message."
+msgstr ""
+"あなたの提出は、メッセージに表示されているとおりの禁止されたシステムコールを"
+"使用しようと試みたため、強制終了されました。"
+
 msgid "Execution killed because of forbidden file access"
 msgstr "禁止されたファイルアクセスを行ったため、プログラムは強制終了されました"
+
+msgid ""
+"Your submission was killed because it tried to read or write a forbidden "
+"file."
+msgstr ""
+"あなたの提出は、禁止されたファイルに対する読み取りまたは書き込みを試みたた"
+"め、強制終了されました。"
 
 msgid "Execution failed because the return code was nonzero"
 msgstr "戻り値がゼロでなかったため、実行に失敗しました"
 
-msgid "Output is correct"
-msgstr "出力は正しいです"
+msgid ""
+"Your submission failed because it exited with a return code different from 0."
+msgstr ""
+"あなたの提出は、0以外のリターンコードで終了したため、実行に失敗しました。"
 
-msgid "Output isn't correct"
-msgstr "出力は正しくありません"
-
-#, python-format
-msgid "Evaluation didn't produce file %s"
-msgstr "評価システムがファイル %s を生成しませんでした"
+msgid "N/A"
+msgstr "N/A"
 
 #, python-format
 msgid "Subtask %d"
@@ -106,6 +185,12 @@ msgstr "コンパイルの必要はありません"
 
 msgid "File not submitted"
 msgstr "ファイルが提出されていません"
+
+msgid "Updated user information"
+msgstr "ユーザー情報を更新しました"
+
+msgid "Your information has been changed."
+msgstr "あなたの情報は変更されました。"
 
 msgid "Question received"
 msgstr "質問を受理しました"
@@ -285,6 +370,7 @@ msgstr "%(seconds)0.3f 秒"
 msgid "Too many print jobs!"
 msgstr "印刷の行いすぎです！"
 
+#, python-format
 msgid "You have reached the maximum limit of at most %d print jobs."
 msgstr "この課題に関して最大 %d 回までという印刷回数の上限に達しました。"
 
@@ -294,6 +380,7 @@ msgstr "無効な形式です！"
 msgid "File too big!"
 msgstr "ファイルが大きすぎます！"
 
+#, python-format
 msgid "Each file must be at most %d bytes long."
 msgstr "各ファイルは %d バイト以下である必要があります。"
 
@@ -445,17 +532,28 @@ msgstr ""
 "<strong>%(last_name)s %(first_name)s</strong> <em>(%(username)s)</em>としてロ"
 "グインしています"
 
+msgid "Edit your information"
+msgstr "ユーザー情報を編集"
+
 msgid "Logout"
 msgstr "ログアウト"
 
 msgid "Failed to log in."
 msgstr "ログインに失敗しました"
 
-msgid "Welcome"
-msgstr "ようこそ"
+msgid "This username already exists."
+msgstr "そのユーザー名は既に存在しています。"
 
-msgid "Please log in"
-msgstr "ログインしてください"
+msgid "Invalid username."
+msgstr "無効なユーザー名です。"
+
+msgid "Registration"
+msgstr "登録"
+
+msgid ""
+"Enter your information. Only printable characters are allowed for username."
+msgstr ""
+"あなたの情報を入力してください。印字可能文字のみがユーザー名に使用できます。"
 
 msgid "Username"
 msgstr "ユーザー名"
@@ -463,11 +561,38 @@ msgstr "ユーザー名"
 msgid "Password"
 msgstr "パスワード"
 
-msgid "Login"
-msgstr "ログイン"
+msgid "Password will be randomly generated."
+msgstr "パスワードはランダムに生成されます。"
+
+msgid "First name"
+msgstr "ファーストネーム"
+
+msgid "Last name"
+msgstr "ラストネーム"
+
+msgid "Register"
+msgstr "登録"
 
 msgid "Reset"
 msgstr "リセット"
+
+msgid "Registration succeeded"
+msgstr "登録成功"
+
+msgid "Don't forget your password."
+msgstr "パスワードを忘れないようにしてください。"
+
+msgid "Back to login page"
+msgstr "ログインページに戻る"
+
+msgid "Welcome"
+msgstr "ようこそ"
+
+msgid "Please log in"
+msgstr "ログインしてください"
+
+msgid "Login"
+msgstr "ログイン"
 
 msgid "New message"
 msgstr "新着メッセージ"
@@ -550,6 +675,9 @@ msgstr "メッセージ"
 
 msgid "Standard Template Library"
 msgstr "Standard Template Library"
+
+msgid "Update"
+msgstr "更新"
 
 #, python-format
 msgid "Error %d"
@@ -640,6 +768,7 @@ msgstr ""
 "提出に対する結果の詳細は、二種類のトークンを一つずつ、合計二つのトークンを使"
 "用することによって見ることができます。"
 
+#, python-format
 msgid "You can submit at most %(submissions)s solutions during this contest."
 msgstr "この課題に関して最大 %(submissions)s 回まで提出できます。"
 
@@ -755,8 +884,8 @@ msgid ""
 "You can print %(remaining_jobs)d more text files of up to %(max_pages)d "
 "pages each."
 msgstr ""
-"あなたは %(max_pages)d ページ以下のテキストファイルをあと "
-"%(remaining_jobs)d 回印刷できます。"
+"あなたは %(max_pages)d ページ以下のテキストファイルをあと %(remaining_jobs)d "
+"回印刷できます。"
 
 msgid "File (text or PDF)"
 msgstr "ファイル (テキストまたはPDF)"
@@ -770,7 +899,8 @@ msgstr "提出"
 msgid ""
 "You cannot print anything any more as you have used up your printing quota."
 msgstr ""
-"あなたに割り当てられた印刷量の上限に達したため、これ以上印刷することはできません。"
+"あなたに割り当てられた印刷量の上限に達したため、これ以上印刷することはできま"
+"せん。"
 
 msgid "Previous print jobs"
 msgstr "以前の印刷ジョブ"
@@ -811,11 +941,8 @@ msgstr "標準出力"
 msgid "Standard error"
 msgstr "標準エラー"
 
-msgid "None"
-msgstr "なし"
-
-msgid "Download"
-msgstr "ダウンロード"
+msgid "View"
+msgstr "表示"
 
 msgid "Played"
 msgstr "解禁済"
@@ -959,6 +1086,10 @@ msgstr "提出の詳細"
 msgid "Close"
 msgstr "閉じる"
 
+#, fuzzy
+msgid "Submitted files"
+msgstr "テストを実行する"
+
 msgid "Submit a test"
 msgstr "テストを実行する"
 
@@ -986,3 +1117,9 @@ msgstr "テストの詳細"
 
 msgid "Evaluation outcome"
 msgstr "評価結果"
+
+msgid "Download"
+msgstr "ダウンロード"
+
+msgid "None"
+msgstr "なし"
