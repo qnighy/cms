@@ -111,7 +111,7 @@ class ScoreType(object):
 
         """
         if translator is None:
-            translator = lambda string: string
+            def translator(string): return string
         try:
             score_details = json.loads(score_details)
         except (TypeError, ValueError):
