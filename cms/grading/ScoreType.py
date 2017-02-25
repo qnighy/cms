@@ -7,6 +7,7 @@
 # Copyright © 2010-2012 Matteo Boscariol <boscarim@hotmail.com>
 # Copyright © 2013-2016 Luca Wehrstedt <luca.wehrstedt@gmail.com>
 # Copyright © 2015 wafrelka <wafrelka@gmail.com>
+# Copyright © 2017 Masaki Hara <ackie.h.gmai@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -143,12 +144,12 @@ class ScoreType(object):
         unused_submission_result (SubmissionResult): the submission
             result of which we want the score
 
-        returns (float, str, float, str, [str]): respectively: the
-            score, the opaque data with additional information (e.g.
-            testcases' and subtasks' score) that will be converted to
-            HTML by get_html_details, and the same information from the
-            point of view of a user that did not play a token, the list
-            of strings to send to RWS.
+        returns (float, float, str, float, float, str, [str]): respectively:
+            the lower and upper bounds of the score, the opaque data with
+            additional information (e.g. testcases' and subtasks' score) that
+            will be converted to HTML by get_html_details, and the same
+            information from the point of view of a user that did not play
+            a token, the list of strings to send to RWS.
 
         """
         logger.error("Unimplemented method compute_score.")
@@ -342,7 +343,8 @@ class ScoreTypeGroup(ScoreTypeAlone):
         """See ScoreType.compute_score."""
         # Actually, this means it didn't even compile!
         if not submission_result.evaluated():
-            return 0.0, "[]", 0.0, "[]", ["%lg" % 0.0 for _ in self.parameters]
+            return 0.0, 0.0, "[]", 0.0, 0.0, "[]", \
+                ["%lg" % 0.0 for _ in self.parameters]
 
         targets = self.retrieve_target_testcases()
         evaluations = dict((ev.codename, ev)
@@ -398,8 +400,8 @@ class ScoreTypeGroup(ScoreTypeAlone):
                            for st in public_subtasks
                            if "score" in st)
 
-        return score, json.dumps(subtasks), \
-            public_score, json.dumps(public_subtasks), \
+        return score, score, json.dumps(subtasks), \
+            public_score, public_score, json.dumps(public_subtasks), \
             ranking_details
 
     def get_public_outcome(self, unused_outcome, unused_parameter):

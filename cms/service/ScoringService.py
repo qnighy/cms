@@ -7,6 +7,7 @@
 # Copyright © 2010-2012 Matteo Boscariol <boscarim@hotmail.com>
 # Copyright © 2013-2016 Luca Wehrstedt <luca.wehrstedt@gmail.com>
 # Copyright © 2013 Bernard Blackham <bernard@largestprime.net>
+# Copyright © 2017 Masaki Hara <ackie.h.gmai@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -100,12 +101,24 @@ class ScoringExecutor(Executor):
             score_type = get_score_type(dataset=dataset)
 
             # Compute score and fill it in the database.
-            submission_result.score, \
+            score_lower, score_upper, \
                 submission_result.score_details, \
-                submission_result.public_score, \
+                public_score_lower, public_score_upper, \
                 submission_result.public_score_details, \
                 ranking_score_details = \
                 score_type.compute_score(submission_result)
+            if score_lower == score_upper:
+                submission_result.score = score_lower
+            else:
+                raise ValueError("No score got while scoring %d(%d)" %
+                                 (operation.submission_id,
+                                  operation.dataset_id))
+            if public_score_lower == public_score_upper:
+                submission_result.public_score = public_score_lower
+            else:
+                raise ValueError("No public score got while scoring %d(%d)" %
+                                 (operation.submission_id,
+                                  operation.dataset_id))
             submission_result.ranking_score_details = \
                 json.dumps(ranking_score_details)
 

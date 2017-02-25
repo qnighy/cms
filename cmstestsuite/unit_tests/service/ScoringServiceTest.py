@@ -63,9 +63,9 @@ class TestScoringService(unittest.TestCase):
         gevent.sleep(0)  # Needed to trigger the score loop.
         # Asserts that compute_score was called.
         assert score_type.compute_score.mock_calls == [call(sr)]
-        assert (sr.score,
+        assert (sr.score, sr.score,
                 sr.score_details,
-                sr.public_score,
+                sr.public_score, sr.public_score,
                 sr.public_score_details,
                 json.loads(sr.ranking_score_details)) == score_info
 
@@ -74,7 +74,8 @@ class TestScoringService(unittest.TestCase):
 
         """
         score_type = Mock()
-        score_type.compute_score.return_value = (1, "1", 2, "2", ["1", "2"])
+        score_type.compute_score.return_value = \
+            (1, 1, "1", 2, 2, "2", ["1", "2"])
         sr_a = TestScoringService.new_sr_to_score()
         sr_b = TestScoringService.new_sr_to_score()
         TestScoringService.set_up_db([sr_a, sr_b], score_type)
@@ -92,7 +93,8 @@ class TestScoringService(unittest.TestCase):
         """
         sr = TestScoringService.new_sr_scored()
         score_type = Mock()
-        score_type.compute_score.return_value = (1, "1", 2, "2", ["1", "2"])
+        score_type.compute_score.return_value = \
+            (1, 1, "1", 2, 2, "2", ["1", "2"])
         TestScoringService.set_up_db([sr], score_type)
 
         self.service.new_evaluation(123, 456)
@@ -117,10 +119,12 @@ class TestScoringService(unittest.TestCase):
 
     @staticmethod
     def new_score_info():
+        score = random.randint(1, 1000)
+        public_score = random.randint(1, 1000)
         return (
-            random.randint(1, 1000),
+            score, score,
             "%d" % random.randint(1, 1000),
-            random.randint(1, 1000),
+            public_score, public_score,
             "%d" % random.randint(1, 1000),
             ["%d" % random.randint(1, 1000), "%d" % random.randint(1, 1000)]
         )

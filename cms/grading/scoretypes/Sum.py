@@ -5,6 +5,7 @@
 # Copyright © 2010-2012 Giovanni Mascellani <mascellani@poisson.phc.unipi.it>
 # Copyright © 2010-2012 Stefano Maggiolo <s.maggiolo@gmail.com>
 # Copyright © 2010-2012 Matteo Boscariol <boscarim@hotmail.com>
+# Copyright © 2017 Masaki Hara <ackie.h.gmai@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -109,7 +110,7 @@ class Sum(ScoreTypeAlone):
         """See ScoreType.compute_score."""
         # Actually, this means it didn't even compile!
         if not submission_result.evaluated():
-            return 0.0, "[]", 0.0, "[]", []
+            return 0.0, 0.0, "[]", 0.0, 0.0, "[]", []
 
         # XXX Lexicographical order by codename
         indices = sorted(self.public_testcases.keys())
@@ -137,8 +138,8 @@ class Sum(ScoreTypeAlone):
             else:
                 public_testcases.append({"idx": idx})
 
-        return score, json.dumps(testcases), \
-            public_score, json.dumps(public_testcases), \
+        return score, score, json.dumps(testcases), \
+            public_score, public_score, json.dumps(public_testcases), \
             []
 
     def get_public_outcome(self, outcome):
