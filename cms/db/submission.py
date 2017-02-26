@@ -8,6 +8,7 @@
 # Copyright © 2012-2015 Luca Wehrstedt <luca.wehrstedt@gmail.com>
 # Copyright © 2013 Bernard Blackham <bernard@largestprime.net>
 # Copyright © 2014 Fabian Gundlach <320pointsguy@gmail.com>
+# Copyright © 2017 Masaki Hara <ackie.h.gmai@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -476,14 +477,20 @@ class SubmissionResult(Base):
         """
         return SubmissionResult.evaluation_outcome != None  # noqa
 
-    def needs_scoring(self):
+    def needs_scoring(self, is_partial):
         """Return whether the submission result needs to be scored.
 
+        is_partial (bool): whether partial scoring is allowed or not.
         return (bool): True if in need of scoring, False otherwise.
 
         """
-        return (self.compilation_failed() or self.evaluated()) and \
-            not self.scored()
+        if is_partial:
+            return (self.compilation_failed() or
+                    self.compilation_succeeded()) and \
+                not self.scored()
+        else:
+            return (self.compilation_failed() or self.evaluated()) and \
+                not self.scored()
 
     def scored(self):
         """Return whether the submission result has been scored.

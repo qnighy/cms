@@ -86,7 +86,7 @@ class ScoringExecutor(Executor):
                                   operation.dataset_id))
 
             # Check if it's ready to be scored.
-            if not submission_result.needs_scoring():
+            if not submission_result.needs_scoring(False):
                 if submission_result.scored():
                     logger.info("Submission result %d(%d) is already scored.",
                                 operation.submission_id, operation.dataset_id)
