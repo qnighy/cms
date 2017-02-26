@@ -9,6 +9,7 @@
 # Copyright © 2013 Bernard Blackham <bernard@largestprime.net>
 # Copyright © 2014 Artem Iglikov <artem.iglikov@gmail.com>
 # Copyright © 2016 Luca Versari <veluca93@gmail.com>
+# Copyright © 2017 Masaki Hara <ackie.h.gmai@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -662,7 +663,8 @@ class EvaluationService(TriggeredService):
                         submission_result.dataset_id)
             self.scoring_service.new_evaluation(
                 submission_id=submission_result.submission_id,
-                dataset_id=submission_result.dataset_id)
+                dataset_id=submission_result.dataset_id,
+                is_partial=False)
 
         # If compilation failed for our fault, we log the error.
         elif submission_result.compilation_outcome is None:
@@ -705,7 +707,8 @@ class EvaluationService(TriggeredService):
                         submission_result.dataset_id)
             self.scoring_service.new_evaluation(
                 submission_id=submission_result.submission_id,
-                dataset_id=submission_result.dataset_id)
+                dataset_id=submission_result.dataset_id,
+                is_partial=False)
 
         # Evaluation unsuccessful, we log the error.
         else:

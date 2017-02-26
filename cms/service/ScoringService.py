@@ -86,7 +86,7 @@ class ScoringExecutor(Executor):
                                   operation.dataset_id))
 
             # Check if it's ready to be scored.
-            if not submission_result.needs_scoring(False):
+            if not submission_result.needs_scoring(operation.is_partial):
                 if submission_result.scored():
                     logger.info("Submission result %d(%d) is already scored.",
                                 operation.submission_id, operation.dataset_id)
@@ -109,12 +109,16 @@ class ScoringExecutor(Executor):
                 score_type.compute_score(submission_result)
             if score_lower == score_upper:
                 submission_result.score = score_lower
+            elif operation.is_partial:
+                submission_result.score = None
             else:
                 raise ValueError("No score got while scoring %d(%d)" %
                                  (operation.submission_id,
                                   operation.dataset_id))
             if public_score_lower == public_score_upper:
                 submission_result.public_score = public_score_lower
+            elif operation.is_partial:
+                submission_result.public_score = None
             else:
                 raise ValueError("No public score got while scoring %d(%d)" %
                                  (operation.submission_id,
@@ -175,7 +179,7 @@ class ScoringService(TriggeredService):
         return counter
 
     @rpc_method
-    def new_evaluation(self, submission_id, dataset_id):
+    def new_evaluation(self, submission_id, dataset_id, is_partial):
         """Schedule the given submission result for scoring.
 
         Put it in the queue to have it scored, sooner or later. Usually
@@ -184,9 +188,10 @@ class ScoringService(TriggeredService):
         submission_id (int): the id of the submission that has to be
             scored.
         dataset_id (int): the id of the dataset to use.
+        is_partial (bool): whether partial scoring is allowed or not.
 
         """
-        self.enqueue(ScoringOperation(submission_id, dataset_id))
+        self.enqueue(ScoringOperation(submission_id, dataset_id, is_partial))
 
     @rpc_method
     def invalidate_submission(self, submission_id=None, dataset_id=None,
@@ -236,7 +241,8 @@ class ScoringService(TriggeredService):
                     # rescore them in order (for fairness, not for a
                     # specific need).
                     temp_queue.append((
-                        ScoringOperation(sr.submission_id, sr.dataset_id),
+                        ScoringOperation(sr.submission_id, sr.dataset_id,
+                                         False),
                         sr.submission.timestamp))
 
             session.commit()

@@ -7,6 +7,7 @@
 # Copyright © 2010-2012 Matteo Boscariol <boscarim@hotmail.com>
 # Copyright © 2013 Luca Wehrstedt <luca.wehrstedt@gmail.com>
 # Copyright © 2013 Bernard Blackham <bernard@largestprime.net>
+# Copyright © 2017 Masaki Hara <ackie.h.gmai@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -72,7 +73,7 @@ def get_operations(session):
         .with_entities(Submission.id, Dataset.id, Submission.timestamp)\
         .all()
 
-    return [(ScoringOperation(result[0], result[1]), result[2])
+    return [(ScoringOperation(result[0], result[1], False), result[2])
             for result in results]
 
 
@@ -85,28 +86,36 @@ class ScoringOperation(QueueItem):
 
     """
 
-    def __init__(self, submission_id, dataset_id):
+    def __init__(self, submission_id, dataset_id, is_partial):
         self.submission_id = submission_id
         self.dataset_id = dataset_id
+        self.is_partial = is_partial
 
     def __eq__(self, other):
         if self.__class__ != other.__class__:
             return False
         return self.submission_id == other.submission_id \
-            and self.dataset_id == other.dataset_id
+            and self.dataset_id == other.dataset_id \
+            and self.is_partial == other.is_partial
 
     def __hash__(self):
-        return hash((self.submission_id, self.dataset_id))
+        return hash((self.submission_id, self.dataset_id, self.is_partial))
 
     def __str__(self):
-        return "scoring submission %d on dataset %d" % (
-            self.submission_id, self.dataset_id)
+        if self.is_partial:
+            return "scoring submission %d on dataset %d (partial)" % (
+                self.submission_id, self.dataset_id)
+        else:
+            return "scoring submission %d on dataset %d" % (
+                self.submission_id, self.dataset_id)
 
     def __repr__(self):
-        return "(%s, %s)" % (
+        return "(%s, %s, %r)" % (
             self.submission_id,
-            self.dataset_id)
+            self.dataset_id,
+            self.is_partial)
 
     def to_dict(self):
         return {"submission_id": self.submission_id,
-                "dataset_id": self.dataset_id}
+                "dataset_id": self.dataset_id,
+                "is_partial": self.is_partial}

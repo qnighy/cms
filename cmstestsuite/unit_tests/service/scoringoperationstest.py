@@ -114,7 +114,7 @@ class TestScoringOperations(TestCaseWithDatabase):
         self.session.flush()
 
         expected_operations = set(
-            self._scoring_operation(submission, dataset)
+            self._scoring_operation(submission, dataset, False)
             for dataset in submission.task.datasets if self.to_judge(dataset))
 
         self.assertEqual(
@@ -133,15 +133,15 @@ class TestScoringOperations(TestCaseWithDatabase):
         self.session.flush()
 
         expected_operations = set(
-            self._scoring_operation(submission, dataset)
+            self._scoring_operation(submission, dataset, False)
             for dataset in submission.task.datasets if self.to_judge(dataset))
 
         self.assertEqual(
             set(get_operations(self.session)),
             expected_operations)
 
-    def _scoring_operation(self, submission, dataset):
-        return (ScoringOperation(submission.id, dataset.id),
+    def _scoring_operation(self, submission, dataset, is_partial):
+        return (ScoringOperation(submission.id, dataset.id, is_partial),
                 submission.timestamp)
 
     @staticmethod

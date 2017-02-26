@@ -58,7 +58,7 @@ class TestScoringService(unittest.TestCase):
         score_type.compute_score.return_value = score_info
         TestScoringService.set_up_db([sr], score_type)
 
-        self.service.new_evaluation(123, 456)
+        self.service.new_evaluation(123, 456, False)
 
         gevent.sleep(0)  # Needed to trigger the score loop.
         # Asserts that compute_score was called.
@@ -80,8 +80,8 @@ class TestScoringService(unittest.TestCase):
         sr_b = TestScoringService.new_sr_to_score()
         TestScoringService.set_up_db([sr_a, sr_b], score_type)
 
-        self.service.new_evaluation(123, 456)
-        self.service.new_evaluation(124, 456)
+        self.service.new_evaluation(123, 456, False)
+        self.service.new_evaluation(124, 456, False)
 
         gevent.sleep(0)  # Needed to trigger the score loop.
         # Asserts that compute_score was called.
@@ -97,7 +97,7 @@ class TestScoringService(unittest.TestCase):
             (1, 1, "1", 2, 2, "2", ["1", "2"])
         TestScoringService.set_up_db([sr], score_type)
 
-        self.service.new_evaluation(123, 456)
+        self.service.new_evaluation(123, 456, False)
 
         gevent.sleep(0)  # Needed to trigger the score loop.
         # Asserts that compute_score was called.
