@@ -33,6 +33,7 @@
     {% raw col1 %}
     <td class="status">
         {{ _("Evaluating...") }}
+        <a class="details">{{ _("details") }}</a>
     </td>
     {% if score_type is not None and score_type.max_public_score != 0 %}
     <td class="public_score undefined">{{ _("N/A") }}</td>
@@ -45,6 +46,7 @@
     {% raw col1 %}
     <td class="status">
         {{ _("Scoring...") }}
+        <a class="details">{{ _("details") }}</a>
     </td>
     {% if score_type is not None and score_type.max_public_score != 0 %}
     <td class="public_score undefined">{{ _("N/A") }}</td>

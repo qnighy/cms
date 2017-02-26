@@ -447,9 +447,11 @@ class SubmissionStatusHandler(BaseHandler):
             data["status_text"] = "%s <a class=\"details\">%s</a>" % (
                 self._("Compilation failed"), self._("details"))
         elif data["status"] == SubmissionResult.EVALUATING:
-            data["status_text"] = self._("Evaluating...")
+            data["status_text"] = "%s <a class=\"details\">%s</a>" % (
+                self._("Evaluating..."), self._("details"))
         elif data["status"] == SubmissionResult.SCORING:
-            data["status_text"] = self._("Scoring...")
+            data["status_text"] = "%s <a class=\"details\">%s</a>" % (
+                self._("Scoring..."), self._("details"))
         elif data["status"] == SubmissionResult.SCORED:
             data["status_text"] = "%s <a class=\"details\">%s</a>" % (
                 self._("Evaluated"), self._("details"))
@@ -508,10 +510,7 @@ class SubmissionDetailsHandler(BaseHandler):
             else:
                 details = sr.public_score_details
 
-            if sr.scored():
-                details = score_type.get_html_details(details, self._)
-            else:
-                details = None
+            details = score_type.get_html_details(details, self._)
 
         self.render("submission_details.html",
                     sr=sr,
