@@ -547,6 +547,11 @@ class EvaluationService(TriggeredService):
                     submission_result = srs[(object_id, dataset_id)]
                     if submission_result.evaluated():
                         self.evaluation_ended(submission_result)
+                    else:
+                        self.scoring_service.new_evaluation(
+                            submission_id=submission_result.submission_id,
+                            dataset_id=submission_result.dataset_id,
+                            is_partial=True)
                 elif type_ == ESOperation.USER_TEST_COMPILATION:
                     user_test_result = UserTest\
                         .get_from_id(object_id, session)\
