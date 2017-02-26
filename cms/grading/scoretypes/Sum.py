@@ -108,8 +108,7 @@ class Sum(ScoreTypeAlone):
 
     def compute_score(self, submission_result):
         """See ScoreType.compute_score."""
-        # Actually, this means it didn't even compile!
-        if not submission_result.evaluated():
+        if submission_result.compilation_failed():
             return 0.0, 0.0, "[]", 0.0, 0.0, "[]", []
 
         # XXX Lexicographical order by codename
@@ -118,28 +117,38 @@ class Sum(ScoreTypeAlone):
                            for ev in submission_result.evaluations)
         testcases = []
         public_testcases = []
-        score = 0.0
-        public_score = 0.0
+        score_lower = 0.0
+        score_upper = 0.0
+        public_score_lower = 0.0
+        public_score_upper = 0.0
 
         for idx in indices:
-            this_score = float(evaluations[idx].outcome) * self.parameters
-            tc_outcome = self.get_public_outcome(this_score)
-            score += this_score
-            testcases.append({
-                "idx": idx,
-                "outcome": tc_outcome,
-                "text": evaluations[idx].text,
-                "time": evaluations[idx].execution_time,
-                "memory": evaluations[idx].execution_memory,
-                })
+            if idx in evaluations:
+                this_score_lower = this_score_upper = \
+                    float(evaluations[idx].outcome) * self.parameters
+                tc_outcome = self.get_public_outcome(this_score_lower)
+                testcases.append({
+                    "idx": idx,
+                    "outcome": tc_outcome,
+                    "text": evaluations[idx].text,
+                    "time": evaluations[idx].execution_time,
+                    "memory": evaluations[idx].execution_memory,
+                    })
+            else:
+                this_score_lower, this_score_upper = 0, self.parameters
+                testcases.append({"idx": idx})
+            score_lower += this_score_lower
+            score_upper += this_score_upper
             if self.public_testcases[idx]:
-                public_score += this_score
+                public_score_lower += this_score_lower
+                public_score_upper += this_score_upper
                 public_testcases.append(testcases[-1])
             else:
                 public_testcases.append({"idx": idx})
 
-        return score, score, json.dumps(testcases), \
-            public_score, public_score, json.dumps(public_testcases), \
+        return score_lower, score_upper, json.dumps(testcases), \
+            public_score_lower, public_score_upper, \
+            json.dumps(public_testcases), \
             []
 
     def get_public_outcome(self, outcome):

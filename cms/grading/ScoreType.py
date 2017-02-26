@@ -341,8 +341,7 @@ class ScoreTypeGroup(ScoreTypeAlone):
 
     def compute_score(self, submission_result):
         """See ScoreType.compute_score."""
-        # Actually, this means it didn't even compile!
-        if not submission_result.evaluated():
+        if submission_result.compilation_failed():
             return 0.0, 0.0, "[]", 0.0, 0.0, "[]", \
                 ["%lg" % 0.0 for _ in self.parameters]
 
@@ -355,19 +354,24 @@ class ScoreTypeGroup(ScoreTypeAlone):
 
         for st_idx, parameter in enumerate(self.parameters):
             target = targets[st_idx]
-            st_score = self.reduce([float(evaluations[idx].outcome)
-                                    for idx in target],
-                                   parameter)[0] * parameter[0]
+            st_outcomes = [
+                float(evaluations[idx].outcome) if idx in evaluations
+                else None
+                for idx in target]
+            st_score_lower, st_score_upper = \
+                self.reduce(st_outcomes, parameter)
             st_public = all(self.public_testcases[idx] for idx in target)
             tc_outcomes = dict((
                 idx,
                 self.get_public_outcome(
                     float(evaluations[idx].outcome), parameter)
-                ) for idx in target)
+                ) for idx in target if idx in evaluations)
 
             testcases = []
             public_testcases = []
             for idx in target:
+                if idx not in evaluations:
+                    continue
                 testcases.append({
                     "idx": idx,
                     "outcome": tc_outcomes[idx],
@@ -381,10 +385,13 @@ class ScoreTypeGroup(ScoreTypeAlone):
                     public_testcases.append({"idx": idx})
             subtasks.append({
                 "idx": st_idx + 1,
-                "score": st_score,
+                "score_lower": st_score_lower * parameter[0],
+                "score_upper": st_score_upper * parameter[0],
                 "max_score": parameter[0],
                 "testcases": testcases,
                 })
+            if st_score_lower == st_score_upper:
+                subtasks[-1]["score"] = st_score_lower * parameter[0]
             if st_public:
                 public_subtasks.append(subtasks[-1])
             else:
@@ -393,15 +400,20 @@ class ScoreTypeGroup(ScoreTypeAlone):
                     "testcases": public_testcases,
                     })
 
-            ranking_details.append("%g" % round(st_score, 2))
+            ranking_details.append("%g" % round(st_score_lower, 2))
 
-        score = sum(st["score"] for st in subtasks)
-        public_score = sum(st["score"]
-                           for st in public_subtasks
-                           if "score" in st)
+        score_lower = sum(st["score_lower"] for st in subtasks)
+        score_upper = sum(st["score_upper"] for st in subtasks)
+        public_score_lower = sum(st["score_lower"]
+                                 for st in public_subtasks
+                                 if "score_lower" in st)
+        public_score_upper = sum(st["score_upper"]
+                                 for st in public_subtasks
+                                 if "score_lower" in st)
 
-        return score, score, json.dumps(subtasks), \
-            public_score, public_score, json.dumps(public_subtasks), \
+        return score_lower, score_upper, json.dumps(subtasks), \
+            public_score_lower, public_score_upper, \
+            json.dumps(public_subtasks), \
             ranking_details
 
     def get_public_outcome(self, unused_outcome, unused_parameter):
