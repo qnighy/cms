@@ -5,6 +5,7 @@
 # Copyright © 2010-2012 Giovanni Mascellani <mascellani@poisson.phc.unipi.it>
 # Copyright © 2010-2012 Stefano Maggiolo <s.maggiolo@gmail.com>
 # Copyright © 2010-2012 Matteo Boscariol <boscarim@hotmail.com>
+# Copyright © 2017 Masaki Hara <ackie.h.gmai@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -50,6 +51,12 @@ class GroupThreshold(ScoreTypeGroup):
 
     def reduce(self, outcomes, parameter):
         """See ScoreTypeGroup."""
+        outcomes_lower = [0.0 if x is None else x for x in outcomes]
+        outcomes_upper = [1.0 if x is None else x for x in outcomes]
+        return (self._reduce(outcomes_upper, parameter),
+                self._reduce(outcomes_lower, parameter))
+
+    def _reduce(self, outcomes, parameter):
         threshold = parameter[2]
         if all(0 <= outcome <= threshold
                for outcome in outcomes):

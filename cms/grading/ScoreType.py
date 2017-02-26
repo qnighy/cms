@@ -357,7 +357,7 @@ class ScoreTypeGroup(ScoreTypeAlone):
             target = targets[st_idx]
             st_score = self.reduce([float(evaluations[idx].outcome)
                                     for idx in target],
-                                   parameter) * parameter[0]
+                                   parameter)[0] * parameter[0]
             st_public = all(self.public_testcases[idx] for idx in target)
             tc_outcomes = dict((
                 idx,
@@ -429,7 +429,7 @@ class ScoreTypeGroup(ScoreTypeAlone):
             the testcases of the group.
         unused_parameter (list): the parameters of the group.
 
-        return (float): the public output.
+        returns (float, float): the lower and upper bounds for the score.
 
         """
         logger.error("Unimplemented method reduce.")
